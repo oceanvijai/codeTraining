@@ -1,0 +1,14 @@
+Preprocess the array or string if possible before any processing
+like:
+We can do the following 
+
+Memorize:
+    Using hasp map
+    Using bit map
+count
+    and store in hasp map 
+    or bit map
+sort
+reduce
+reverse
+split / append
