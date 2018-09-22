@@ -48,7 +48,7 @@ public class BSTWithRandomGet {
             }else if(i == size){
                 return this;
             }else{
-                return this.right.getIthNode(i));
+                return this.right.getIthNode(i);
             }
         }
 
