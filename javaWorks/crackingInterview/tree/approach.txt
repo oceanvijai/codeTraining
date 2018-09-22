@@ -1,0 +1,9 @@
+BFS or DFS
+
+Inorder || preorder || post order
+
+In validating BST, Inorder with duplicates is a issue, sicnce we dont know from which leaf it came from
+
+Inorder property : Will mostly give you the same result for different tree structure in case of BST
+pre porder : will give you different result for same BST with different structure, which is good for classification
+port order also gives different result for same BST with different structure

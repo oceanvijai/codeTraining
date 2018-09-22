@@ -1,0 +1,5 @@
+Random number generator
+Random from a range
+Random from a list
+
+Math.random vs Random class

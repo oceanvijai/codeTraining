@@ -1,0 +1,8 @@
+
+
+Pending:
+HashMap impl
+HashSet (What happens if collision happens)
+TreeMap and TreeSet
+
+Hash collision

@@ -1,0 +1,3 @@
+Left outs:
+
+infix, postfix, prefix and expression evalution
