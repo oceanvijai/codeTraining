@@ -1,0 +1,71 @@
+Binary addition:
+
+1 + 1 = 10 (decimal 2)
+0 + 1 = 1 
+1 + 0 = 1
+0 + 0 = 0
+
+Binary subtraction:
+
+1 - 1 = 0 
+0 - 1 = 1 (borrow 1 from the farest 1 making it 10(decimal 2), so (2 - 1 = 1)
+1 - 0 = 1
+0 - 0 = 0
+
+Binary multiplication:
+
+It is simply the way normal decimal multiplication happens
+
+Tricks:
+
+x & x = x
+x | x = x
+
+x & 1s = x
+x | 1s = 1
+
+x & 0s = 0
+x | 0s = x
+
+x ^ 1s = ~x
+x ^ 0s = x
+x ^ x  = 0
+
+x >> 1 // arithmetic shift is equal to divide by 2
+x << 1 // arithmetic shift is equal to multiply by 2
+
+// Find out the hash code impl in hashmap with bitwise impl
+
+
+
+get a bit:
+int num
+int mask = 1 << i;
+num & mask > 0 ? "1" : "0"
+
+
+set a bit:
+int num
+int mask = 1 << i;
+num | mask
+
+
+clear a bit: put 1 if 0
+int num
+int mask = ~(1 << i); // will get 1111101111
+num & mask
+
+update a given value to the bit
+int num
+int mask = ~(1 << i); // will get 1111101111
+int tmp = num & mask // will get 0 in that position, basically we clear it
+num = tmp | (value << i) // will now set it
+
+Make all bits right of i to 1 
+int m = 1 << i;
+int mask = m -1; // will do binary subraction to get the 1s
+
+
+To count the number of set bit in an integer:
+
+Integer.bitCount(i);

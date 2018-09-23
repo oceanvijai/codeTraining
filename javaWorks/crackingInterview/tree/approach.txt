@@ -7,3 +7,9 @@ In validating BST, Inorder with duplicates is a issue, sicnce we dont know from 
 Inorder property : Will mostly give you the same result for different tree structure in case of BST
 pre porder : will give you different result for same BST with different structure, which is good for classification
 port order also gives different result for same BST with different structure
+
+When trying brute force:
+Do a trvaesal from the current node to the end.
+And then ask the left to do the same
+And then the right to do the same
+
