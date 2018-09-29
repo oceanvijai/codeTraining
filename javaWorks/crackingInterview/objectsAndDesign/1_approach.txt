@@ -1,0 +1,163 @@
+Follows these steps in the initial analysis
+
+Step1: Think about it and ask ask as manay question to get all the possible features and behaviours
+
+Step 2: Think about the core objects: (Do not Apply design patterns)
+    * like nouns - people involved
+    * like real world objects handled by these people
+    * System or coordinators 
+    * look for state / possesion details
+
+Step 3: Analyse relationships (here you may find few more missed core objects)
+    * (Do not Apply design patterns)
+    * Is a relationship
+    * has a relationship
+    * one to many
+    * many to many
+    * Apply design patterns (possibly structural)
+
+step4: define operations (or) Actions (or) behaviours interactions
+    * (Do not Apply design patterns)
+    * look for verbs
+    * Apply design patterns (possibly behavioural and creational)
+
+Step 5: Start impl
+    * Write an overview
+    * apply design patterns
+    * validated SOLID principles
+
+
+
+https://www.slideshare.net/confiz/solid-principles-of-oo-design-29397774
+SOLID principle:
+
+S - single responsibility - The class may represent a single state or behaviour
+    Ex: A class should not do something like create a DB connection, pull data from DB and write it the a file/response
+    Code EX: 
+        interface Modem{
+            void dail(int number);
+            void disconnect();
+
+            void send(String msg);
+            <T> receive();
+        }
+
+        This is bad because it does both connection managememnt and communcation
+
+        So better do,
+
+        interface Communicate<T>{
+            void send(String msg);
+            <T> receive();
+        }
+
+        interface Connection<T>{
+            void dail(int number);
+            void disconnect();
+        }
+
+O - * Open for extension & and closed for mofidication - Use abrstaction and injection
+        Ex: The OS is open for extension using applications but cloased for modification
+            The framework is open for extension and closed for modification
+    * To design in such a way we Use abrstaction and injection
+
+    Code EX: 
+
+    void doDrawing(Shape s){
+        switch(s.type){
+            case SQUARE:
+                drawSquare(s);
+            break;
+
+            case CIRCLE:
+                drawCircle(s);
+            break;
+        }
+    }
+
+    When a new shape comes, we need to add another case in the switch
+    Instead,
+
+    Intefrace shape{
+        draw();
+    }
+
+    class Sqaure Intefrace shape{
+        draw(){....}
+    }
+
+    class Sqaure Intefrace shape{
+        draw(){....}
+    }
+
+    void doDrawing(Shape s){
+        s.draw();
+    }
+
+
+
+L - Liskov Substitution Principle - A child should be placed in the place of a parent and the client should feel no difference
+    How is this ? because a child is something which is extending the parent 
+    What is not Liskov Substitution Principle ?
+        Lets say, we have a inteface Shape 
+        Interface Shape{
+            getArea();
+        }
+
+        Class Rectangle extends Shape{
+            int width;
+            int height;
+            getArea(){
+                return width * height;
+            }
+        }
+
+        Now, we want a class Sqaure, we have two options here,
+        1. Create a class that extends Sqaure;
+        2. Create a class that extends Rectangle since Sqaure is a Rectangle which as width and height same
+
+        As, per Liskov Substitution Principle, it says use option 1.
+        Cause, the Sqaure class does not need two attributes width and height
+
+        Class Square extends Shape{
+            int side;
+            getArea(){
+                return side * side;
+            }
+        }
+
+I — Interface Segregation Principle - Implement only the interace you need
+    - Meaning if in case you have a case where you need to Implement on two methods in an interace
+      But not the other methods.
+    - Then this interace is a FAT interface and can be break down into two interface
+    - By doing so we can implement only what we need
+
+
+
+D - Dependency inversion Principle - meaning higer level and lower level modules should depend and interact only using abstractions
+    - The higer level are the one starting from Servelet -> Service -> DataAccessLayer -> DataAccess etc etc...
+    - Now when one level want to talk to another better use abstraction
+
+
+Is DIP (Dependency Inversion Principle) == Ioc (Inversion of Control) == DI (Dependency Injection) ?
+No There are different: (https://martinfowler.com/articles/dipInTheWild.html)
+
+But they work together to give nice decoupling
+
+Dependency Inversion Principle - Define who is dependent on whom. 
+                                like, How Application is dependent on Framework or Vice versa 
+                                How Is ServiceLayer depending on Datalayer
+                                Basically this defines the dependency
+
+Dependency Injection - decided how the dependency is fullfilled or instantianed
+                        Like, if an object has an dependency in its own level or accross modles, 
+                        When and where these dependent objects are created and fed to the required objects
+                        So the Dependency Injection does it for you.
+
+Inversion of Control - decided which dependency is calling which
+                     - Like is the framework calling the application code 
+                       or the Application is calling the framework code.
+                     - As per IoC, the framework (High level modles) needs to call the application (lower level)
+                       This is also referred to as Hollywood's Law; don't call me, I'll call you. 
+
+So DIP is step 1, DI is step 2 and IoC is step 3

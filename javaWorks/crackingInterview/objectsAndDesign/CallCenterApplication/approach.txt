@@ -1,0 +1,39 @@
+Usual steps:
+------------------------------------------------------------------------------------------
+Step1: 
+
+Core objects:
+Step1: 
+People: <abstract> Employee
+People: <Class> Respondent
+People: <Class> Manager
+People: <Class> Director
+People: <Class> Caller
+
+Objects: <Interface> Call
+         <Class> AudioCall
+         <Class> VedioCall
+         <Class> Chat
+
+System: <Interface> CallCoordinator
+        <Interface> CallPool (<queue> Calls)
+        <Interface> EmployeePool (<List> Employees)
+------------------------------------------------------------------------------------------
+Step2:
+
+Respondent, Manager, Director IsA Employee
+Call HasA Caller
+Call HasA attending Employee
+CallCoordinator HasA a <EmployeePool>Employees
+CallCoordinator HasA a <CallPool>Calls
+------------------------------------------------------------------------------------------
+Step3:
+Actions: Employee -> attetnd Call
+         Employee -> reply Call
+         Employee -> disconnect Call
+         Employee -> esculate Call
+
+         CallCoordinator -> assign call Employee 
+         CallCoordinator -> assign call Queue 
+
+------------------------------------------------------------------------------------------
