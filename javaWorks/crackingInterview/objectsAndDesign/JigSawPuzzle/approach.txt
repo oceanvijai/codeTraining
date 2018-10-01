@@ -1,0 +1,40 @@
+Implement an NxN jigsaw puzzle.
+
+Design the data structures and explain an algorithm to
+solve the puzzle. 
+You can assume that you have a fitsWith method which, when passed two puzzle edges,returns true if the two edges belong together. 
+
+We have a traditional jigsaw puzzle. The puzzle is grid-like, with rows and columns. 
+Each piece is located in a single row and column and has four edges. 
+Each edge comes in one of three types: inner, outer, and flat.
+A corner piece, for example, will have two flat edges and two other edges, which could be inner or outer. 
+
+------------------------------------------------------------------------------------------------
+Step 1: Objects
+
+<Class> Piece - Pieces of the puzzle - has Edges mapped to an Orientation
+<Class> Edge - Three types ENUM {OUT, IN , FLAT} - mapped to an Orientation 
+<ENUM> Orientation - Which is saying my current Orientation is TOP,BOTTOM, LEFT or RIGHT
+<Class> Puzzle - The Entire grid structures of N*N matrix of type Piece
+------------------------------------------------------------------------------------------------
+Step 2: Reltionships
+
+Piece has four Edges in a hashMap with Orientation as key and edge as value
+Edge has a Edge type
+
+Puzzle has an N*N matrix of type Piece
+Puzzle has a list of Pieces which needs to used
+
+
+------------------------------------------------------------------------------------------------
+Step 3: Action
+
+Piece -> rotate (based on the required Orientation need at this point) ,isCorner, isMethod, getTopEdge() etc etc
+Edge -> fitsWith(Edge)
+
+Puzzle -> solve method to Implement the algorithm
+
+
+
+
+------------------------------------------------------------------------------------------------

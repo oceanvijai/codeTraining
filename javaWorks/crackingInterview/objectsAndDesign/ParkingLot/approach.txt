@@ -1,0 +1,36 @@
+Step1: core objects
+
+<Abstract> Vehicle 
+<Class> Bike 
+<Class> Car 
+<Class> Truck
+
+<Class> ParkingFacility -- mediator for all
+<Class> PrakingLevel -- can be a class for now
+<Class> ParkingSpot -- can be a class for now
+
+--------------------------------------------------------------------------------
+Step 2: Relations
+
+Bike is a Vehicle
+Car is a Vehicle
+Truck is a Vehicle
+Vehicle has a ParkingSpot(s)
+
+ParkingFacility -> has -> list of PrakingLevels
+PrakingLevels -> has -> ParkingSpot
+
+--------------------------------------------------------------------------------
+Step 3: Actions:
+
+ParkingFacility can check for availibility in each PrakingLevel given a certain Vehicle
+check for availibility is delegated to the PrakingLevel given the same Vehicle
+
+PrakingLevels can give you the number of available spots to the ParkingFacility
+PrakingLevels can ask the Vehicle to park starting from particular ParkingSpot
+
+Vehicle can request the ParkingFacility for ParkingSpot(s)
+Vehicle can fill the ParkingSpot(s) with its own reference
+
+--------------------------------------------------------------------------------
+

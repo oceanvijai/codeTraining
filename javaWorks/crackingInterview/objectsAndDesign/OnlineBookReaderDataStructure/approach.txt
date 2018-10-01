@@ -1,0 +1,44 @@
+Imagine it like a kindle you are holding in your plam
+You can 
+    read, 
+    search, 
+    add book to your library, 
+    remove from your library 
+
+____________________________________________________________________________________________________________
+Step1: Objects
+
+
+<Class> User -- one book at a time
+<Class> Book
+<Class> Library -- collection of books
+<Class> OnlineReader - System , mediator between book and user management
+                     - It initiate a add book request
+                     - Remove book request
+                     - Display a book to the user
+<Class> Display -- The display of the kindle screen
+____________________________________________________________________________________________________________
+Step 2: Relations
+
+User - has user details and lisence info
+Book - has book info plus the contents
+Library - collection of books
+OnlineReader - has one active user
+             - has one active book currently read by the user
+             - has one Library
+             - has one Display
+Display - has one book to display
+        - has one user to display user info in screen (optional)
+
+____________________________________________________________________________________________________________
+Step 3: Actions 
+
+Library  - can add book
+               remove book
+               search book
+
+OnlineReader - can assign a book and a user to the Display
+
+Display - can update the UI with user details + book
+        - It has action handlers like next page, previous back etc
+
