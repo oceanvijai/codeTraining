@@ -1,0 +1,16 @@
+try to map it to some standard algorithm
+Mofify a bit
+
+Standard algos:
+
+1.  Fibinoci series or catlan series
+2.  Take or not take
+    combination using take or no take variation
+    Sub set take or not take
+3.  For count the number of ways 
+    try come up with an equation
+4.  Longest increasing sub sequence
+    Max sum such that no two are consecutive (dp[i] = Max(dp[dp[i-1], dp[i-2]+currentValue]) (max of excluded+currentValue  ))
+5.  Longest common sub sequence
+6.  Coin change or permutation
+7.  Evaluate expression - bsaed on the operator make the decidesion on left and right

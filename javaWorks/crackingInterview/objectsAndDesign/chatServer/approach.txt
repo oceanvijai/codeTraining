@@ -1,0 +1,51 @@
+Requirements:
+
+1. A uaer can do private or group chat
+2. We can change his status
+3. SignIn and SignOff
+
+------------------------------------------------------------------------------------------
+
+Step1: Objects
+
+<Class> User
+<Class> Status
+<Abstract> Chat
+<Class> Private Chat
+<Class> GroupChat
+
+<Class> Message 
+<Class> ChatManager
+------------------------------------------------------------------------------------------
+Step 2: Relations
+
+User has status
+
+Chat has users 
+Chat has messages
+PrivateChat has two Users
+GroupChat has many users
+
+ChatManager has contactList of users
+ChatManager has list of GroupChat and PrivateChat
+
+
+
+------------------------------------------------------------------------------------------
+Step 3:Actions
+
+User can accept chat Request
+User can reject chat Request
+User can send chat Message
+User can receive chat Message
+User can create a PrivateChat/GroupChat
+
+Chat can send the message from the user to the ChatManager
+Chat can receive message from ChatManager and add it to the ChatContent
+
+ChatManager can do SignIn using a user
+ChatManager can sign off
+
+
+
+------------------------------------------------------------------------------------------

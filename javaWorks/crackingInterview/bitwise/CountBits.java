@@ -11,7 +11,7 @@ public class CountBits{
         return count;
     }
 
-    public int countBits_1(int i){
+    public int countBits_1(int n){
         int count = 0;
 
         while(n != 0){

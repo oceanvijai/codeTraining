@@ -1,0 +1,21 @@
+If a find problem in sorted structure is there use this
+
+Update the mid smartely id required
+
+Sort:
+
+important metrics for chosing a sorting algo
+1.  Time complexity
+2.  Space complexity
+3.  Stability
+4.  Type of data we are sorting (like integer for radix sort)
+
+External sorting:
+    When we have a very very very huge data that needs to be sorted we need to use this.
+    Basically we only fit what we can in the main memory and sort them in chuks and finally merge them
+
+    How to do External sort ? (https://youtu.be/YjFI9CJy6x0?t=44m58s)
+        Use a merge sort of smaller chunks and store them in the same/different space in the disk
+        Then we take on page from these merged chunks and put them in the right place back
+
+        Basically we dont take all of it in the main merory, we take whatever we can from these sorted chunks and merge them back
