@@ -2,16 +2,21 @@ Preprocess the array or string if possible before any processing
 like:
 We can do the following 
 
-Memorize:
-    Using hasp map
-    Using bit map
 count
     and store in hasp map 
     or bit map
+Reverse
+Reduce
+Memorize:
+    Using hasp map
+    Using bit map
 sort
-reduce
-reverse
 split / append
+Sum them
+DP them
+Two/multiple pointers
+DP them
+
 
 
 Additional Questions: Object-Oriented Design (#7.12), Recursion (#8.3), Sorting and Searching (#10.9), (++

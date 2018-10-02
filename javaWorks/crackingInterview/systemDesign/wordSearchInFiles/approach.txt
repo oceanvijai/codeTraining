@@ -1,0 +1,20 @@
+Given a list of millions of documents, how would you find all documents that contain a list of words? The words
+can appear in any order, but they must be complete words. That is, "book" does not match "bookkeeper." 
+
+Step 1: Requirements
+
+Core problem: Find the documents has the given list of words. Match should be exact match
+              It will be like an index and can peform query on it multiple times with new list of words
+Users: none
+Performace : Need to be as optimal as possible
+             Cause there are million files, all will not fit in a memory
+             The number of searched words can be thousands
+
+Consistency: none
+
+Step 2: Solve
+
+Query each of the files and see if they have the words.
+Have a hashMap and update the doc Id if they have the specific words
+
+Bottleneck:

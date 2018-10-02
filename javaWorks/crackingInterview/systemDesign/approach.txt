@@ -1,0 +1,34 @@
+
+Dont use Data structure or algorithms yet
+
+----------------------------------------------------------------------------
+Step 1: Requirements
+
+What core problem is the system solving
+Who are its users
+Key and most important behavious
+important behavious requirements on perforamance and Consistency
+
+----------------------------------------------------------------------------
+Step 2: Solve
+
+Solve it assuming all the data is in one machine
+Identity the most important bottlenecks
+Then start to scale it by splitting up the data 
+
+----------------------------------------------------------------------------
+Step 3: Design and scale
+
+Draw the overall components with a standard design
+Fix your design to address the bottlenecks
+Fix Consistency, availability and partition problems
+
+----------------------------------------------------------------------------
+Step 4: Calculate storage and machine specification
+
+Do the bit/byte calculation for the estimate
+The total load
+Calculate the processing power
+The total storage
+
+----------------------------------------------------------------------------
