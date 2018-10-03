@@ -1,0 +1,3 @@
+what is rest and its features
+
+create a code to talk to rest end poits by creating a connection

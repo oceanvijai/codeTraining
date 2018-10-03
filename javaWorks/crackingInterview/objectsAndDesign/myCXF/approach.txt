@@ -1,0 +1,5 @@
+desgin my rest endpoint
+
+create a code to talk to rest end poits by creating a connection
+
+design both client and server

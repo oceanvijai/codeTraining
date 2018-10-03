@@ -5,6 +5,7 @@ Step 1: Requirements
 
 Core problem: Find the documents has the given list of words. Match should be exact match
               It will be like an index and can peform query on it multiple times with new list of words
+              When new files are added we need to update the index
 Users: none
 Performace : Need to be as optimal as possible
              Cause there are million files, all will not fit in a memory

@@ -1,0 +1,10 @@
+HDFS file system
+
+Map reduce
+
+Yarn
+
+spark
+
+strom
+

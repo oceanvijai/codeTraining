@@ -1,0 +1,11 @@
+SQl
+NoSql
+
+sharding
+denormalisation
+
+consistency
+avalibility
+
+ACID
+BASE
