@@ -11,7 +11,7 @@ public class PalindromPartitioning{
     // 1: string with length 1 is a palindrom
     // 2: string with lenght 2 is palindrom if both are same
 
-    public int minCut(String A) {
+    public static int minCut(String A) {
         int n = A.length();
         boolean[][] dp = new boolean[n][n];
         
@@ -54,6 +54,11 @@ public class PalindromPartitioning{
         }
         
         return cuts[n-1];
+    }
+
+    public static void main(String[] args) {
+        String str = "ababa";
+        System.out.println(minCut(str));
     }
 
 }
