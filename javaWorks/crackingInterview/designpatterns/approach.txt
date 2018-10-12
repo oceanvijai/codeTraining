@@ -1,0 +1,27 @@
+Singleton
+Factory
+Abstract Factory
+prototype
+Builder
+
+
+Decorator
+Composite
+facade
+Adaptor
+Flyweight
+Proxy
+bridge
+
+
+Strategy
+visitor
+Observer
+State
+Iterator
+command
+chain of responsibility
+template method
+mediator
+Interpretor
+memento

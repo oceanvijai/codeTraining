@@ -1,0 +1,14 @@
+Like for say,
+
+scalability:
+    Asynchronous processing
+    caching
+    message queue
+    multi threading
+
+Consistency:
+
+
+availability:
+
+

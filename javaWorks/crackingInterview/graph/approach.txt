@@ -1,1 +1,11 @@
+BFS
+DFS
+topological sort
+Prims
+shortest path
+All shortest path
+network flow
+
+
+
 Bidirectional search (BDS):

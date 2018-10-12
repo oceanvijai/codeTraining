@@ -2,6 +2,8 @@ BFS or DFS
 
 Inorder || preorder || post order
 
+use stack and queue with mix of the above traversals
+
 In validating BST, Inorder with duplicates is a issue, sicnce we dont know from which leaf it came from
 
 Inorder property : Will mostly give you the same result for different tree structure in case of BST
