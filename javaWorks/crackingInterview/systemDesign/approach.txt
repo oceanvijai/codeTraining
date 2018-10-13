@@ -7,28 +7,29 @@ Step 1: Requirements
 What core problem is the system solving
 Who are its users
 Key and most important behavious
-important behavious requirements on perforamance and Consistency
+important requirements on perforamance and Consistency
 
 ----------------------------------------------------------------------------
-Step 2: Solve
+Step 2: Solve it
 
 Solve it assuming all the data is in one machine
-Identity the most important bottlenecks
-Then start to scale it by splitting up the data 
-
 ----------------------------------------------------------------------------
-Step 3: Design and scale
+Step 3: split it
 
-Draw the overall components with a standard design
-Fix your design to address the bottlenecks
-Fix Consistency, availability and partition problems
-
+Then start splitting up the data 
 ----------------------------------------------------------------------------
-Step 4: Calculate storage and machine specification
+Step 4: scale it
 
+Identity the most important bottlenecks and fix it
 Do the bit/byte calculation for the estimate
 The total load
 Calculate the processing power
 The total storage
+----------------------------------------------------------------------------
+Step 5: Design and add scalable components
+
+Draw the overall components with a standard design
+Fix your design to address the bottlenecks
+Fix Consistency, availability and partition problems
 
 ----------------------------------------------------------------------------

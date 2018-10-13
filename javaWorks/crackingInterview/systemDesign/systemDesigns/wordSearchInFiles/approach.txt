@@ -1,6 +1,6 @@
 Given a list of millions of documents, how would you find all documents that contain a list of words? The words
 can appear in any order, but they must be complete words. That is, "book" does not match "bookkeeper." 
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 Step 1: Requirements
 
 Core problem: Find the documents has the given list of words. Match should be exact match
@@ -10,12 +10,46 @@ Users: none
 Performace : Need to be as optimal as possible
              Cause there are million files, all will not fit in a memory
              The number of searched words can be thousands
-
-Consistency: none
-
+Are the file mutable ?
+Consistency: Yes
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 Step 2: Solve
 
-Query each of the files and see if they have the words.
-Have a hashMap and update the doc Id if they have the specific words
+Lets say all the files are in the same system
+now we have two options
+1. Create a hashmap mapping work with list of documents
+    - retirval is fast
+    - Hash map will be very huge
+    - When we add or delete a file, we need to update the hash map
+2. Create a hasSet for each file and stroring all the words
+    - retirval is slow since we need to see evey HashSet to the files to get a consolidated result
+    - HashSet will be according to the file content size
+    - deleting or adding a file is simple since we dont need to update any shared space
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Step 2: Split
 
-Bottleneck:
+Lets split the data:
+
+Now there are million of files accross a fleat of machines
+If we take approach 1:
+    Then, we have to split our huge map.
+    We can split it using letters starting from a in one machine and like wise split it and store in different machine
+        - retirival will be fast
+        - We need to have a map to where a particular work map will be present
+        - Then it will be split unevenly 
+        - Updating when file is deleted are more files are added will be tedious
+        - Might have consistence issues
+If we take approach 2:
+        - Let each system holding the data have it own HashSet
+        - retrival is slow, since we need to query every machine
+        - Maintanence is easy sice we can delete a file along with its hashSet
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Step 3: Scale it
+
+So the bottle neck we find here are,
+1.  How fast we can query with one hashmap vs having multiple machines
+2.  How much information a system can hold on the map part
+
+
+
+        
