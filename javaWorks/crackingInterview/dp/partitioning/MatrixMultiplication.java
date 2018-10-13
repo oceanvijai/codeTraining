@@ -36,17 +36,18 @@ public class MatrixMultiplication {
         // printDP(dp);
 
         int[] part = new int[n];
-        int[] bracket = new int[n];
+        int[][] bracket = new int[n][n];
 
         for (int i = 1; i < n - 1; i++) {
             part[i] = dp[0][i];
-            bracket[i] = i; // assuming we can take the full
+            bracket[0][i] = i; // assuming we can take the full
             for (int j = 0; j <= i - 1; j++) {
                 int val = part[j] + dp[j + 1][i] + arr[0] * arr[j + 1] * arr[i + 1];
                 if (val < part[i]) {
                     part[i] = val;
-                    bracket[j] = j+1; // where we made the partition
-                    //bracket[i] = j+1; // where we made the partition
+
+                    bracket[0][i] = j;
+                    bracket[j+1][i] = i; // where we made the partition
                 }
             }
         }
@@ -55,14 +56,47 @@ public class MatrixMultiplication {
          * for (int i = 0; i < n; i++) { System.out.print(part[i]);
          * System.out.print(", "); } System.out.println("");
          */
+        printDP(bracket);
 
-        for (int i = 0; i < n; i++) {
-            System.out.print(bracket[i]);
-            System.out.print(", ");
-        }
-        System.out.println("");
+        String ans = printBracket(bracket,0,n-2);
+        System.out.println(ans);
 
         return part[n - 2];
+    }
+
+
+    public static void main(String[] args) {
+        // {4,2,3,1,3} -> 26 -> ((A(BC))D)
+        // {1,2,3,4,3} -> 30 -> (((AB)C)D)
+        // {1,2,3} -> 6 > (AB)
+        int[] arr = {1,2,3};
+        System.out.println(solve(arr));
+    }
+
+    private static String printBracket(int[][] bracket, int start, int end) {
+       if(start == end){
+           //char c = (char)65 + start;
+           // return String.valueOf(c);
+           return Character.toString((char) (65+start));
+       }
+
+       if(start > end){
+        return "";
+       }
+
+       String str = "(";
+
+       int partionIndex = bracket[start][end];
+       if(partionIndex == end){
+        str = str + printBracket(bracket, start, partionIndex-1);
+        str = str + printBracket(bracket, partionIndex, end);
+       }else{
+        str = str + printBracket(bracket, start, partionIndex);
+        str = str + printBracket(bracket, partionIndex+1, end);
+       }
+       
+       str = str+")";
+       return str;
     }
 
     private static void printDP(int[][] dp) {
@@ -73,27 +107,6 @@ public class MatrixMultiplication {
             }
             System.out.println("");
         }
-    }
-
-    private static String printBrackets(int[] bracket, int start, int end) {
-
-        if (start == end) {
-            return String.valueOf(start);
-        }
-
-        String sb = "(";
-        sb = sb + printBrackets(bracket, start, bracket[end]);
-        sb = sb + ")";
-
-        return sb;
-    }
-
-    public static void main(String[] args) {
-        // {4,2,3,1,3}
-        // {1,2,3,4,3}
-        // {1,2,3}
-        int[] arr = { 4,2,3,1,3 };
-        System.out.println(solve(arr));
     }
 
 }
