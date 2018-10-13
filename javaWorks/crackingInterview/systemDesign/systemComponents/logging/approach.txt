@@ -1,0 +1,10 @@
+How to effeciently introduce logging
+
+How to effeciently manage them to get data 
+
+tolls like :
+
+splunk
+Log4j
+sl4j
+logback

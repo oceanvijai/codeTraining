@@ -1,0 +1,45 @@
+ Imagine you are building some sort of service that will be called by up to 1,000 client
+applications to get simple end-of-day stock price information (open, close, high, low). You may
+assume that you already have the data, and you can store it in any format you wish. 
+
+How would you design the client-facing service that provides the information to client applications? You are
+responsible for the development, rollout, and ongoing monitoring and maintenance of the feed.
+Describe the different methods you considered and why you would recommend your approach.
+Your service can use any technologies you wish, and can distribute the information to the client
+applications in any mechanism you choose. 
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Step 1: Requirements
+
+Store the end of the day stock data of every company having open,close,high and low values
+Client can view this and query the data
+Clients can be other webservices or humans
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Step 2: Solve
+
+Lets, say we magically have all the data, then which format to store it.
+1. txt file
+    - The client have to download on their own and query the data
+    - Easy to implement and maintain
+    - Hard for the client to query it
+    - new schema change is esay
+2. data base
+    - the data is well structred and stored
+    - schema change is difficult (can use noSql if required)
+    - Client can query it as they like 
+    - Need a Web UI for humans
+3.  XML file
+    - Store the data in XML format
+    - Entire XML will have to be downloaded to query simple stuffs
+    - Both machine and human redable
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Step 2: Split
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Step 3: Scale it
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Step 4: Design and components
+

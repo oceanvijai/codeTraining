@@ -1,3 +1,5 @@
 Left outs:
 
+PriorityQueue internal in java and applications as heap
+
 infix, postfix, prefix and expression evalution

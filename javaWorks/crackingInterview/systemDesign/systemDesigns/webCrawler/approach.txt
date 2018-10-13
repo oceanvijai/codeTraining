@@ -1,0 +1,36 @@
+ If you were designing a web crawler, how would you avoid getting into infinite loops?
+------------------------------------------------------------------------------------------
+ Step 1: Requirements
+
+ Webcrawler needs to go to a site and get a list of unique links available
+ We need to avoid loops which is most likely to happen
+------------------------------------------------------------------------------------------
+ Step 2: Solve
+
+ 1: Use a graph and have a visted key value map to see if this is visited
+
+ But how do we decide if the URL is visited or not.
+ Based on content or URL ? 
+
+ URL is risky because 
+ www.someDomain.com?query=data1, can be misinterpreted as 
+ www.someDomain.com?query=data2
+
+ so we need to consider both the URL and the content.
+
+ So we can have a DB/PriorityQueue storing all the sites
+ then we can take one and make a hash out of the content and URL
+ If its already present in the data store, ignore it/make it low Priority
+ Otherwise parse it and get its children and store it in the Data store with higer Priority
+
+------------------------------------------------------------------------------------------
+ Step 3: Scale it
+ Store the parsed content in a DB
+ 
+ Make sure the crawler is fault resistent, by using backup like PriorityQueue which will store its state to 
+ another machine async way.
+
+We can do parallel processing using multiple servers to do it parallely
+------------------------------------------------------------------------------------------
+Step 4: Design and components
+

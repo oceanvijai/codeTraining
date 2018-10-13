@@ -3,12 +3,23 @@ Like for say,
 scalability:
     Asynchronous processing
     caching
+        Caching at all level like client, middle, data store, network
     message queue
     multi threading
+    partition of data and processing servers (load balancing)
 
 Consistency:
-
+    Strong Consistency
+    Eventual Consistency
+    Consenses protocols
 
 availability:
+    Failovers
+    Replication
+        Master slave replication 
+        Master master replication
+        Budy replication
+
+
 
 

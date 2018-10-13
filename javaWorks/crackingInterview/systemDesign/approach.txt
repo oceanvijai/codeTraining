@@ -21,6 +21,9 @@ Then start splitting up the data
 Step 4: scale it
 
 Identity the most important bottlenecks and fix it
+Optimize every decesion taken so far
+Apply the scalability patterns
+
 Do the bit/byte calculation for the estimate
 The total load
 Calculate the processing power

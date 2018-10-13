@@ -50,6 +50,15 @@ So the bottle neck we find here are,
 1.  How fast we can query with one hashmap vs having multiple machines
 2.  How much information a system can hold on the map part
 
+If, lets say the file update is not frequent, the approach 1 is better
+then we need a hashing algorithm to map a word to the index called machine index, where
+the hash map of the word is present
 
+Then lets say our phrase is "find the apple content"
+Then we can hash each of these words and send it accross to their machines and get the result.
+Then do an intersection of them on which documents contain all of them
 
-        
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Step 4: Design and components
+
+possible map reduce kind of architecture

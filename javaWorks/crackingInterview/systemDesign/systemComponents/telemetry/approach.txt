@@ -1,0 +1,18 @@
+How to get stats out of the system
+
+How to get metrics for different layers like:
+
+Client
+    log and JS start and stop API 
+Server
+    timed executors
+Data store
+    ???
+Network
+    some tool or use some sotware in routers and SDN
+
+Tools:
+JMX & Jolokia for java
+AppDynamics
+DataDog
+Google analytics

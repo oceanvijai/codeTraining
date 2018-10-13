@@ -1,0 +1,64 @@
+How would you design the data structures for a very large social network like
+Facebook or Linkedln? Describe how you would design an algorithm to show the shortest path
+between two people (e.g., Me -> Bob -> Susan -> Jason -> You). 
+------------------------------------------------------------------------------------------------
+Step 1: Requirements
+
+Map all friends to all
+Find the shortest path from me to you
+------------------------------------------------------------------------------------------------
+Step 2: Solve
+
+We have to create a Graph where every user is a vertex and 
+every friends are represented as edges
+
+Lets say all of these data is in one system, then we can use BFS to get the shortest path
+
+When we start doing the BFS, it takes much time to get to the destination in this scale
+So we can do a Bidirectional search.From start and from send.
+When the search colide we found a path
+------------------------------------------------------------------------------------------------
+Step 3: split it
+
+We can possible store the entire graph in a single machine. 
+So we need to slipt it accross different machines
+
+We can either split based on geography,
+    - There can be friends accross geography (country, state, city) also
+    - But this is a better split than random split 
+
+We need to get one User ID and gets its machine and then gets their edges (user Ids)
+
+------------------------------------------------------------------------------------------------
+Step 4: Scale it
+
+Optimization: Smart division of people and machines
+    When we hop from one machine to another it takes time. So better split is requird 
+to reduce the split.
+
+Optimization: Reduce machine jumps 
+    Also do batch request to avoid multiple calls to the same server
+
+------------------------------------------------------------------------------------------------
+Step 5: Design and components
+    Use noSql like GraphQl to store this data
+    Use cache to pre-cache most proable data used together, like friends of same Org etc
+
+Other Follow-Up Questions: 
+
+In the real world, servers fail. How does this affect you? 
+    Provide a distributed environment which is fault tolerant, like the machine doing the computation and the DB
+
+
+How could you take advantage of caching? 
+    We can store relevant data which are most likely to be used together
+    Like, cache the current users Ogranisation/place visited and cache those users, which are more probable to be friends
+
+
+Do you search until the end of the graph (infinite)? How do you decide when to give up? 
+    We can maintain a level say 10 to 15, saying after which the friends are less likely to be firends
+
+In real life, some people have more friends of friends than others, and are therefore more likely to make
+a path between you and someone else. How could you use this data to pick where to start traversing? 
+    While getting the next level we can give preference to the users with more friends
+

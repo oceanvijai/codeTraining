@@ -1,0 +1,44 @@
+You have 10 billion URLs. How do you detect the duplicate documents? In this
+case, assume "duplicate" means that the URLs are identical. 
+
+--------------------------------------------------------------------------------
+Step1: Requirement
+Out of a billion URLs we need to find the duplicate ones
+
+--------------------------------------------------------------------------------
+Step2: Solve
+Lets say all are in the same system,
+Then we can have an hash algorithm and map each URL to its hash,
+For a better hash algo, we will have a seperate map for each domain
+Then do a hash for the rest of the URL
+
+
+--------------------------------------------------------------------------------
+Step 3: split it
+
+Let say each URL is around 100 characters.
+Then for on URL we need 100 * 32 bits = 3200 bits = (3200/8) bytes = 400 bytes
+Then for a billion URL, we need 400 * 10^9 bytes = 4 * 10^11 bytes = 400 GB
+Then for 10 billion URL we need 4000GB = 4 TB
+
+So how to split data
+In one machine : We can split the data and process it like,
+1.  based on domain like we say previously
+2.  simple hash them completely and group them based on their hash % number of machines
+In multiple machine
+3.  Any one of the above in different machine and do hashValue % number of machines (lets say 4000 machine storing 1GB)
+4.  Any one of the above + plus the processing power of the system, like 
+    Let say the machine has 4 GB RAM 
+    Then we can hold lets say a hashmap of around 4GB, 
+        that is in worst case 4,000,000,000 / 400 = 1 million URL at a time
+        So we can have 1000 machine storing 4GB data,
+        Or 100 machine storing 40 GB data and producing cummulative result
+
+
+--------------------------------------------------------------------------------
+Step 4: Scale it
+
+If we split data accross machines, we have leverage parallel processign
+    But, we will have problem of failover
+
+--------------------------------------------------------------------------------
