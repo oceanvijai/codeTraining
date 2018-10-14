@@ -1,0 +1,91 @@
+Imagine a web server for a simplified search engine. This system has 100 machines to
+respond to search queries, which may then call out using processSearch(string query)
+to another cluster of machines to actually get the result. The machine which responds to a given
+query is chosen at random, so you cannot guarantee that the same machine will always respond to
+the same request. The method processSearch is very expensive. Design a caching mechanism
+to cache the results of the most recent queries. Be sure to explain how you would update the cache
+when data changes. 
+
+--------------------------------------------------------------------------------
+Step1: Requirement
+
+Search in cache is O(1)
+
+The number of queries we wish to cache is large (millions). 
+
+The result for a given query is an ordered list of URLs, each of which has an associated 50 character title
+and 200 character summary. 
+
+The most popular queries are extremely popular, such that they would always appear in the cache. 
+The search engine need to store the most recent search result in the cache
+
+The cache should update when the data changes
+
+--------------------------------------------------------------------------------
+Step 2: Solve
+
+Lets say we have one huge cache
+What is the Data structure used ?
+Use an LRU cache with key (search string) and value (Search result)
+The LRU is a combination of a map<Key,Node> and a LinkedList<Node>
+Use linkedHashMap in Java and override removeEldestEntry method
+
+How to solve the multithreading issues ?
+We know when we access a item, we first remove it and then put in the front.
+this is the most frequent operation
+So, how to solve this
+We can split the hash map internally based on some criteria and do it effeciently
+
+--------------------------------------------------------------------------------
+Step 3: split it
+
+Now we have a cache of 1 million search results
+so one search result item will require (1URL(100 char) and 1 Summary (200 char) and 1 title(50 char)).
+So that is if 4 byte for a char then  ( 400 + 800 + 200 ) bytes = 1400 bytes
+Then Lets say we have 10 result per query, then 1400 * 10 = 14,000 bytes = 14 kb per cache item
+Then 1 million cache, so we have around 14000 * 10^6 = 14 GB of cache.
+So a cache of 14GB is required
+
+Approach 1: each server with it own
+    So we can have all the web servers its own cahe. But there is more changes of miss
+Approach 2: each has a copy
+    So all the server can have the full cache and updating each other regularly. there is traffic and maintanence issues
+
+Approach 3: sharding and Consistent hashing
+    So we can have each server a part of the cache(partition/sharding)
+then, when a query is given to a web server, it will hash the query and find the corresponding 
+machine which has the cache and forward the request to that machine.
+
+After that it can server the response and optinally can update its own cache
+
+Approach 4:
+    We can have dedicated cache system (fleet) and do all the above
+
+How to solve the cache coherence:
+this will occour when, the URL content is changed
+When the rank of the page is updated
+When new URL is added to the resultset
+
+To do this, we can either,
+1.  we can maintain a map telling which URL is in which cache and which machine
+        Not so efficient, and increases complexity
+2.  We can expire the cache based on timeout
+        So, no matter how populare or not popular, up-todate or not up to date they will expire
+        And can be parallely update the cache with new results
+
+--------------------------------------------------------------------------------
+Step 4: Scale it
+
+We can use Consistent hashing here to balance the way we distribute the cache among the servers.
+
+Lets say we need 1 million queries per second in the cache system.
+So, one CPU can handle lets say, 2 queries / milli second.
+Then we can do, 2000 queries in one core,and if we have 4 cores, we can do around 8000 queries / second
+So we need 1,000,000 / 8000 = 125 machines approx,
+These 125 machines can have their own 14GB of data in the RAM,
+So we need 125 machines with atleast 14 GB of RAM
+
+Also, we can decide which data to expire based on their type.
+Like stock data is expire very quick and new/history is timeout little lesser.
+
+--------------------------------------------------------------------------------

@@ -1,1 +1,7 @@
 implemt spring framework
+
+Implement DI by anotation
+Implement singleton and prototype
+Implement Autowire
+Implement AOP - proxy
+Implement Lazy init 
