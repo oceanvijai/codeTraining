@@ -1,0 +1,22 @@
+Preprocess the array or string if possible before any processing
+like:
+We can do the following 
+
+count
+    and store in hasp map 
+    or bit map
+
+Reverse
+Reduce
+Memorize:
+    Using hasp map
+    Using bit map
+
+sort
+split / append
+Sum them
+
+DP them
+Two/multiple pointers
+DP them
+

@@ -1,0 +1,6 @@
+Mostly use kadane or variation of it
+
+Find if a sub array equals to zero
+find a sub array with a specified value
+
+
