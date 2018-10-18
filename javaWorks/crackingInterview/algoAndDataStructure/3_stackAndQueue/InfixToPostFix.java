@@ -84,19 +84,19 @@ public class InfixToPostFix {
     }
 
     private static int getPriority(char c) {
-        int priority = -1;
+        int priority = 0;
 
         switch (c) {
         case '*':
         case '/':
-            priority = 1;
+            priority = 3;
             break;
         case '+':
         case '-':
             priority = 2;
             break;
         case '^': 
-            priority = 3;
+            priority = 1;
             break;
         }
 
