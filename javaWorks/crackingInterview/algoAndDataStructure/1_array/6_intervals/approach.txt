@@ -75,7 +75,7 @@ Algorithm is even simple:
 
 3.  Iterate over the timeLine now and calculate the required ans
 
-for Implementation look in the SocialNetworkTimeLine.java and MinPriceAtAnyInterval.java
+for Implementation look in the MaxPersonAlive.java // SocialNetworkTimeLine.java // MinPriceAtAnyInterval.java
 
 
 ------------------------------------------------------------------------------------------------------------
