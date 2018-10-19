@@ -39,9 +39,9 @@ public class Flip {
       // From the above observation we decude some more like,
       // if lets say A = number of O's
       //             B = number of 1's
-      //             Then A - B will tell us how man ones we can produce
+      //             Then A - B will tell us how many ones we can produce
       //             So, lets say we make i to -1, i.e all the elements in B to -1
-      //            Then it natuarally produces  A - B at any point in the array
+      //            Then it naturally produces  A - B at any point in the array
 
       // So, lets take the string and make 0's as 1 and 1 as -1.
 

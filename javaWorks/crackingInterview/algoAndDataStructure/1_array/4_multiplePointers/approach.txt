@@ -1,1 +1,11 @@
-find a pair with specified sum
+Usually it is about 
+1.  finding a range with a given constraint 
+2.  finding pairs that eveluate to a sum/diff etc
+
+We can see if hashing is useful to do this first.
+If so, it will take space
+
+then if we want to save space , we can use two pinter technique
+Usually we can do this only if the elements are sorted
+
+If mutiple arrays are present, see if the sum/difference is got by moving correctly in both the array

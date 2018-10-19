@@ -1,0 +1,81 @@
+If we have a problem that deals with values distributed across a timeline/range, use this technique
+
+Like, hotel bookings, people birth and death dates, likes in a day
+
+when this happens, we have three tricks to solve this problems,
+
+1.  Merge intervals
+2.  Two pointer technique
+3.  Time map technique
+
+------------------------------------------------------------------------------------------------------------
+Merge interval:
+---------------
+
+Algorithm is simple: 
+
+Pre-requesties: the interval needs to be SORTED based on start time
+---------------
+1.  take two pointer as start and end
+    Initilize it with the first interval start and end
+
+2.  start iteration from the second interval
+
+3.  If end > current interval start updated the end to MAX(end, current.end)
+    this way we are expanding the interval
+
+4.  If the end < current.start
+    Then the previour interval ends here. And new interval start here
+
+5.  continue this until the end of the input
+
+for Implementation look in the MergeInterval.java
+
+
+------------------------------------------------------------------------------------------------------------
+Two pointer technique
+---------------------
+This we can apply if we need not match the start and end of the given intervals.
+Meaning the result we are looking for is a single value calculated in between these intervals
+
+Algorithm is also simple: 
+-------------------------
+Pre-requesties: we need two array one with start times and other with end time both SORTED
+
+1.  take two pointer (start, end) for the two arrays
+
+2.  start iteration
+
+3.  If start < end, increment start and increment/any operation the ans.
+    Here, we are basically, saying one event happend here before the end time, so I am counting
+
+4.  Update the answer if necessary
+
+5.  else, increment the end pointer and decrement the ans
+    Here, we are saying the end event occured, so will updated my answer accordingly
+
+6.  Continue till the end of any array as needed
+
+for Implementation look in the HotelBooking.java // birth and death
+
+more: https://www.geeksforgeeks.org/minimum-number-platforms-required-railwaybus-station/
+
+
+------------------------------------------------------------------------------------------------------------
+Time map technique
+------------------
+Use this either if the intervals are not sorted, or there is a mapping between the start and end like we
+need as max/min at any point of time
+
+Algorithm is even simple:
+
+1.  Create an array from the start to the end of the interval -> timeLine
+
+2.  Iterate over the intervals and update the timeLine based for both the start and the end time
+
+3.  Iterate over the timeLine now and calculate the required ans
+
+for Implementation look in the SocialNetworkTimeLine.java and MinPriceAtAnyInterval.java
+
+
+------------------------------------------------------------------------------------------------------------

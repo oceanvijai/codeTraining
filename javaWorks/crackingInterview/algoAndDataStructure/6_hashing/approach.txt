@@ -1,4 +1,6 @@
 
+Hashcode generation
+Hash function in java API in HashMap
 
 Pending:
 HashMap impl

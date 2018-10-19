@@ -50,13 +50,13 @@ public class InfixToPostFix {
     }
 
     private static void processOperator(StringBuilder sb, LinkedList<Character> stack, char c) {
-        if (!stack.isEmpty() && getPriority(c) >= getPriority(stack.peekFirst())) {
+        if (!stack.isEmpty() && getPriority(c) > getPriority(stack.peekFirst())) {
             stack.addFirst(c);
         } else {
             while (!stack.isEmpty() && getPriority(c) <= getPriority(stack.peekFirst())) {
                 sb.append(stack.pollFirst());
             }
-            stack.offerFirst(c);
+            stack.addFirst(c);
         }
     }
 
@@ -75,6 +75,7 @@ public class InfixToPostFix {
         case '+':
         case '-':
         case '*':
+        case '^':
         case '/':
             result = false;
             break;
@@ -87,15 +88,15 @@ public class InfixToPostFix {
         int priority = 0;
 
         switch (c) {
+        case '^': 
+            priority = 3;
+            break;
         case '*':
         case '/':
-            priority = 3;
+            priority = 2;
             break;
         case '+':
         case '-':
-            priority = 2;
-            break;
-        case '^': 
             priority = 1;
             break;
         }
@@ -121,5 +122,42 @@ public class InfixToPostFix {
      *  If an opeartor is found, pop two from the stack, do the operation and push it into the stack
      *  Finally we have one element in the stack
      */
+
+     private int evalPostFix(String postFixExp){
+        char[] exp = postFixExp.toCharArray();
+        LinkedList<Double> stack = new LinkedList<>();
+        Double ans = 0.0;
+        double a = 0.0;
+        double b = 0.0;
+        for(char c : exp){
+            switch(c){
+                case '+':
+                    a = stack.pollFirst();
+                    b = stack.pollFirst();
+                    stack.addFirst(a+b);
+                break;
+                case '-':
+                    a = stack.pollFirst();
+                    b = stack.pollFirst();
+                    stack.addFirst(a+b);
+                break;
+                case '*':
+                    a = stack.pollFirst();
+                    b = stack.pollFirst();
+                    stack.addFirst(a+b);
+                break;
+                case '/':
+                    a = stack.pollFirst();
+                    b = stack.pollFirst();
+                    stack.addFirst(a+b);
+                break;
+                default:
+                    stack.push(Double.parseDouble(Character.toString(c)));
+                break;
+            }
+        }
+
+        return ans.intValue();
+     }
 
 }

@@ -1,0 +1,61 @@
+Random.getNextInt() in java still not clear 
+-------------------------------------------------------------------------------------------------------
+
+UUId - Universal Unique Id
+UUID in java
+UUID in JS
+
+-------------------------------------------------------------------------------------------------------
+Random number generation Algorithm
+----------------------------------
+
+PRNG - Pseudo Random Number Generator
+
+X[n+1] = (a*X[n] + c) mod m
+    where X is the sequence of pseudo-random values
+m,  0 < m (modulus) 
+a,  0 < a < m (multiplier)
+c,  0 <= c < m (increment)
+X[0],0 <= X[0] < m (the seed or start value)
+
+The initial seed is important and it need to be random also. 
+For instance we can get the time in nano seconds.
+Once the initial seed is set, we can continue to the rest using the above
+
+
+JAVA use this congruential pseudo-random number generators
+-------------------------------------------------------------------------------------------------------
+Random number with a given bound
+--------------------------------
+Lets say we got a random number.
+Now need to map it to any number, within the bound givne to us, how can we do it ?
+
+
+So lets say out bound is 10 (b) (so we need number in between 1 to 10)
+we lets say, using some API we got a number as follows,
+
+r = 105;
+Now, we mod it with the our bound,
+r % b = 105 % 10 = 5;
+val = 5;
+
+r = 347;
+Now, we mod it with the our bound,
+r % b = 347 % 10 = 7;
+val = 7;
+
+before returning the result, we check for this case 
+(r - val) + (b -1 ) > 0
+
+i.e
+(105 - 5) + (10 -1) > 0
+
+why, I dont know yet.
+But in general, we can have a upper bound which is a multiple of the bound
+
+
+Also, there is a problem of uniformity in the above algorithm
+I think the powers of 2 have some low probalility of getting retured, in the API used by java
+see the comment section in RandomNumberInBound class 
+
+-------------------------------------------------------------------------------------------------------
