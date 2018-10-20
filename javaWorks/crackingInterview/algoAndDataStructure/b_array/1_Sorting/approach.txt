@@ -19,3 +19,8 @@ External sorting:
         Then we take on page from these merged chunks and put them in the right place back
 
         Basically we dont take all of it in the main merory, we take whatever we can from these sorted chunks and merge them back
+
+
+related:
+
+https://www.geeksforgeeks.org/merge-two-sorted-arrays-o1-extra-space/
