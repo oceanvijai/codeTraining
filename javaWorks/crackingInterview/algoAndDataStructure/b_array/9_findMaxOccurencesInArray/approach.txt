@@ -1,0 +1,72 @@
+https://www.geeksforgeeks.org/majority-element/
+
+The use case is if you need to find the element which appears max number of times
+in O(n) and O(1)
+
+If O(n) is allowed, we can use hashMap
+If sorted (quick) we can maintain o(1)
+
+
+---------------------------------------------------------------------------------------------------
+To do this we use Moore’s Voting Algorithm
+
+Algorithm is simple, we iterate throught the array and see if gets canceled
+
+// Let say the given array is {1,2,5,9,5,9,5,5,5}
+
+// Observation 1: if an element has majority count, then its count > n/2
+// If an element is appearing more than half, then it can appear in any one the
+// following ways
+
+      1: evenly placed alternating after the non-majority element, except in one
+      ex: {5,9,5,9,5,1,5,2,5}
+      
+      2: more polulated in the first
+      ex: {5,5,5,9,5,5,9,1,2}
+      
+      3: more popilated in the end
+      ex: {1,2,5,9,5,9,5,5,5}
+     
+    
+    
+     So in all these cases, we can leverage that 5 will not be canceled out by anyother elements 
+     
+   
+
+      So our alogrithm is simple,
+      
+      For every element (dosent matter which), cancel its non equals
+      i.e, we iterate though the array
+      We have a varaible count, which denotes the current element majority.
+      It increases if it found the same element and decreases if it dosent
+      
+      At any point if count is zero, that means the current element is been canceled out by any other elements
+      
+      So, we start fresh with the current element as the majority element
+      
+      At the end, we also need to check if it really satisfies the condition (> n/2)
+      
+---------------------------------------------------------------------------------------------------
+Another Algorithm to count all frequencies of elements
+
+
+We place the elements count in its own value index.
+    We take all twos and place the count in the index 2
+    But, we need to track if the current value is the count or actual value in the array
+        So, we store the count with the -ve sign
+    But, we can lose the element if its index been taken for the count
+        So, we swap it to the current index and do the same until we are seeing a -ve value in the target index
+
+https://www.geeksforgeeks.org/count-frequencies-elements-array-o1-extra-space-time/
+
+
+---------------------------------------------------------------------------------------------------
+
+related:
+
+
+https://www.geeksforgeeks.org/n3-repeated-number-array-o1-space/
+
+https://www.geeksforgeeks.org/trapping-rain-water/
+
+---------------------------------------------------------------------------------------------------
