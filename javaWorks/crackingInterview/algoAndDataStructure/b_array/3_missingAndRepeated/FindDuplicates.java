@@ -29,7 +29,7 @@ public class FindDuplicates{
            boolean get(int pos) { 
                int index = pos / 32;
                int val = bits[index];
-               return val & (1 << (pos % 32)) == 0 ? false : true ; 
+               return (val & (1 << (pos % 32))) == 0 ? false : true ; 
            }
 
            boolean set(int pos) { 
@@ -38,7 +38,7 @@ public class FindDuplicates{
             int mask =  1 << bitPosition;
 
             int val = bits[index];
-            bits[index] = val | mask;
+            return bits[index] = val | mask;
         }
        }
     
