@@ -1,0 +1,36 @@
+We all know we can do the binary search on a sorted array
+
+Now if we think, why it works on a sorted array is because the array is monotonically arranged
+
+that is, we get either increasing or decreasing elements
+
+So for a monotonic function can also be binary search
+
+that is if a function is either increasing or decreasing in some sense, we can apply binary search
+
+Ex: 
+
+Squart - Find the square root of a number
+        We can iterate number from 1 to n/2 and chech if i*i = n
+        We can also, see that as i increases, the i * i also increases
+        so, i * i is a monotonic function and also, the ans we are looking for it also increasing 
+
+Painter partition - You have to paint N boards of certain lengths and K painters. Each will take T time.
+        - Now how can we find a monotonic relation to this problem ?
+        - One thing is, if the ans is increasing, i.e the time.
+        - So given a time, I can validate if its possible for the problem constaints
+        - IF not I can increase or reduce the time and keep validating until I reah the answer
+        - So, the clue here is a monotonically increasing ans and a way to validate it at every step
+
+
+
+Allocate books: N number of books are given. 
+                The ith book has Pi number of pages. 
+                You have to allocate books to M number of students so that maximum number of pages 
+                alloted to a student is minimum. A book will be allocated to exactly one student. 
+                Each student has to be allocated at least one book. 
+                Allotment should be in contiguous order, for example: 
+                A student cannot be allocated book 1 and book 3, skipping book 2.
+
+                - So the clue here is minimum value, is either increasing or decreasing 
+                - And we can validate it at each point

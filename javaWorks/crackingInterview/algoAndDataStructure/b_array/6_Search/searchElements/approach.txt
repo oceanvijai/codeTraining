@@ -1,0 +1,8 @@
+Given an sorted elements find the numbers of occurences of a given number
+    - FindOccurences.java
+Pivot in a rotated sorted array
+    - 
+Search a number in a rotated sorted array
+    - 
+Get the median of two sorted array
+    - 

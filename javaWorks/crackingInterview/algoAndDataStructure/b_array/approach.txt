@@ -1,3 +1,25 @@
+
+-----------------------------------------------------------------------------
+On a sorted array, we can perform the following
+Binary search
+Two pointer
+Interval 
+-----------------------------------------------------------------------------
+
+If ans only needs one/ multiple pairs, we can perform two pointer
+It ans is a continious subsequence, we can use kadane variation
+
+-----------------------------------------------------------------------------
+
+On a non sorted array, we can do 
+
+Sorting
+Kadane
+TimeLine (Interval approach) 
+
+-----------------------------------------------------------------------------
+
+
 Preprocess the array or string if possible before any processing
 like:
 We can do the following 
@@ -19,6 +41,12 @@ Sum them
 DP them
 Two/multiple pointers
 DP them
+
+
+
+
+
+
 
 
 other problems:
