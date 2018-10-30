@@ -1,0 +1,4 @@
+KMP Algorithm for Pattern Searching
+    rejex using KMP
+    form sub string by repeating a string
+Rabin karp

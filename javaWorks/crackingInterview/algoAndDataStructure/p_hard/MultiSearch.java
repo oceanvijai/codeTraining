@@ -1,5 +1,3 @@
-package CrackCode;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -157,6 +155,25 @@ public class MultiSearch {
             locations.set(i, locations.get(i) - delta);
         }
     }
+
+
+    /**
+     * Trie for the small strings
+     * 
+     * Now the trie remains the same
+     * 
+     * Trie
+     * 1: Build the trie - O(Tk)
+     * 2: Iterate through the length of String b - O(b)
+     * 3. At every index in the b, search through the trie and get the subStrings and their locations
+     *    There can be multiple words starting at that index of b, like  'sis' and 'is'
+     * 
+     * So totally, O(Tk + bk)
+     * 
+     * this is faster than the above
+     */
+
+
 
 
 }

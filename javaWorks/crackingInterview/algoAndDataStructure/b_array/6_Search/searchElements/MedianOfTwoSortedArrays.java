@@ -66,7 +66,7 @@ public class MedianOfTwoSortedArrays {
                 if (x == 0) {
                     median1 = b.get(y - 1);
                 } else if (y == 0) {
-                    median1 = a.get(y - 1);
+                    median1 = a.get(x - 1);
                 } else {
                     median1 = Math.max(a.get(x - 1), b.get(y - 1));
                 }

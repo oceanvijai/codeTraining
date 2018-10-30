@@ -1,0 +1,6 @@
+Min characters to add to make a string palindrom
+
+Minimum number of deletions to make a string palindrome
+    Calculate longest palindrom subString and subtract from the length
+
+Palindrome pair in an array of words (or strings)
