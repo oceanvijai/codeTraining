@@ -1,0 +1,3 @@
+Find one number which is not repeated twice
+
+Find one number which is not repeated while other are repeated thrice

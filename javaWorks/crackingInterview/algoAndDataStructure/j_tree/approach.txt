@@ -4,6 +4,7 @@ Inorder || preorder || post order
 
 use stack and queue with mix of the above traversals
 
+-------------------------------------------------------------------------------------------------------
 In validating BST, Inorder with duplicates is a issue, sicnce we dont know from which leaf it came from
 
 Inorder property : Will mostly give you the same result for different tree structure in case of BST
@@ -14,4 +15,14 @@ When trying brute force:
 Do a trvaesal from the current node to the end.
 And then ask the left to do the same
 And then the right to do the same
+
+----------------------------------------------------------------------------------------------------------
+Segment tree
+    Given an array, find the sum of a range
+    We can ofcourse iterate and find the value
+    But, instead we can create a heap kind of tree structure and store the sum in the nodes
+
+----------------------------------------------------------------------------------------------------------
+Serialize and deserialize BST
+Validate if the array is preorder for a BST
 

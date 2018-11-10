@@ -7,6 +7,7 @@ when this happens, we have three tricks to solve this problems,
 1.  Merge intervals
 2.  Two pointer technique
 3.  Time map technique
+4.  Skyline problem ???
 
 ------------------------------------------------------------------------------------------------------------
 Merge interval:
