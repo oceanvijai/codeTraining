@@ -4,3 +4,10 @@ Find if a sub array equals to zero
 find a sub array with a specified value
 
 
+Alternative for kadane - O(nlogn)
+    - find the max subarray in the left side
+    - find the max subarray in the right side
+    - find the max subarray when both collide
+    - find the max of three
+https://www.geeksforgeeks.org/maximum-subarray-sum-using-divide-and-conquer-algorithm/
+

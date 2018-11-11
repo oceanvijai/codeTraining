@@ -1,0 +1,2 @@
+This is maily applied in when we have to process the array by sorting it with two things
+    Ex: CircusTower in the hard section

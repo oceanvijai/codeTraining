@@ -1,7 +1,7 @@
 Singleton
 Factory
 Abstract Factory
-prototype
+prototype ??
 Builder
 
 

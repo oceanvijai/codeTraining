@@ -1,1 +1,45 @@
 create an auction system
+
+Usual steps:
+------------------------------------------------------------------------------------------
+Step1: 
+
+Core objects: 
+
+people:
+    <Class> User
+    <Class> Seller
+    <Class> Buyer
+    <Class> Agent - optional
+
+Objects:
+    <Interface> Item
+    <Interface> price
+    <Class> Bid
+    <Class> Auction
+
+System:
+    <Class> AuctionHouse
+
+------------------------------------------------------------------------------------------
+Step2: relationships
+
+Seller is a User
+Buyer is a User
+Seller is a Buyer
+Seller has an Item
+
+Item has an price and Seller
+Bid has an Item and price and Buyer
+Acution has Item and Bids and Agent
+
+AuctionHouse has an Auction and Agent
+
+------------------------------------------------------------------------------------------
+Step2: Actions
+
+Seller --> place an Item
+Agent --> start an Auction
+Agent --> close an Auction
+Agent --> process a Bid
+Buyer --> place a Bid

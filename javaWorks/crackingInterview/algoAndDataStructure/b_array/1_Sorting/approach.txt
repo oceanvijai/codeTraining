@@ -22,5 +22,9 @@ External sorting:
 
 
 related:
-
 https://www.geeksforgeeks.org/merge-two-sorted-arrays-o1-extra-space/
+    this is important 
+    This is achieved in M * N
+    Take the elements from a smaller array from the last and place it in the 
+    appropriate position in the the bigger array.
+    then put the removed element in the smaller array

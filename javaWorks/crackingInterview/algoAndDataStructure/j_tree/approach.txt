@@ -24,5 +24,7 @@ Segment tree
 
 ----------------------------------------------------------------------------------------------------------
 Serialize and deserialize BST
+    To Serialize a BST, only preorder or postorder is enough
+    To Serialize a BT, we need preorder with null/-1 elements
 Validate if the array is preorder for a BST
 

@@ -4,76 +4,75 @@ import java.util.LinkedList;
 
 public class IntToEnglishNumber {
     /**
-     * English Int: Given any integer, print an English phrase that describes the integer (e.g ., "One
-     * Thousand, Two Hundred Thirty Four").
+     * English Int: Given any integer, print an English phrase that describes the
+     * integer (e.g ., "One Thousand, Two Hundred Thirty Four").
      */
 
     /**
-     * Approach: break the numbers into chunks of thousands and form the string and make sure
-     * which chunk belongs to which chunk
+     * Approach: break the numbers into chunks of thousands and form the string and
+     * make sure which chunk belongs to which chunk
      */
 
-    static String[] smalls = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven",
-            "Eight", "Nine", "Ten", "Eleven",
-            "Twelve", "Thirteen", "Fourteen",
-            "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
-    static String[] tens = {"", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
-    static String[] bigs = {"", "Thousand", "Million", "Billion"};
-    static String hundredString = "Hundred" ;
-    static String negative = "Negative" ;
+    String[] bigs = { "", "Thousand", "Million", "Billion", "Trillion" };
+    String[] tens = { "", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
+    String[] smalls = { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven",
+            "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen" };
 
-    static String convert(int num) {
-        LinkedList<String> ansList = new LinkedList<>();
-        int chunkIndex = 0; // chunks of thousands which will help decide the bigs
+    public String numberToWords(int num) {
+
+        if (num == 0) {
+            return "Zero";
+        }
+
+        int chunkNumber = 0;
+        LinkedList<String> stack = new LinkedList<>();
+
         while (num != 0) {
-            int val = num % 1000;
-            convert(val, chunkIndex, ansList);
+            String s = chunkToString(num % 1000, bigs[chunkNumber]);
+            System.out.println(s + " " + s.length());
+            stack.addFirst(s);
             num = num / 1000;
-            chunkIndex++;
+            chunkNumber++;
         }
-        return convertToString(ansList);
+
+        String ans = "";
+        while (!stack.isEmpty()) {
+            String c = stack.pollFirst();
+            if (c.length() > 0) {
+                ans = ans + c + " ";
+            }
+        }
+
+        return ans.trim();
     }
 
-    private static void convert(int val, int chunkIndex, LinkedList<String> ansList) {
-        String big = bigs[chunkIndex];
-        String hundred = "" ;
-        String ten = "" ;
-        String small = "" ;
-        String chunkInString = "" ;
+    private String chunkToString(int chunk, String sufix) {
+        if (chunk == 0) {
+            return "";
+        }
+        String hundred = "";
+        String ten = "";
+        String one = "";
 
-        // Hundred place
-        if (val >= 100) {
-            int h = val / 100;
-            hundred = smalls[h]; // which will be from one to 9
-            hundred = hundred + hundredString;
-            val = val % 100;
+        if (chunk >= 100) {
+            int h = chunk / 100;
+            hundred = smalls[h];
+            hundred = hundred + " Hundred ";
+            chunk = chunk % 100;
         }
 
-        // Tens place
-        if (val >= 10 && val <= 19) {
-            ten = smalls[val]; // which will be 10 to 19 =, look in smalls
-        } else if (val > 20) {
-            int t = val / 10;
-            ten = tens[t]; // which will be after 20 look in tens
-            val = val % 10;
+        if (chunk >= 20) {
+            int t = chunk / 10;
+            ten = tens[t] + " ";
+            chunk = chunk % 10;
         }
 
-        //Ones place
-        if (val >= 1 && val <= 9) {
-            small = smalls[val % 10];
+        if (chunk >= 1 && chunk <= 19) {
+            one = smalls[chunk] + " ";
         }
 
-        ansList.add(hundred + ten + small + big);
-    }
+        return (hundred + ten + one + sufix).trim();
 
-
-    private static String convertToString(LinkedList<String> number) {
-        String ans = "" ;
-        while (!number.isEmpty()) {
-            ans = ans + number.pollLast() + " " ;
-        }
-
-        return ans;
     }
 
     public static void main(String[] args) {
