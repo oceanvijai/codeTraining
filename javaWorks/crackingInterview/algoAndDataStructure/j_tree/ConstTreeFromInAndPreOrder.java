@@ -1,6 +1,5 @@
 public class ConstTreeFromInAndPreOrder {
-    
-    
+
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         return buildTree(preorder, 0, preorder.length - 1, inorder, 0, inorder.length - 1, null);
     }
@@ -10,18 +9,10 @@ public class ConstTreeFromInAndPreOrder {
         if (preS == -1 || preS == preorder.length) {
             return null;
         }
-        // [3,9,20,15,7]
-        // [9,3,15,20,7]
-        // System.out.println("preorder:"+ preS + ","+ preE);
-        // System.out.println("inorder:"+ inS + ","+ inE);
-        // System.out.println("side:"+ side);
 
         int rootVal = preorder[preS];
         TreeNode root = new TreeNode(rootVal);
         int index = findIndexInInorder(inS, inE, inorder, rootVal);
-
-        // System.out.println("Index:"+ index);
-        // System.out.println("---------------------");
 
         if (index == -1) {
             return null;

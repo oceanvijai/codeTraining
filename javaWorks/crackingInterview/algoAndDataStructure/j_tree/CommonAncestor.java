@@ -3,8 +3,10 @@ public class CommonAncestor {
     // Case involved here
     /**
      * 1: If the current subtree has either one of the nodes, set it appotiate
-     * boolean in the result 2. If the current node has one result on the left and
-     * one on the right, then the current is ansestor 3. else return
+     * boolean in the result
+     * 
+     * 2. If the current node has one result on the left and one on the right, then
+     * the current is ansestor 3. else return
      * 
      */
 
@@ -57,6 +59,34 @@ public class CommonAncestor {
             this.ancestor = ancestor;
             this.isAncestor = isAncestor;
         }
+    }
+
+    // Simpler
+
+    private boolean foundBoth = false;
+
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null) {
+            return null;
+        }
+
+        if (root.val == p.val || root.val == q.val) {
+            return root;
+        }
+
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        if (left != null && foundBoth) {
+            return left;
+        }
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+
+        if (left != null && right != null) {
+            foundBoth = true;
+            return root;
+        }
+
+        return left != null ? left : right;
+
     }
 
 }
