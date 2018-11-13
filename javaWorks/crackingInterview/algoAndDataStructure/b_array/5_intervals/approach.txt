@@ -63,7 +63,7 @@ more: https://www.geeksforgeeks.org/minimum-number-platforms-required-railwaybus
 
 
 ------------------------------------------------------------------------------------------------------------
-Time map technique
+Time map technique: O(n^2)
 ------------------
 Use this either if the intervals are not sorted, or there is a mapping between the start and end like we
 need as max/min at any point of time
@@ -78,5 +78,31 @@ Algorithm is even simple:
 
 for Implementation look in the MaxPersonAlive.java // SocialNetworkTimeLine.java // MinPriceAtAnyInterval.java
 
+
+------------------------------------------------------------------------------------------------------------
+Skyline problem: O(nlogn)
+---------------
+Use this either if the intervals are not sorted, or there is a mapping between the start and end like we
+need as max/min at any point of time
+
+https://briangordon.github.io/2014/08/the-skyline-problem.html
+https://www.youtube.com/watch?v=GSBLe8cKu0s&feature=youtu.be
+
+This is done by Sorting and heap
+
+1.  Create the critical points
+2.  Sort the critical points
+        Corner cases: (point is reduce the effect of addition or removing from the heap)
+            If the start and end of two building are same, then place the Start/higher one first
+                - because that gets picked up first during heap processing and the lesser one can be suppressed
+            If two buildings has the same start, place the higher one first
+                - So we can suppress the effect of the lower one in the heap
+            If the two buildings has the same end, then remove the SMALLER one first
+                - Cause removing the higher one first will affect the heap immediately
+3.  Use a heap (prioity queue or treeMap)
+4.  If we see a start, put that into the heap
+        If the max changed, then create a new interval
+5.  If we see a end, remove its corresponding start from the heap
+        If the max changed, then create a new interval
 
 ------------------------------------------------------------------------------------------------------------
