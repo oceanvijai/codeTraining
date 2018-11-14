@@ -76,7 +76,11 @@ public class CharSearch {
      * 4. First non-repeating character in a stream
      * https://www.geeksforgeeks.org/find-first-non-repeating-character-stream-characters/
      * 
-     * We have two approach here
+     * We have to approach here like LRU cache
+     * 
+     * Use Doubly linked list and addition array to find out which one is the ans at any time 
+     * by looking at the head of linked list
+     * And update it when the modification occurs
      */
 
 }

@@ -35,22 +35,22 @@ public class SuccessorNode {
         public Node parent;
     }
 
-    public Node findSuccessor(Node node) {
-        if (node == null) {
-            return null;
-        }
-        if (node.right != null) { // case 2
-            return getLeftMost(node);
-        }
+    public Node findSuccessor(Node n) {
+        if (n == null) return null; 
 
-        // node.parent != null is for both case 1 and 3
-        // node.parent.right takes care of returning the cade for case 1 and for case 3
-        // it return
-        // the unprocessed super parent
-        while (node.parent != null && node.parent.right == node) {
-            node = node.parent;
+        /* Found right children -> return leftmost node of right subtree. */
+        if (n.right != null) { // case 2
+            return getLeftMost(n);
+        }else{
+            TreeNode q = n; 
+            TreeNode x = q.parent; 
+            // Go up until we're on left instead of right 
+            while (x != null && x.left != q) { 
+                q = x; 
+                x = x.parent; 
+            }
+            return x;
         }
-        return node.parent;
     }
 
     private Node getLeftMost(Node node) {

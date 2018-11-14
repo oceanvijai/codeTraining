@@ -1,5 +1,36 @@
+// Ways to approach
+
+1.    Count - count the number of occurences using array or hashmap
+2.    Sort - Sort and find in the array
+3.    Sum/equation - make equaltions to find the elements
+4.    Bitwise - to get the elements like XOR
+5.    Maker - use the own array and mark its index with -ve value if found
+6.    Runner - linked list cycle find technique
+
+----------
+1.  Count
+    - Count the numbers and put them in array or hashMap snd then process them
+
+2.  Sort
+    - Sort the array and get the missing or repeated 
+    - This is ofcourse O(nlogn) which we will want to avoid
+3.  Sum
+    - Form a equation based on the given inputs 
+    - Then solve the equation by getting the values out of the array
+4.  Bitwise
+    - basically XOR can help in many cases
+
+
+
+------------------------------------------------------------------------------------------------
+
+https://www.geeksforgeeks.org/find-duplicates-in-on-time-and-constant-extra-space/
+https://www.geeksforgeeks.org/find-the-two-repeating-elements-in-a-given-array/
+https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/496/discuss/72846/My-easy-understood-solution-with-O(n)-time-and-O(1)-space-without-modifying-the-array.-With-clear-explanation.
+
+
 Find one number which is not repeated twice
 
-Find one number which is not repeated while other are repeated thrice
 
-https://www.geeksforgeeks.org/find-the-element-that-appears-once/
+Find one number which is not repeated while other are repeated thrice
+    - https://www.geeksforgeeks.org/find-the-element-that-appears-once/

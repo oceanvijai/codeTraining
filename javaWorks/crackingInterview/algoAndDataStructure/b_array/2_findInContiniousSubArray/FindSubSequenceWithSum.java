@@ -36,4 +36,43 @@ public class FindSubSequenceWithSum {
         return result;
     }
 
+
+    // Same with a given sum
+
+    // Now we have two case
+        // 1.   We find the sum straight away 
+        //      - that means everthing before can be counted in the sum
+        //      - Ex: k  3; arr =  1,0,-1,5,-2,5 -> then {1,0,-1,5,-2}
+        //2.    We find (sum - k) in the map
+        //      - that means, the value (sum - k) is already encountered, so find the next index where it was seen
+        //      - Ex: k  3; arr =  8,1,1,1 -> (11-3) = 8 is found in index 0, so take everthing after that {1,1,1}
+
+
+    public int maxSubArrayLen(int[] nums, int k) {
+        
+        Map<Integer,Integer> map = new HashMap<>();
+        
+                
+        int maxLength = 0;
+        int sum = 0;
+        for(int i =0; i < nums.length; i++){
+            sum = sum + nums[i];
+            System.out.println("Sum:" + sum);
+            if(sum == k){
+                if(maxLength < i+1){
+                    maxLength = i+1;
+                }
+            }else if(map.get(sum-k) != null){
+                int len = i - (map.get(sum-k));
+                maxLength = Math.max(maxLength, len);
+            }
+            if( map.get(sum) == null){
+                map.put(sum,i);
+            }
+        }
+        
+        return maxLength;
+        
+    }
+
 }

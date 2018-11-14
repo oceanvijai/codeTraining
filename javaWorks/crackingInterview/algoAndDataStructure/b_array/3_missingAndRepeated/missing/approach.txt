@@ -1,0 +1,8 @@
+Here missing means what is missing
+    - Mostly from 1 to n
+    - Or some are missing in their frequency
+
+So, mostly we can use the array as bit map or so to get the result
+
+
+https://www.geeksforgeeks.org/find-four-missing-numbers-array-containing-elements-1-n/

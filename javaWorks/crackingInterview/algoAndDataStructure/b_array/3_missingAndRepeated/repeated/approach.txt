@@ -1,0 +1,13 @@
+Again, if the elements are not contigious from 1 to n
+
+Then we have very less options, like map or set
+
+IF they are bound bwtween 1 to n, then we have the following techniqies
+
+1.  counting
+2.  equation solve
+3.  XOR
+4.  marking
+5.  runner
+
+look into - FindDuplicateElement.java
