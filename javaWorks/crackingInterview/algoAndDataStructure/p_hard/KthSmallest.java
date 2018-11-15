@@ -77,6 +77,7 @@ public class KthSmallest {
 
             int[] smallest = new int[k];
             int count = a;
+            int threshold = rank(array,k-1);
             for (int a : array) {
                 if (a <= threshold) {
                     smallest[count] = a;
@@ -121,12 +122,12 @@ public class KthSmallest {
         int p = start;
         while (i <= end) {
             if (array[i] <= pivotElement) {
-                swap(arr, p, i);
+                swap(array, p, i);
                 p++;
             }
             i++;
         }
-        swap(arr, p, pivotIndex);
+        swap(array, p, pivotIndex);
         return p;
     }
 
@@ -141,7 +142,7 @@ public class KthSmallest {
         for (int i = left; i <= right; i++) {
             max = Math.max(array[i], max);
         }
-        return maX;
+        return max;
     }
 
 }
