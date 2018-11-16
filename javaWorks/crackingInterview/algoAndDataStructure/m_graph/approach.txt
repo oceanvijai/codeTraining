@@ -1,11 +1,25 @@
 BFS
+    - shortest path
 DFS
-topological sort
+    - cycles
+    -   topological sort
+
+All path -  (Gdrive)
+Strongly connected graph - http://www.geeksforgeeks.org/strongly-connected-components/ (Gdrive)
+
+bipartite - if we can color the graph with two colors without conflicts
+          - can be solved using BFS
+Applications:
+    - Students and the course they take
+    - Sex replationship - male and female sex replationship
+
+
 Prims
-shortest path
-All shortest path
-network flow
 
+-   All shortest path
 
+network flow - (Gdrive)
 
 Bidirectional search (BDS):
+
+https://www.youtube.com/watch?v=FGD18j0FAFg

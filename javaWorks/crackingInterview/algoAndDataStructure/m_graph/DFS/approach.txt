@@ -1,0 +1,21 @@
+DFS: O(v+E) - v - vertices, E - edges
+
+Properties:
+    - Find cycles in a graph
+    - It can produce the tree edges, forward edges, back edges and cross edges
+    - Topological sort in a directed graph
+    - Articulation vertices - a vertex when deleted will make the graph diconnected
+
+Applications:
+    - Job scheduling using Topological sort
+    - build machine etc
+
+
+ Articulation vertices:
+    - Suppose you want to disconnect the graph how would you do it ?
+    - So try deleting one edge and do DFS - O(V(V+E))
+    - 
+
+
+
+https://www.youtube.com/watch?v=AfSk24UTFS8&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=14

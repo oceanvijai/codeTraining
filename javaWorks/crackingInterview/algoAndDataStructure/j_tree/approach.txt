@@ -28,3 +28,7 @@ Serialize and deserialize BST
     To Serialize a BT, we need preorder with null/-1 elements
 Validate if the array is preorder for a BST
 
+----------------------------------------------------------------------------------------------------------
+Selft balancing trees
+    AVL and red black tree
+    - Tree map uses redblack tree

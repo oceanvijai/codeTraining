@@ -1,0 +1,17 @@
+BFS : O(v+E) - v - vertices, E - edges
+    The parent relation with the map is can be used to find the shortest path
+
+Properties:
+    -   In an undirected graph, it is used to find the shortest path
+    -   Find number of connected components
+    -   Find a bipartite graph
+
+Applications
+    - Web crawling
+    - Social network - friend find
+    - grabage collection
+    - Solving puzzle and games
+    - Find a bipartite graph
+
+https://www.youtube.com/watch?v=s-CYnVz-uh4&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=13
+https://www.youtube.com/watch?v=g5vF8jscteo&list=PLOtl7M3yp-DV69F32zdK7YJcNXpTunF2b&index=12
