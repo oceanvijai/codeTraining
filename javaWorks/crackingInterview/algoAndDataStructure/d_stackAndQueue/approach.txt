@@ -1,5 +1,27 @@
+Applications:
+    - stack - to evalution of expression and conversion
+    - min stack
+    - Largest area in a rectangle
+
+    - Monotone queue - sliding window
+
+
+Monotone queue:
+    push: push an element into the queue; O (1) (amortized)
+    pop: pop an element out of the queue; O(1) (pop = remove, it can't report this element)
+    max: report the max element in queue;O(1)
+
+----------------------------------------------------------------------------------------
+
+
 Left outs:
 
 PriorityQueue internal in java and applications as heap
 
 infix, postfix, prefix and expression evalution
+
+
+
+Largest histogram
+Min stack
+arrange students on height problem

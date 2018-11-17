@@ -1,0 +1,51 @@
+A tree formed from a weighted graph, such that the sum of the edges are minimum
+
+-  Properties
+    - The weights are minimum
+
+- Application
+    - find the min wire required to connect every houses
+    - find the number of clusters from a list of given points (Machine learning)
+
+Algorithm: Prims algorithm
+    - Has a Map <distance> to store the min weight of the edge can produce
+    - Has a Map <Parent> to store from where it gets connected to the graph
+    - Has a Set <visited> to store from where it gets connected to the graph
+    - start from a vertex v, update take all its edges
+    - mark it as visited
+    - for every edge u, fill the min in the cost graph and update the parent if necessary (meaning if the parent produced the min weight)
+    - Now from the distance store we get the next discovered minimum unvisited edge
+    - again do the process
+
+    - O (n) for getting the next best vertex * O(e) for every edge where e ~ n
+    - O(n * n) algo
+
+    - But if we use a heap to get the next min discovered vertex, we get a (E logV) 
+        E - E for the edges and everytime it updates the distance heap it does logV in the heap
+        O(1) to get from the heap
+    - If we have a Fibonacci heap
+        O(VlogV + E)
+
+Follow ups:
+1.    Given an MINIMUM spanning tree, add a new EDGE (not vertex) to the tree, such that it remains a MST
+        - A MST is a tree and when we add a egde it creates a cycle
+        - So do a DFS and get the biggest egde in the path of the cycle - O(n)
+        - then again DFS to delete the largest edge - O(n)
+
+2.    If we delete a particular edge from the MST change
+        - if the edge is not part of MST, we have no issues
+        - When a edge gets deleted we get two components O(m+n)
+        - So get the min edge which will connect to the delete edge vertex O(n)
+
+
+https://www.youtube.com/watch?v=ia1L30l7OIg&list=PLOtl7M3yp-DV69F32zdK7YJcNXpTunF2b&index=15
+
+------------------------------------------------------------------------------------------------
+
+kruskals-minimum-spanning-tree:
+    - This can also find the minimum spanning tree as follows
+    - Sort the edges based on the weight
+    - The add every edge such that it does not create a cycle (use UNION FIND or RAND and PATH compression)
+    - Then when are done with v verteices, we are done
+    - O(ElogE) for sorting, O(E log V) for the RANK and PATH COMPRESSION
+    - So, O(ELogE + ELogV) => O(ElogE) or O(ElogV)

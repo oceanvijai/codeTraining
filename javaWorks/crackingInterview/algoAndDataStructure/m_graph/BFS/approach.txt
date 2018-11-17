@@ -5,6 +5,7 @@ Properties:
     -   In an undirected graph, it is used to find the shortest path
     -   Find number of connected components
     -   Find a bipartite graph
+    -   network flow
 
 Applications
     - Web crawling
@@ -12,6 +13,12 @@ Applications
     - grabage collection
     - Solving puzzle and games
     - Find a bipartite graph
+
+bipartite - if we can color the graph with two colors without conflicts
+          - can be solved using BFS
+Applications:
+    - Students and the course they take
+    - Sex replationship - male and female sex replationship
 
 https://www.youtube.com/watch?v=s-CYnVz-uh4&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=13
 https://www.youtube.com/watch?v=g5vF8jscteo&list=PLOtl7M3yp-DV69F32zdK7YJcNXpTunF2b&index=12

@@ -1,8 +1,10 @@
 BFS
     - shortest path
 DFS
-    - cycles
+    -   cycles
     -   topological sort
+    -   Disjoint set: OPTIONAL
+            We can find cycle using disjoint set as well
 
 All path -  (Gdrive)
 Strongly connected graph - http://www.geeksforgeeks.org/strongly-connected-components/ (Gdrive)
@@ -14,12 +16,27 @@ Applications:
     - Sex replationship - male and female sex replationship
 
 
+
 Prims
 
 -   All shortest path
 
-network flow - (Gdrive)
+Dikstra
+
+Traveling sale sman - I think application of backtracking + DFS
 
 Bidirectional search (BDS):
 
 https://www.youtube.com/watch?v=FGD18j0FAFg
+
+
+------------
+
+OPTIONALS:
+
+network flow - FordFulkerson
+    - Augmented path - a path from vertex to sink whoes capacity is min
+                     - This is changing at runtime
+    - capacity - weight of the edge
+    - flow - How much is actulaly flowing through
+    - Resudial capacity - capacity - flow 

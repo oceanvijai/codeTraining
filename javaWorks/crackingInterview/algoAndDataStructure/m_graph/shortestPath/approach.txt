@@ -1,0 +1,30 @@
+shortest path from one to another
+    -   Dijkstra's Algo
+    -   Same a Prime's algo except for one line
+    -   i.e, we need to get a shortest path of a vertex , by also adding the cost of the vertex that connects it
+    
+
+Time: O(EV) or O(V*V) or O(ElogV) with heap or O(VlogV + E) for fibonacci heap
+
+fibonacci heap:
+    - Lazy data structure
+    - It delays certain operation for optimization
+
+
+Bellmen ford Algo:  - This can find the shortest path even if there are -ve weights
+                    - Seems this is similare to Dijkstra which is usign the same distance relation
+                    - Only varies in few conditions
+                    - O(V^2)
+
+All pair shortest path
+    - We can do Dijkstra from every verted to every other O(n^3)
+    - FloydWarshallAllPairShortestPath algo
+        - It has the same O(n^3)
+        - No probelem if -ve weight is present
+        - shortest path from i to j, then its is has a shortest path from i -> k and k -> j
+        - so we have 3 loops, one for k and other two for i and j
+
+K the shortest path:
+    - NP HARD
+    - Dijkstra for k 
+

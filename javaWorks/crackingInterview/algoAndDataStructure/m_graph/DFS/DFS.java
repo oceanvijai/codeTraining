@@ -9,18 +9,20 @@ public class DFS {
         int connectedComponents = 0; // Will tell who many components are there int the graph
         for (int i = 0; i < g.adjancyList.length; i++) {
             if (!visited.contains(i)) {
-                traverseDFS(g,i,visited);
+                parent.put(i, 0);
+                traverseDFS(g, i, visited, map);
                 connectedComponents++;
             }
         }
     }
 
-    private void traverseDFS(Graph g, int startVertex, Set<Integer> visited) {
+    private void traverseDFS(Graph g, int startVertex, Set<Integer> visited, Map<Integer, Integer> map) {
 
         visited.add(startVertex);
         for (Graph.Edge edge : vtx.adjancyList) {
             // if we find a visited vertex here, then we have a cycle
             if (!visited.contains(edge.endVertex)) {
+                parent.put(edge.endVertex, startVertex);
                 traverseDFS(g, edge.endVertex, visited);
             }
         }
