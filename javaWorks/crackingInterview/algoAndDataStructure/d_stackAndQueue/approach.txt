@@ -6,11 +6,12 @@ Applications:
     - Monotone queue - sliding window
 
 
-Monotone queue:
+Max queue:
     push: push an element into the queue; O (1) (amortized)
     pop: pop an element out of the queue; O(1) (pop = remove, it can't report this element)
     max: report the max element in queue;O(1)
 
+- Max stack - https://leetcode.com/problems/max-stack/solution/
 ----------------------------------------------------------------------------------------
 
 

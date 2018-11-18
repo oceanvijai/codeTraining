@@ -1,3 +1,8 @@
 what is rest and its features
 
 create a code to talk to rest end poits by creating a connection
+
+
+https://www.softwaretestinghelp.com/restful-web-services-interview-question/
+https://www.tutorialspoint.com/restful/restful_interview_questions.htm
+https://www.journaldev.com/9193/web-services-interview-questions-soap-restful

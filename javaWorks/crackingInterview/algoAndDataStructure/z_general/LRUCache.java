@@ -81,4 +81,29 @@ public class LRUCache {
         }
     }
 
+
+
+    /**
+     * Using Linked hash map
+     */
+
+    public class LRUCache_JAVA {
+        Map<Integer,Integer> cache;
+        public Solution(int capacity) {
+             cache= new LinkedHashMap<Integer,Integer>(capacity,0.75f,true){
+                 public boolean removeEldestEntry(Map.Entry eldest){
+                     return size()>capacity;
+                 }
+             };
+        }
+        
+        public int get(int key) {
+            return cache.getOrDefault(key,-1);
+        }
+        
+        public void set(int key, int value) {
+            cache.put(key,value);
+        }
+    }
+
 }
