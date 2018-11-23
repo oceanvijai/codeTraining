@@ -1,0 +1,17 @@
+Let say we have an array of numbers and we need to find its sum
+
+This sum can be be a range also, like sum from 3 to 7.
+
+For this we can use a DP sum array to store the sum at every index and do this
+
+But the problem is if, the values change in runtime, we have to do O(n) update
+
+So we can use a Segment tree or Binary Indexed tree
+
+Segement tree can do the update and getSum in O(logn) times
+
+///ly, Binary Indexed tree can also do the same
+
+https://www.youtube.com/watch?v=CWDQJGaN1gY
+
+https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/

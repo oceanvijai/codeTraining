@@ -1,4 +1,9 @@
 class PeekingIterator implements Iterator<Integer> {
+    
+    // Google impl of this
+    // https://github.com/google/guava/blob/6f22af40e1526b8c194e9e36d457bcd37680c6a3/guava/src/com/google/common/collect/Iterators.java#L1121
+    
+    
     Integer next = null;
     Iterator<Integer> myIterator;
 
