@@ -44,7 +44,7 @@ public class ColorSort {
     public void sortColors(int[] nums) {
 
         int l = 0; // everthing left of l is 0
-        int i = 0;
+        int i = 0; // current index 
         int r = nums.length - 1; // everythig right of r is 2
 
         if (nums.length < 2) {

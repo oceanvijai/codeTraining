@@ -76,7 +76,7 @@ public class SumSwap {
             if(diff == target){
                 int[] values = {array1[a], array2[b]}; 
                 return values;
-            } else if(difference < target){
+            } else if(diff < target){
                 a++; // meaning a - b is giving less result, so increase diff only if we increase a in the equation
             } else{
                 b++; // meanng a - b is big. we can reduce the diff is we increase b in the equation
