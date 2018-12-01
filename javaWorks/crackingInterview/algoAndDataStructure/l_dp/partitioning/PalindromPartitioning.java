@@ -1,8 +1,8 @@
 public class PalindromPartitioning {
 
     // The approach has two steps
-    // Step 1: use a 2D array and see In a diagnol fashion search if a starting f
-    // rom one position to another is a palinfrom or not
+    // Step 1: use a 2D array and see In a diagnol fashion search if a starting from
+    // one position to another is a palinfrom or not
     // We can do this by slowly increasign the size of the string and looking for
     // previous size
 

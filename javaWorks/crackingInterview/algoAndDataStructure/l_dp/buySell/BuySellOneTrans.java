@@ -15,6 +15,12 @@ public class BuySellOneTrans {
     // then caclulate the profit with the current price and the min found so far
     // update the ans if required
 
+
+    /**
+     * Important point here is, we are finding two numbers in a array with max difference
+     */
+
+
     public int maxProfit(int[] prices) {
 
         int maxProfit = 0;
