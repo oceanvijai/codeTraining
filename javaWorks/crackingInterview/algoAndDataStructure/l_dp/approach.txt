@@ -14,3 +14,9 @@ Standard algos:
 5.  Longest common sub sequence
 6.  Coin change or permutation
 7.  Evaluate expression - bsaed on the operator make the decidesion on left and right
+
+
+
+Pending:
+https://www.youtube.com/watch?v=vi_1eHCsR9A
+https://www.youtube.com/watch?v=9mod_xRB-O0 (optional)
