@@ -21,7 +21,7 @@ public class PermutedStringCheck{
         return new String(s1).equals(new String(s2));
     }
 
-    // 2: cound the character count in both the strings see if they match
+    // 2: count the character in both the strings see if they match
     // time : n, space: 256 if array/map is used, space is O(1)
 
 }
