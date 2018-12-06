@@ -45,4 +45,30 @@ public class BuySellWithCooldown {
 
         return sell;
     }
+
+    // The above one id derived from
+
+    /**
+     * The below one is not fully complete yet, need to verify corner cases
+     * @param prices
+     * @return
+     */
+
+    public int maxProfit_(int[] prices) {
+
+        if (prices.length <= 1)
+            return 0;
+        int days = prices.length, buy[] = new int[days], sell[] = new int[days];
+        buy[0] = -prices[0];
+        for (int i = 1; i < days; i++) {
+            if (i == 1) {
+                buy[i] = prices[0] - prices[1];
+            } else {
+                buy[i] = Math.max(buy[i - 1], sell[i - 2] - prices[i]);
+            }
+
+            sell[i] = Math.max(sell[i - 1], buy[i - 1] + prices[i]);
+        }
+        return sell[days - 1];
+    }
 }
