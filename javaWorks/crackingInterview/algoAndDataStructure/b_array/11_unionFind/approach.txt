@@ -1,0 +1,7 @@
+where you are asked to group certain elements based on certain citeria
+
+We can map each elemts to a common root/head as we iterate the array 
+And group them 
+
+We can also, other simple approaches like using intelligent hash set and maps to 
+form a simple solution
