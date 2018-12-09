@@ -1,0 +1,95 @@
+A large eCommerce company wishes to list the best-selling products, overall and by
+category. For example, one product might be the #1056th best-selling product overall but the #13th
+best-selling product under "Sports Equipment" and the #24th best-selling product under "Safety."
+Describe how you would design this system. 
+
+----------------------------------------------------------------------------
+Step 1: Requirements
+
+Scope:
+    - We need to have a overall ranking system
+    - We need to have a category wise ranking system
+    - We have same products listed in different category with different rank
+    - Do we need to query this rank, for a year/month/week etc ? and possibly all
+       
+
+Assumptions:
+    - For simplicity we can make it static to a week, like rank it on a data in a week
+    - We can say the data can be a uptodate with a delay of 1 hr
+    - We can assume, we can be 90% accurate on our rank  
+
+----------------------------------------------------------------------------
+Step 2: Solve it
+
+We can use a DB table as follows,
+
+---------------------------------------------------------------
+productId | total | mon | tues | wed | thus | fri | sat | sun |
+---------------------------------------------------------------
+          |       |     |      |      |     |     |     |     |
+
+We can use this like a circular array, and update the total number of purchaes made for every product.
+
+But also, need to compute rank based on category wise. So we need another table with product id and category and 
+join them
+
+But, since joins can be expensive, we can denormalize it, but adding another column called category, since 
+they change less often
+
+-------------------------------------------------------------------------
+productId | category |total | mon | tues | wed | thus | fri | sat | sun |
+-------------------------------------------------------------------------
+          |          |      |     |      |      |     |     |     |     |
+
+
+Now, we can make a query for each category and sort them to get the result.
+
+To push data to this, table, we can do it once in a hour or two as a batch request.
+
+Once, we run the query to get a rank, we can update our cache, which can update the user UI
+
+----------------------------------------------------------------------------
+Step 3: split it
+
+Nothing to split here since we use DB already and it should be find with one DB since
+one DB can hold one row for all the products in the system
+
+----------------------------------------------------------------------------
+Step 4: scale it
+
+The main bottleneck here is querying the DB. espically getting the overall rank
+
+Since,we intend to get rank for each category plus the overall as well, 
+we can first group table based on category and then sort based on the volume/total
+
+But this is a expensive operation as well, instead, we can rethink it in a map reduce way
+Instead of using the DB, we can use hadoop
+
+We create one folder for each category and put a .txt in that for every purchaes made
+When a product belongs to multiple category, put that file to all those folder
+
+Run a hourly job, to consolidate those files in each folder and make it a single file like this
+
+/sportsequipment
+    1423,Dec 13 e8:23 - 0ec 13 e8:23,1
+    4221,Dec 13 15:22-0ec 15 15:45, 5
+/safety
+    1423,Dec 13 e8:23-0ec 13 e8:23,1
+    5221,Dec 12 e3:19-0ec 12 e3:28,19 
+
+So, we have our category wise result,
+Now to get the overall rank, we have two options
+
+1.  have a seperate folder for overall and have a copy of those purchase files (storage inffecient)
+2.  Do a N ways merge
+         - collect the top 100 items from each category and merge them
+         - Since we Decided its ok to have 90% accuracy, its fine to have this
+
+Now the system is more scalable and simple
+
+----------------------------------------------------------------------------
+Step 5: Design and add scalable components
+
+
+
+----------------------------------------------------------------------------
