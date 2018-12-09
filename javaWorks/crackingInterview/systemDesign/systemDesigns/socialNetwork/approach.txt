@@ -52,7 +52,8 @@ In the real world, servers fail. How does this affect you?
 
 How could you take advantage of caching? 
     We can store relevant data which are most likely to be used together
-    Like, cache the current users Ogranisation/place visited and cache those users, which are more probable to be friends
+    Like, cache the current users Ogranisation/place visited and cache those users,
+    which are more probable to be friends
 
 
 Do you search until the end of the graph (infinite)? How do you decide when to give up? 
