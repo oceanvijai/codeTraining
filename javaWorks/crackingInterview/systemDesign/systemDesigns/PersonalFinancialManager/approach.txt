@@ -1,0 +1,55 @@
+Explain how you would design a personal financial manager (like
+Mint.com). This system would connect to your bank accounts, analyze your spending habits, and
+make recommendations. 
+
+----------------------------------------------------------------------------
+Step 1: Requirements
+
+    - We can add or remove bank accounts
+    - We can pull transaction history from the banks
+    - We need to categorise the transactions 
+    - We need to analyse the data based on category and notify/recomend the User
+    - The user can change the transaction category
+
+    - For now we are assuming its a web client
+    - We can notify the user in a day gap, since we cant pull the transaction data real time
+
+----------------------------------------------------------------------------
+Step 2: Solve it
+    - We can easily see this is a write heavy, and users might mostly see it once in a week
+    - Also mostly the users will get email notifications
+    - look into the overall_design.jpeg
+    
+    - Instead of putting all the trans data into the data base, which will be heavy and waste of space
+    - we can put it in a category folder as simple txt files
+    - Then we can use two component one to categorise and other to analyse the budget
+    - see backend_design.jpeg
+
+    - The categoriser will get the transactions data and put it in a folder
+    - This folder is common for all the users
+    - Then, a job can be run to group it according to user
+
+    - Then the budget analyser can cummulate all the data and merge it based on category
+    - We can then update this to the data table
+    - This data can be used to analyse and notify the user accordingly
+
+    - User changing the transaction category can be handled accordingly by removing it from 
+      one and adding it to another
+
+----------------------------------------------------------------------------
+Step 4: scale it
+
+
+----------------------------------------------------------------------------
+Step 5: Design and add scalable components
+    - see overall_design and backend_design images
+
+    Follow up:
+    How would this change if you also needed to support a mobile app? 
+
+    How would you design the component which assigns items to each category? 
+
+    How would you design the recommended budgets feature? 
+
+    How would you change this if the user could develop rules to categorize all transactions from a particular
+    seller differently than the default? 
