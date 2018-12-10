@@ -1,0 +1,37 @@
+ Design a system like Pastebin, where a user can enter a piece of text and get a randomly
+generated URL for public access. 
+
+----------------------------------------------------------------------------
+Step 1: Requirements
+
+    - The system does not support user accounts or editing documents. 
+    - The system tracks analytics of how many times each page is accessed. 
+    - Old documents get deleted after not being accessed for a sufficiently long period oftime. 
+    - While there isn't true authentication on accessing documents, users should not be able to "guess" document URLs easily. 
+    - The system has a frontend as well as an API. 
+    - The analytics for each URL can be accessed through a "stats" link on each page. It is not shown by default,though. 
+
+----------------------------------------------------------------------------
+Step 2: Solve it
+    - We can place the doc/content in the file system, since it can be large and no find operation is done
+    - We can have a DB stroring the URL and the we can place (file server) the document is located
+    - The URL hash will contain the location of the file in the group of servers 
+    - Infact we can skip the DB and straight away, using the hash find the file server
+    - Since dick access is costly, we can cache the popular ones 
+    - Then we need to keep track of analystics about the document
+
+    - Parts - URL generation and analytics
+
+URL generation:
+    - We can use a GUID (ex: SdSOe8ac-S7cb-4aOd-8661-bcdee2S48979)
+    - this is a 128 bit value and chances of colision is less
+
+Analytics
+    - We can either store the entire access logs or,
+    - We can have a DB having the hits values against the URL
+
+----------------------------------------------------------------------------
+Step 4: scale it
+
+----------------------------------------------------------------------------
+Step 5: Design and add scalable components
