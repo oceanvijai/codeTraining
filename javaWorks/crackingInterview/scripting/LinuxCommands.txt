@@ -1,3 +1,13 @@
+
+grep
+cut
+pipes 
+sort
+unique
+head
+tail
+tr
+----------------------------------------------------------------------------------------------------------------------------
 Grep Command
 
     - Grep searches input files for lines containing a match to a given pattern list.
@@ -90,3 +100,17 @@ System ID
 
 ----------------------------------------------------------------------------------------------------------------------------
 
+Head Comamd - To get the first few specified lines of the file
+    - cut fileName.txt | head -5
+Tail command - to get the last few specified lines of the file
+    - cut fileName.txt | tail -5
+
+----------------------------------------------------------------------------------------------------------------------------
+sort    - to sort the list
+unique  - to get only the unique lines, similaire to group by in SQL
+            ~ cat nums.txt | uniq
+            ~ cat nums.txt | uniq - c (returns the unique elements and the count in which they appear)
+
+tr      - To transform the input, like replace the characters with uppercase, numbers to 'x' etc
+            ~ cat data.csv | tr '[a-z][A-Z]' '[A-Z][a-z]'
+            ~ cat data.csv | tr '[0-9]' 'x'
