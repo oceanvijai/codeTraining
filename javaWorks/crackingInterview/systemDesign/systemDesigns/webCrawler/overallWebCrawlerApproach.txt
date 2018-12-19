@@ -1,0 +1,25 @@
+Design a web crawler
+
+------------------------------------------------------------------------------------------
+ Step 1: Requirements
+
+    - web craws which crawls all the sites
+    - When a search query is provided, we can provide search results
+------------------------------------------------------------------------------------------
+ Step 2: Solve
+    - We can have a noSql database to store the list of crawled and non-crawled sites
+    - We can have a crawler service to take an un proccessed link
+        - then load the page, and create an hash
+        - If the hash is already present, lower its priority (handling duplicates)
+        - else place the document in the document service
+    - The document service has a queue, which can take the documents placed in it for processing
+        - It can be used to index the page and make it useful for the query API
+    - The query api can take queries from users and use the query API to get the results
+
+------------------------------------------------------------------------------------------
+ Step 3: Scale it
+    - Now we need to place load balancers and message queues to handle all the load of crawling billion pages
+    - We can also have caches for the most popular queries
+
+------------------------------------------------------------------------------------------
+Step 4: Design and components
