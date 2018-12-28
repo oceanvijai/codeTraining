@@ -1,0 +1,20 @@
+In any database, the chances of working(transaction) on the same data is very high.
+So we need to handle this, to avoid inconsistent state in the data base
+
+violations:
+    - Dirty read - reading before the commit
+    - Non repeated read - getting two different values on reading the same record when a write has altered it
+    - Phanton - When query1 gives two rows for a condtion, another insert might lead to give one more row
+
+Isolation: 
+    - TRANSACTION_READ_UNCOMMITED - Allows all three violations
+    - TRANSACTION_READ_COMMITED - Allows all except dirty read
+    - TRANSACTION_REPEATABLE_READ (default) - allows only phantom violation
+    - TRANSACTION_SERIALISABLE - allows no violation
+
+Concurrency protocols:
+    - Locked based protocols
+        - binary lock
+        - shared/ exclusive lock
+    - Time stamp based protocols
+        - A time stamp is put on the record and checked for every write
