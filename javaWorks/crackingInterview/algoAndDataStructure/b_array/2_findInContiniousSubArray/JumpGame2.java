@@ -18,12 +18,17 @@ public class JumpGame2 {
     /**
      * Approach: Is same as the JumpGame1 one, except we make a count
      * 
-     * 1. get the first the value and see how far it can reach in the array 2.
-     * travel till the farest point found so far 3. On the way see if some other
-     * value is reaching further than the current reach 4. Also if it does reach the
-     * end, if so return true 5. When we arrive at the current reach, see if we have
-     * found something further 6. If so, reset the reach and increment count and
-     * repeate step 1
+     * 1. get the first the value and see how far it can reach in the array 
+     * 
+     * 2. travel till the farest point found so far 
+     * 
+     * 3. On the way see if some other value is reaching further than the current reach 
+     * 
+     * 4. Also if it does reach the end, if so return true 
+     * 
+     * 5. When we arrive at the current reach, see if we have found something further 
+     * 
+     * 6. If so, reset the reach and increment count and repeate step 1
      */
 
     public int jump(int[] nums) {
