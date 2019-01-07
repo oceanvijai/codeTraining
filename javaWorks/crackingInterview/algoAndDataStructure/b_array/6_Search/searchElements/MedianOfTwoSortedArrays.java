@@ -70,9 +70,11 @@ public class MedianOfTwoSortedArrays {
                 } else {
                     median1 = Math.max(a.get(x - 1), b.get(y - 1));
                 }
+
                 if ((m + n) % 2 == 1) {
                     return 1.0 * median1;
                 }
+                
                 if (x == m) {
                     median2 = b.get(y);
                 } else if (y == n) {

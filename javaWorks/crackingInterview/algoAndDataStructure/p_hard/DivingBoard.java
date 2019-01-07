@@ -46,7 +46,7 @@ public class DivingBoard {
 
     // so the DP table looks like this
 
-    //  let say 1 to 6, lets day short is 2 and long is 4
+    //  let say 1 to 6, lets say short is 2 and long is 4
 
     //   | 1 | 2 | 3 | 4 | 5 | 6 |
     // ---------------------------
