@@ -16,6 +16,10 @@ public class ValidateParentheses {
      * An empty string is also valid.
      */
 
+    /**
+     * We use recursion to check all possible cases, when we encounter *
+     */
+
     public boolean checkValidString(String s) {
         return validate(s, 0, 0);
     }
