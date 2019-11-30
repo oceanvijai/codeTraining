@@ -5,10 +5,28 @@ Dont use Data structure or algorithms yet
 ----------------------------------------------------------------------------
 Step 1: Requirements
 
-What core problem is the system solving
-Who are its users
-Key and most important behavious
-important requirements on perforamance and Consistency
+1. What core problem is the system solving
+    - list all the things the system needs to do
+    - narrow down the most important things
+
+2. Who are its users
+    - How/where does the sysem gets the input
+    - Who/how the data is accessed
+
+3. Perforamance, concurency and Consistency
+
+    - performance
+        - How fast does the needs data needs to be collected and stored
+            - How mush data is collected per second
+            - use analystics/monitoring to find the input pattern
+        - How fast is the data needs to be retrived
+             - use analystics/monitoring to find the access patterns
+             - use analystics/monitoring to find the per transaction patterns
+    - concurency
+        - What is concurency of the data injested
+        - What is concurency of the data accessed
+    - Consistency
+        - What is consistency requirements of the system
 
 ----------------------------------------------------------------------------
 Step 2: Solve it
@@ -17,7 +35,20 @@ Solve it assuming all the data is in one machine
 ----------------------------------------------------------------------------
 Step 3: split it
 
-Then start splitting up the data 
+Then start splitting up the data and load
+    - Figure out the 
+        - tire 0 (synchronous realtime like UI) and 
+        - tire 1 (async realtime like OTP) systems
+    - Figure out the rest of the systems
+        - preprossing systems - Eg: crawler for search system to create indexes
+        - processing systems - Eg: Order management service in e-commerce
+        - post processing systems - Eg: Validation, Reporting, notfication, bussiness alerting 
+        - failover systems
+        
+        - Bash systems 
+        - message queues
+        - scheduling sysems
+        - telemetry systems
 ----------------------------------------------------------------------------
 Step 4: scale it
 
