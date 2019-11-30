@@ -1,0 +1,81 @@
+Desgin the facebook live video system
+-----------------------------------------------------------------------------------------------
+1. Requirements:
+Core - A user can share a live video via facebook to a million users worldwide in real time
+Users -
+    - Input - video ingestion is done by a single user
+    - playback/ streaming - playback is shown to a million users distributed worldwide
+PCC -
+    Performance:
+        - The video needs to be uploaded in realtime. LEVEL - LOW
+        - The user pattern suggest the live videos are more in the day time
+
+        - The video needs to be played to a million users in a seconds latency - LEVEL - HIGH
+        - The user pattern is predicatbale. More in the day time
+    Concurency:
+        - Ingestion is done by a single user - LEVEL - LOW
+        - playback is done in high concurency with immutable data (media file) - LEVEL - HIGH
+    Consistency:
+        - The video needs to be uploaded without missing out to avoid jitters. But can tolerate it. LEVEL - MEDIUM
+        - The playback can also have reasonable jitters - LEVEL - MEDIUM
+
+-----------------------------------------------------------------------------------------------
+2.  Solve it
+
+Ingest vedio:
+    - The facebook app uploads the video to the server
+    - The server encodes it to MPEG format and stored
+    - The stored video is breaken down in chunks of seconds and a manifest is maintained
+    - The video is distributed to the viewers by using the current chunk
+
+-----------------------------------------------------------------------------------------------
+3.  Split it
+
+Tire 0: 
+    A server that gets the video, save it for encoding
+Tire 1:
+    A serve that encodes it and saves it to the storage
+
+tire 0:
+    A server that serves the list of viewers with the video from the storage
+
+preprocessing system:
+    - a system that takes the videos and encode + compress for permanent storage
+processing system:
+    - Moves the video to permanent store if required
+prost processing:
+    - None
+Failover
+    - Handled in infra level
+Telemetry system
+    - for logging and monitring
+
+-----------------------------------------------------------------------------------------------
+4. scale it
+
+bottle neck
+    - The most important bottleneck will be the network bandwidth for the playback
+        - partation the load accross multiple POP for more bandwith avalibility
+        - seperate the DC load from POP load
+            - DC with take traffic only from ingestion
+            - POP will take traffic from both ingestion (This can be optimized) and playback
+    - The latence also needs to be very very low to provide a streaming experince
+        - Encoding need to be quickly using paralled processing if required
+        - Caching it in the nearby POP
+    - The playback also needs to be done accross the globe
+        - Again each POP should be capable of independly serving the requests accross globe
+
+Ingestion:
+    The facebook app with send the video to a nearby POP 
+        - point of presence - has only routing and caching servers. No encoding/computing capabilities
+    The video is then forwarded to a Data center, where the encoding is done and stored with a manifest
+    The encoding is done only once but in a parallel to prepare media for various resolutions
+    Therby, we have seperated the compute load from the distribution load
+
+Playback:
+    The playback client connects to a nearby POP of its region and requests for the video playback
+    The POP then asks the DC which has the content. Get it and cache it locally using CDNs if required
+    Other clients which access the same POP will be served from the local cache
+    therby, we seperated the distribution load from compute load.
+
+-----------------------------------------------------------------------------------------------
