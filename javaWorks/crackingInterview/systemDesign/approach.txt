@@ -16,6 +16,8 @@ Step 1: Requirements
         - Eg: booking ola cab is locally and regionally distributed
     - Who/how the data is accessed
         - geo consideration
+        - where data is it created
+        - where data is accessed
 
 3. Perforamance, concurency and Consistency
 
