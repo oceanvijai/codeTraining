@@ -1,0 +1,67 @@
+Uber cab search and tracking - location services
+------------------------------------------------------------------------------------------------------------
+Requirements:
+------------
+1.  When a user opens the app, it should show the list of cars nearby and its ETA
+2.  When we have booker a ride, show the journey in the map with live tracking
+
+Users:
+------
+    -   Customer seeing querying the cars in the current location
+    -   Diver updatig their current location
+    -   This is local - city wise
+    -   The data is created and read in the same location
+
+Performance:
+------------
+booking
+    -   When user opens the app it needs to load the data very quick - read heavy
+    -   The driver updates the location ervery sec - write heavy
+tracking
+    -   The driver updates the location - write heavy
+    -   Time series data
+
+Consistency:
+------------
+    This is out of scope of booking will be different system
+Concurrency:
+------------
+    Looks fine here
+------------------------------------------------------------------------------------------------------------
+Solve:
+------
+    -   The driver needs to update his current location to the system - Write heavy
+    -   The user query the system for the driver in its radius - Read heavy
+    -   It also needs to query it using various attributes - Indexing
+    -   No need to store the old location - only current location is enough
+    -   THIS CAN BE DONE BY AN INMOMERY INDEX DATA STRUCTURE
+
+    -   Once the ride start, the current location needs to be captured - Write heavy
+    -   The load location also needs to be persisted to plot the route - Durable persistence
+    -   The data is read/written in timeseries fashion - by only the driver and the passanger - So not read heavy
+    -   THIS CAN BE DONE USING A APPEND ONLY LOG DATA STORE TO TAKE THE HIGH WRITES
+
+------------------------------------------------------------------------------------------------------------
+SPLIT:
+------
+    -   for booking the data can be stored in an inmemory index
+    -   The index is sharded city wise or product wise which in trurn city wise
+    -   OPTIONALLY - a load balancer kind of system can move around the shards allocation to avoid hotspots
+    -   All are tire 0 -  User and drive apps. The In-memeory sharded system
+
+    -   for tracking -  All data can be put to a data store in timeseries fashion for 
+                        ploating the route map
+    -   Since, the data is required mostly during the trip time, we can cache it as well
+    -   This way live read goes to the cache and write to the DB
+    -   All are tire 0 -  User and driver apps, cache, DB
+
+------------------------------------------------------------------------------------------------------------
+Scale:
+------
+    -   For both read and write heavy applications try using inmemory data structures
+    -   To load balance the read and write load in the tracking app,
+        - put the active data in the cache - read from it
+        - also write it to the store for persistence - This can be write heavy
+
+------------------------------------------------------------------------------------------------------------
+
