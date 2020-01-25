@@ -1,0 +1,49 @@
+1 > loglogn > sqt(n) > 2^logn > n > logn! > nlogn > n^2 > n^3 > 2^n > 4^n > n!(n^n) > 2^2^n
+
+omega(n) - lower bound for an algo time
+            Ex: for time n, any thing lower or equal is omega, but we get the nearest
+
+bigO(n) - upper bound for an also time
+            Ex: for time n, anything equal or greater is upper bound, but we get the nearest
+
+theta(n) - if omega(n) == bigo(n) then we can can say, theta(n) = bigo(n) or omega(n)
+            Manytimes there might not be a theta(n), so we consider only bigo(n)
+            Ex: if f(n) = 5n+1
+                omeage(n) = 1n = n
+                bigO(n) = 5n+1n = n
+                so there both are some so theta(n) = n
+            
+            Ex: 
+
+------------------------------------------------------------------------------------------------
+
+Beast case, average case and worst case are different for time complexities
+We can calcluate time complexites for each of them liks,
+
+best case => omega(n) , theta(n) and bigO(n)
+worst case => omega(n) , theta(n) and bigO(n) etc
+------------------------------------------------------------------------------------------------
+https://www.youtube.com/watch?v=mwN18xfwNhk&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=14
+https://www.youtube.com/watch?v=WlBBTSL0ZRc&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=15
+
+How to know if one running time is better than other,
+
+we can multiply both of them with log and apply log relations to solve them and then compare
+
+ex: 
+    (loglog n)    vs  (sqr(n))
+    multiply by log on both side
+    (logloglog n) vs (log n ^ 1/2)
+    (logloglog n) vs (1/2 * log n)
+    we can easiy say now the (loglog n) <  (sqr(n))
+
+
+ex:
+    (2^logn)    vs  (n)
+    multiply by log on both side
+    (log 2^logn) vs logn
+    (log n log 2) vs (log n)
+    (log n) vs (log n)
+    so, (2^logn) ==  (n)
+
+

@@ -1,0 +1,20 @@
+if the reccurence relation is of the form,
+
+T(n) = a*T(n-b)+f(n), then
+
+if a < 1, 
+        T(n) = f(n) // Since, a*T(n-b) is less than f(n)
+        Ex: T(n) = 0.5 T(n-1) + logn = logn
+            T(n) = 0.4 T(n-2) + n^2 = n^2
+
+   a = 1,
+        T(n) = n * f(n)
+        Ex: T(n) = T(n-1) + logn = nlogn
+            T(n) = T(n-2) + n   = n^2
+   a > 1,
+        T(n) = f(n) * a^n/b
+        Ex: T(n) = 2T(n-1) + logn = 2^n * logn
+            T(n) = 3T(n-4) + n = 3^n/4 * n
+
+
+

@@ -1,0 +1,24 @@
+https://www.khanacademy.org/math/algebra2/x2ec2f6f830c9fb89:logs/x2ec2f6f830c9fb89:log-intro/v/logarithms
+
+Lets say 2^3 = 8 => log 3 = 8 base 2 
+
+i.e, log a base b = x => b ^x = a
+What we say is, what power(x) should I raise to b to get a
+
+So, 
+Log 81 base 3 = x, ie what power of 3 will get me to 81. Which is 4. 
+i.e 3^4 = 81 and log 81 base 3 = 4
+
+///, what is log 1 base 100, ie, what should I raise to 100 to get 1. Which is 0.
+so, in generate log 1 base (anyhting) = 0;
+
+///, log 100 base 100 = 1, since 100^1 = 100.
+
+
+----------------------------------------------------------------------------------------
+usefull relations: important for time complexity calculations
+
+log ab = log a + log b
+log a/b = log a - log b
+log a^b = b log a
+a^ log b base c = b ^ log a base c 

@@ -1,0 +1,49 @@
+https://www.youtube.com/watch?v=9SgLBjXqwd4&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=7
+
+for(int i = 1; i < n; i++) => k = n => O(n)
+for(int i = 1; i < n; i = i+2) => k = n/2 => O(n)
+for(int i = 1; i < n; i = i+3) => k = n/3 => O(n)
+
+for(int i = 1; i < n; i = i * 2) => 2^k = n => O(log n base 2) => O(logn)
+for(int i = 1; i < n; i = i * 3) => 3^k = n => O(log n base 3) => O(logn)
+for(int i = n; i > 1; i = i / 2) =>  n/2^k = 1 => n = 2^k => log n = k =>  O(logn)
+
+for(int i = 1; i * i < n; i++) => i * i = n => O(sqr(n))
+
+for(int i = 1; i < n; i*2) {p++;} and for(int j = 1; j < p; j*2)
+here p = log n and j = log p => O(loglogn)
+
+for(int i = 1; i < n; i++) => i = n => O(n)
+for(int i = 1; i < n; i++) => i = n => O(n)
+
+---------------------------------------------------------------
+complex cases,
+
+int i = 1;
+int m = 1;
+
+while( m < n){
+    m = m + i; // statement 1
+    i++;        // statement 2
+}
+
+Now for this, we do can like this,
+
+statement 1 can has the following nature of execution like,
+
+when i = 1; m = 2 (1+ 1)
+     i = 2; m = 4 ( 1+1+2)
+     i = 3; m = 7 ( 2+2+3)
+     i = 4; m = 11 ( 2+2+3+4)
+     i = 5; m = 16 ( 2+2+3+4+5)
+     i = k; m = n (2+2+3+4+5....+k) => k(k+1)/2
+
+so, statement 1 = k(k+1) / 2
+    statement 2 = k
+    so k^2 as upper bound
+
+then, loop stops at, k^2 = n
+                     k = sqr(n)
+                     so O(sqr(n))
+
+
