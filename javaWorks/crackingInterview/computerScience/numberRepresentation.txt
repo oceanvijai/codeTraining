@@ -1,0 +1,44 @@
+The complement system is mainly to represent NEGATIVE numbers in binary form, so that representation is 
+useful in binary operations like addion and subraction
+
+Lets take a number, 3 in a 3 bit number
+binary -> 011
+
+to represent -3, we make the last bit a 1.
+binary -> 111
+
+But if you do binary addition of 3 and -3, we wont get zero
+
+0 1 1
+1 1 1
+------
+0 1 0  and a carry 1
+------
+
+So, we need to represent -3 in 2complements
+
+
+one's complement is just fliping the bit,
+---------------
+so -3's one complement is -> 011 -> 100 (1's complement of 3)
+
+
+two's complement, is adding one to one's complement
+----------------
+100
+001
+---
+101
+---
+
+So now -3 is represented as 101.
+
+Lets add them,
+
+011 -> 3
+101 -> -3
+---
+000 -> 0 with a carry which we ignore
+---
+
+https://www.youtube.com/watch?v=lKTsv6iVxV4

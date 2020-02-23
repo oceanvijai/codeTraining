@@ -1,0 +1,103 @@
+https://www.youtube.com/watch?v=zxb8DvLUqcM
+
+bit - 1
+1 bytes - 8 bits => This is the bucket size of the memory in RAM
+1 KB - 1024 byte
+1 MB - 1024 KB
+1 GB - 1024 GB
+1 TB - 1024 TB
+
+Apart from these,we have WORD
+This is the size of the instruction in a computer architecture
+Meaning, set of bits to represent a instruction in a processor
+The number of bits is called word length, word width
+
+-------
+Java
+
+bit:
+----
+1/0 - 1 bit => 2^n, where n is the number of bits, we get 2^1 = 2
+
+byte:
+-----
+one memory in RAM is 1 byte. All other data types are represented as collection of bytes
+Why is it byte choosen to represent a memory size ?
+See bottom in byte addressing
+
+Then, 2^n -1 => n = 8 => 2^8 -1 => 256 
+For signed numbers we use the following,
+2^n-1 - 1 => 2^7 -1= 127 , so -128 t0 127  
+
+short
+-----
+2 byte or 16 bits, so n = 16 
+2^n -1 => 2^16 -1 => 65535 => 
+2^n-1 -1 => -32,768 to 32,767
+
+
+int:
+---
+4 bytes or 32 bit => n = 32
+or,  2^31 to 2^31 -1 for signed numbers
+
+
+long:
+----
+8 bytes 0r 64 bit
+
+float:
+------
+float is also 32 bit, it stores the decimal in different format unlike int
+Let's say the value is -50.6238
+We can represent it as M * base ^ exponent (M- mantisa, base here is 2 and exponent is the power)
+In the 32 bit, first bit is for the sign, 0 for +, -1 for the -ve numbers
+The next 8 bits is for the exponent, exponent is calculated as follows,
+    Divide 50.6238 by 2(base) until it become like 1.xxxx, 
+    the number of times it got divided is the value for exponent
+    Then subtract it with the bias (127, 255 for 64 bit float) and 2 complement it
+    Then convert it into a 8 bit binary number
+The remaining 23 bit is for the matisa or the number right of 1.xxxx, those xxx values
+
+Not sure if I can remember it.
+
+double:
+-------
+double takes 64 bit for its representation
+
+boolean:
+--------
+i bit is enough
+
+
+Char:
+----- 
+A char is a number(int) from one of the encodings like ascii, UTF 8, etc
+So it can take from 1byte/8bit to up to 6byte/48 bit memory
+
+encoding:
+ascii - I think 8bit/1 byte/single memory location is enough
+UTF-8 - uses the first byte to store all english characters, the remaining bytes to map the rest of the languages
+unicode - represented in hexa decimal - which will map all english within 127 and after 128 using complex stuffs
+
+
+Hexa decimal:
+-------------
+How is hexa decimal stored in memory 
+
+byte addressing vs word addressing:
+----------------------------------
+WE have two types for machines.
+1.  Word machines
+    The memory is addresssed/divided based on the words size (32 for a 32 bit processor and 64 for a 64 bit processor)
+    Good for scientific,engineering and gaming instructions
+    Bad for text processing, since usually char is only a byte
+2.  Byte machines
+    The meomory is divided/addressed based on a fixed size, moslty 8bit/1byte nowadays
+    Ideal for text processing
+    This is succesfull than the word addressing because, the computers needs to do text processing than 
+    scientific calculations every day, like HTML rendering and word editing.
+
+https://en.wikipedia.org/wiki/Byte_addressing
+https://www.geeksforgeeks.org/difference-between-byte-addressable-memory-and-word-addressable-memory/
+https://www.youtube.com/watch?v=HE8MCxW0uss

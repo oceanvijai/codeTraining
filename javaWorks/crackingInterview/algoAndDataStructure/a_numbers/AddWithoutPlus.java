@@ -56,7 +56,7 @@ public class AddWithoutPlus {
     }
 
     int add_iteratively(int a, int b) {
-        while (b != e) {
+        while (b != 0) {
             int sum = a ^ b; // add without carrying
             int carry = (a & b) << 1; // carry, but don't add
             a = sum;

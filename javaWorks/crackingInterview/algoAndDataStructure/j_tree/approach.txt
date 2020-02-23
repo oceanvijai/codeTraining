@@ -6,6 +6,12 @@ use stack and queue with mix of the above traversals
 
 -------------------------------------------------------------------------------------------------------
 In validating BST, Inorder with duplicates is a issue, sicnce we dont know from which leaf it came from
+                    - This is because the duplicates in the resulting sorted array may have come from left or right. 
+                      But for a valid BST we cannot have same value to its right
+
+BST with duplicates: We can add the duplicates to the right or left or keep a count in every node
+
+-------------------------------------------------------------------------------------------------------
 
 Inorder property : Will mostly give you the same result for different tree structure in case of BST
 pre porder : will give you different result for same BST with different structure, which is good for classification

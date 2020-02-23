@@ -1,0 +1,51 @@
+binary number
+-------------
+
+int to binary
+-------------
+key dividing it by 2 and remember the reminder
+
+binary to int
+-------------
+add in powers of 2
+
+binary addition
+---------------
+1+1 = 10
+1+0 = 1
+0+1 = 1
+1+1+1 = 11
+
+binary subraction
+-----------------
+1-0 = 1
+0-1 = 1 borrow 1
+1-1 = 0
+0-0 = 0
+
+When a zero borrows it becomes 10 -> 2 -> 2-1 = 1
+When a zero is borrowed twice, it first become 10 -> 2 and then become 1.
+
+
+binary multiplication
+---------------------
+This is similar to decimal multiplication, and fun
+
+https://www.youtube.com/watch?v=Va_UvwJULcI
+
+binary division
+---------------
+This will be crazy, forget it
+
+https://www.youtube.com/watch?v=ubCCemtuZH8
+
+binary opreations:
+------------------
+
+OR
+AND
+~
+EXOR
+left shift
+right shift
+

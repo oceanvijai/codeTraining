@@ -15,6 +15,11 @@ public class JumpGame2 {
      * last index.
      */
 
+
+     /**
+      * This is really a DP problem. But can be optimized as follows
+      */
+
     /**
      * Approach: Is same as the JumpGame1 one, except we make a count
      * 

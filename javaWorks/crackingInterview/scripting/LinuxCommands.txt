@@ -7,6 +7,11 @@ unique
 head
 tail
 tr
+
+test
+top
+stop
+
 ----------------------------------------------------------------------------------------------------------------------------
 Grep Command
 
@@ -114,3 +119,8 @@ unique  - to get only the unique lines, similaire to group by in SQL
 tr      - To transform the input, like replace the characters with uppercase, numbers to 'x' etc
             ~ cat data.csv | tr '[a-z][A-Z]' '[A-Z][a-z]'
             ~ cat data.csv | tr '[0-9]' 'x'
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+

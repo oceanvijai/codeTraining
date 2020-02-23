@@ -5,6 +5,8 @@ public class BinaryTreeIndexSum{
 	 * https://www.topcoder.com/community/data-science/data-science-
 	 * tutorials/binary-indexed-trees/
 	 * 
+	 * https://www.youtube.com/watch?v=CWDQJGaN1gY
+	 * 
 	 * Example: given an array a[0]...a[7], we use a array BIT[9] to
 	 * represent a tree, where index [2] is the parent of [1] and [3], [6]
 	 * is the parent of [5] and [7], [4] is the parent of [2] and [6], and
