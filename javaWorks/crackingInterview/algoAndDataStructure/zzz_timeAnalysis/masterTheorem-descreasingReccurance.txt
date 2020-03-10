@@ -4,17 +4,49 @@ T(n) = a*T(n-b)+f(n), then
 
 if a < 1, 
         T(n) = f(n) // Since, a*T(n-b) is less than f(n)
-        Ex: T(n) = 0.5 T(n-1) + logn = logn
-            T(n) = 0.4 T(n-2) + n^2 = n^2
+        Ex: T(n) = 0.5 T(n-1) + logn    => logn
+            T(n) = 0.4 T(n-2) + n^2     => n^2
 
    a = 1,
         T(n) = n * f(n)
-        Ex: T(n) = T(n-1) + logn = nlogn
-            T(n) = T(n-2) + n   = n^2
+        Ex: T(n) = T(n-1) + logn    => nlogn
+            T(n) = T(n-2) + n       => n^2
    a > 1,
-        T(n) = f(n) * a^n/b
+        T(n) = f(n) * a^n/b // usually where there are exponential series
         Ex: T(n) = 2T(n-1) + logn = 2^n * logn
             T(n) = 3T(n-4) + n = 3^n/4 * n
 
+------------------------------------------------------------------------------------------------
+// Alternatively
+we can deduce for simple cases as below,
+
+Lets say, T(n) = 2T(n-1) + 1
+What is T(n-1), => T(n-1) = 2T(n-1-1) + 1 => 2T(n-2)+1
+
+substitute in the above cases, 
+            T(n) = 2 (2T(n-2)+1) + 1 
+                => 4T(n-2)+3
+
+What is T(n-2), => T(n-2) = 2T(n-2-1) + 1 => 2T(n-3)+1
+
+substitute in the above cases, 
+            T(n) =  4 (2T(n-3)+1) + 3 
+                => 8T(n-3)+7
+
+if you see the trend, we get
+            T(n) = 2^k T(n-k) + (2^k-1)
+
+When T(1) = 1 => n-k = 1 => n = k
+
+therefore, T(n) = 2^n T(1) + 2^n -1 => 2 * 2^n => 2^n
+
+///ly, if we apply threom, a = 2, b = 1, f(n) = 1
+so, a > 1, T(n) = f(n) a^n/b => 1 * 2^n/1 => 2^n
 
 
+------------------------------------------------------------------------------------------------
+// lets take another example
+T(n) = 2T(n-1) + n^2
+
+here the substitution math will be complex, becauseof n^2
+so, apply threom direclty

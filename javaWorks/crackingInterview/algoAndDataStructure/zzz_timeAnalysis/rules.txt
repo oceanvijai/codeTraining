@@ -1,0 +1,4 @@
+1.  We can ignore the constants if its added or multiplied
+
+2.  We cannot ignore the contstant, if it raises to a range like,
+    2^n, where 2^n needs to considered as part of time

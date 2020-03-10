@@ -26,6 +26,7 @@ worst case => omega(n) , theta(n) and bigO(n) etc
 https://www.youtube.com/watch?v=mwN18xfwNhk&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=14
 https://www.youtube.com/watch?v=WlBBTSL0ZRc&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=15
 
+------------------------------------------------------------------------------------------------
 How to know if one running time is better than other,
 
 we can multiply both of them with log and apply log relations to solve them and then compare
@@ -45,5 +46,6 @@ ex:
     (log n log 2) vs (log n)
     (log n) vs (log n)
     so, (2^logn) ==  (n)
+------------------------------------------------------------------------------------------------
 
 

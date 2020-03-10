@@ -1,0 +1,7 @@
+Use common sense
+
+For loops find the number of iterations
+
+For recursion, either apply Divide or Subraction theorem
+
+For simple cases, can apply substition technique

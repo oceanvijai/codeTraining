@@ -1,9 +1,20 @@
 https://www.youtube.com/watch?v=9SgLBjXqwd4&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=7
 
+// Approach
+
+Suppose we have a loop like this,
+
+for(int i = start; i <= upperBound; i = i + Increment)
+Pay attention to "Increment" factor and "upperBound" and how quick or slow we reach "upperBound" for every value of i
+Also pay attention to start if its a inner loop
+
+
+// addition series
 for(int i = 1; i < n; i++) => k = n => O(n)
 for(int i = 1; i < n; i = i+2) => k = n/2 => O(n)
 for(int i = 1; i < n; i = i+3) => k = n/3 => O(n)
 
+// power/fraction series
 for(int i = 1; i < n; i = i * 2) => 2^k = n => O(log n base 2) => O(logn)
 for(int i = 1; i < n; i = i * 3) => 3^k = n => O(log n base 3) => O(logn)
 for(int i = n; i > 1; i = i / 2) =>  n/2^k = 1 => n = 2^k => log n = k =>  O(logn)
@@ -17,33 +28,14 @@ for(int i = 1; i < n; i++) => i = n => O(n)
 for(int i = 1; i < n; i++) => i = n => O(n)
 
 ---------------------------------------------------------------
-complex cases,
+// nested
+---------------------------------------------------------------
 
-int i = 1;
-int m = 1;
-
-while( m < n){
-    m = m + i; // statement 1
-    i++;        // statement 2
+for (int i = 1, i <= n; i = i * 2){ // i increase in power series, O(log n)
+    for (int j = 1, i <= n; j=j+2){ // j increase linear, O(n/2) = O(n)
+        print("");
+    }
 }
 
-Now for this, we do can like this,
-
-statement 1 can has the following nature of execution like,
-
-when i = 1; m = 2 (1+ 1)
-     i = 2; m = 4 ( 1+1+2)
-     i = 3; m = 7 ( 2+2+3)
-     i = 4; m = 11 ( 2+2+3+4)
-     i = 5; m = 16 ( 2+2+3+4+5)
-     i = k; m = n (2+2+3+4+5....+k) => k(k+1)/2
-
-so, statement 1 = k(k+1) / 2
-    statement 2 = k
-    so k^2 as upper bound
-
-then, loop stops at, k^2 = n
-                     k = sqr(n)
-                     so O(sqr(n))
-
-
+Ans: O(n logn)
+---------------------------------------------------------------

@@ -1,0 +1,58 @@
+if the reccurence relation is of the form,
+
+T(n) = a* T(n/b) + n^k log^p n, consider (a* T(n/b)) as LEFT and (n^k log^p n) as RIGHT
+
+if (log a base b) < k, 
+        then LEFT is negligible, so consider only RIGHT
+        In RIGHT, if p >= 0,  T(n) = n^k log^p n = f(n)
+                  if p <0,    T(n) = n^k // since log^p n is negligible
+
+if (log a base b) > k, 
+        then RIGHT is negligible, so consider only LEFT
+        T(n) = n^(log a base b)
+
+if (log a base b) = k, 
+        then we need to consider both the sides. This is tricy, so try to memorize if possible
+        if p > -1, then T(n) = n^ (log a base b) log^p+1 n
+        if p = -1, then T(n) = n^ (log a base b) loglog n
+        if p < -1, then T(n) = n^ (log a base b)
+------------------------------------------------------------------------------------------------
+
+Examples,
+
+    T(n) = 3T(n/2) + n^2,
+    a = 3, b = 2, k=2
+    so (log 3 base 2) < 2
+    so case 1, p = 0, therefore => T(n) = n^2 log^0 n => O(n^2)
+
+------------------------------------------------------------------------------------------------
+
+    T(n) = 2^n T(n/2) + 1
+    // We cannot apply threom since a is not constant
+
+------------------------------------------------------------------------------------------------
+Alterntively we can do substititions,
+
+T(n) = 3T(n/3) + 1
+
+What is T(n/3) => 3T(n/9) + 1
+substituing it, T(n)= 3 (3T(n/9)+1) + 1
+                    = 9T(n/9) + 4
+
+What is T(n/9) => 3T(n/27) + 1
+substituing it, T(n)= 9 (3T(n/27) + 1) + 4
+                    = 27 * T(n/27) + 13
+
+So we get something like, T(n) = 3^k T(n/3^k) + kc
+
+on base case, n/3^k = 1 => 3^k = n => k = (log n base 3)
+substituing it, T(n) = 3^(log n base 3) * 1 + (log n base 3)c
+                     = n + log n * c, since 3^(log n base 3) = n
+                     = O(n)
+
+Doing the same with theorem,
+                    here, a = 3, b = 3, k = 0
+                    log 3 base 3 = 1 > 0 
+                    so, apply case 2,
+                    T(n) = n^(log a base b) => n^1 
+                    = O(n) 

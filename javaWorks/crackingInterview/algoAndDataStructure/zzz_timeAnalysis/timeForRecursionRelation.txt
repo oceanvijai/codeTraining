@@ -1,0 +1,96 @@
+// let find out the complexity of binary search
+
+binarySearch(n){
+    mid = n/2; // constant time
+
+    if(mid greater than value){
+        binarySearch(mid) // T(n/2)
+    }else{
+        binarySearch(mid) // T(n/2)
+    }
+}
+
+so, T(n) = T(n/2)+1
+-------------------------------------
+by therom, a = 1, b=2,k = 0 => log 1 base 2 > 0 
+            => T(n) = n^(log 1 base 2) 
+            => log(n)
+-------------------------------------
+by substition,
+    T(n) = T(n/2)+1
+    T(n) = T(n/4)+2
+    T(n) = T(n/8)+3
+    ..
+    T(n) = T(n / (2^k)) + k
+
+When T(1) = 1 => n / (2^k) = 1 => n = 2^k => k = log n
+    T(n) = T(1) + log n 
+    T(n) = O(log n)
+
+------------------------------------------------------------------------------------------------
+// let find out the complexity of merge sort
+
+mergeSort(n)
+    mergeSort(n/2) // T(n/2)
+    mergeSort(n/2) // T(n/2)
+    merge(n)       // T(n)
+
+-------------------------------------
+By therom, T(n) = 2T(n/2) + n
+            a = 2, b=2, k = 1 => log 2 base 2 == 1
+            so case 3, here p = 0 > -1
+            so T(n) = n^ (log a base b) log^p+1 n
+                    = n^1 log^1 n
+                    = n log n 
+-------------------------------------
+By substition, T(n) = 2T(n/2) + n
+
+what is T(n/2) = 2T(n/4) + n/2
+substition, T(n) = 2 (2T(n/4)+(n/2)) + n
+                 = 4 T(n/4) + 2n
+
+what is T(n/4) = 2T(n/8) + n/4
+substition, T(n) = 4 (2T(n/8)+ (n/4)) + 2n
+                 = 8T(n/8) + 3n
+
+By that trend, T(n) = 2^k T(n/2^k) + kn
+base, T(1) = 1 => n/2^k = 1 => k = log n
+substition, T(n) = 2^log n T(1) + (logn * n)
+                 = n + n log n
+                 = n log n
+
+------------------------------------------------------------------------------------------------
+// let find out the complexity of quick sort
+
+quickSort(n)
+    partition(n) // T(n)
+    quickSort(pivot) // worst case pivot is the lastelement, so T(n-1)
+    quickSort(pivot) // if pivot is the last element, this call will be T(0) = 1
+
+so, T(n) = T(n-1)+n
+-------------------------------------
+By therom,
+    We can apply subract theorm,
+
+Divide, a=1, b =1, k =1 => a = 1
+        T(n) = n^K+1 
+             = n^2
+-------------------------------------
+By substition, T(n) = T(n-1) + n
+
+what is T(n - 1) = T(n - 2) + n -1
+substition, T(n) = T(n - 2)+(n - 1)) + n
+                 = T(n - 2) + 2n
+
+
+what is T(n - 2) = T(n - 3) + n - 2
+substition, T(n) = T(n - 3)+(n - 2)) + 2n
+                 = T(n - 3) + 3n
+
+by that trend, T(n) = T(n-k) + kn
+
+base case T(1) = 1 => n-k = 1 => k = n
+ substition, T(n) = T(0) + n * n 
+                  = n^2
+
+------------------------------------------------------------------------------------------------
