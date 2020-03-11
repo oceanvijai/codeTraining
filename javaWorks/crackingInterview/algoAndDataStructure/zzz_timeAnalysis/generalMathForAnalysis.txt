@@ -11,21 +11,157 @@ log^x n = (log n)^x
 log x/y = log x - log y
 
 2^log n = n 
-because, lets say (2^log n = x) =>  (log n = log x) => (n = x) => (2^logn = n)
+PROOF, lets say (2^log n = x) =>  (log n = log x) => (n = x) => (2^logn = n)
 
+for to find the log of any base in calculator
+formula is, log a base b = log a base 10 / log b base 10
+
+PROOF: lets say log a base b = x => a = b^x
+        Apply log on both side, log a = log b^x
+                                log a = x log b
+                                x = log a / log b
+
+https://www.youtube.com/watch?v=boIZQ_kB85s
+https://www.youtube.com/watch?v=1PBwJOC7nNg
+------------------------------------------------------------------------------------
 // Arithmetic series
 
 1 + 2 + 3 + 4 +.....n = n(n+1)/2
-
+------------------------------------------------------------------------------------
 // Geometric series
 
 1 + x + x^2 + x^3 .... x^n = (x^x+1 - 1)/ (x -1)
 
+1 + ax + ax^2 .... + ax^(n-1) = a(x^n - 1)/ (x - 1)
+
+1 + 2^1 + 2^2 + 2^3.... 2^(n-1) = 1(2^n - 1)/2-1 =2^n -1
+------------------------------------------------------------------------------------
 // harmonice series
 
 1 + 1/2 + 1/3.... 1/n = log n (approximate)
+------------------------------------------------------------------------------------
+https://www.youtube.com/watch?v=8RRo6Ti9d0U
 
-// 
+N! & nPr & nCr - easy
 
-1 + 2^1 + 2^2 + 2^3.... 2^n = 2^n+1
+n!:
+---
+suppose we have 3 different items, and we need to find the permutation of those 3, we can say
+For the first position we have ALWAYS, 3 choices
+For the second position we have ALWAYS, 2 choices, since any one is pick in the last choice
+For the third position we have ALWAYS, 1 choice, since two will be picked in a anycase befor this.
 
+Not for the total number of permutations we need to multiple them. Why they lets say we have two items 
+and we need to find hw may ways we can mix, them. We need to multiply them, similar way,
+
+we need to multiply all our choices, like 3 * 2 * 1 = 6 = n!
+
+nPr: This is about n different items and we have only x slots to fill them. Where n > x and order is important
+----
+
+Ex: we have 5 colors but only 3 places to use it. Here can arrange,
+C1 C2 C3
+C2 C3 C4
+C3 C4 C5
+C1 C3 C4
+...
+C3 C2 C1 // where you can see the first line and this line have same color but in different order
+....
+
+For, for the first palce, we will have 5 choices
+for, the second place we will have 4 choices
+for, the third palce we have 3 choices
+
+so the total permutations will be 5 * 4 * 3 
+How to make a formula for this, is 5 ! = 5 * 4 * 3 * 2 * 1
+But we dont want 2 * 1 = which is 2 !
+
+so 5P3 = 5! / 2! = n! / (n-r)!
+
+nCr: This is the same as nPr except the order DOES NOT matters.
+----
+Ex: we have 5 colors but only 3 places to use it. Here can arrange,
+
+C1 C2 C3
+C2 C3 C4
+C3 C4 C5
+C1 C3 C4
+.....
+
+C3 C2 C1 // is not allowed since the same items are there already
+....
+
+So, all we have to do is find nPr and remove what ever is extra.
+The extra is the number of lets say, we can arrage r items in r! ways. But we need ony one ways to arrage it,
+so, remove r! from nPr
+
+so, nCr = cPr/ r! = n!/ (n-r)! * r!
+------------------------------------------------------------------------------------
+Condradiction:
+--------------
+We can prove a a statement is TRUE, but first assuming the statement is FALSE and 
+proving then proving the assumtion is false, so the original statement is TRUE
+
+Ex: we know, Rational numbers are any number in the form r = a/b
+    The statement to PROVE is that there is no smallest rational number greater than zero
+    Can we find a smallest rational number greater than zero ?
+
+Lets first assume, x is a rational number which is the SMALLEST OF ALL RATIONAL number greater than zero. where x > 0.
+Now if we divide x by 2, we are say the resulting fraction should be,
+    1.  a rational number
+    2.  It should be greater than zero
+    3.  But it will be lesser than x
+But we just assumed x is the smallest of all rational number. So THERE IS A CONTRADICTION
+So, we can say there cannot be a SMALLEST RATIONAL number that is greater than zero.
+
+https://www.youtube.com/watch?v=qZ736F8ljYU
+
+
+------------------------------------------------------------------------------------
+Pigeon hole principle
+---------------------
+Suppose we have n different items, and if we need to make sure atleast we pick ONE PAIR of any of the types,
+We need n+1 pciks
+
+------------------------------------------------------------------------------------
+Induction
+---------
+
+Proving by induction is a saying that a statement is true for all values of n
+We have two steps:
+    1.  First prove the statement is true for n =1 (BASIS)
+    2.  Prove that id the statement is true for n = k, then it is TRUE for n = K+1 (INDUCTION)
+
+Ex: statement is f(n) = 3^n -1 is ALWAYS TRUE where n >= 1
+    How do you prove it ? By induction
+
+Lets use induction,
+    Basis, f(1) = 3^2 -1 = 2 = EVEN 
+    Induction, we assume f(k) = 3^k -1 = EVEN
+               then,     f(k+1) = 3^(k+1) - 1
+                                = 3 * 3^k - 1
+                                = (2+1) * 3^k - 1
+                                = 2*3^k + 3^k -1
+                                = (2*3^k)+(3^k -1)
+                                = (EVEN) + (EVEN)
+                         f(k+1) = EVEN
+
+    Hence we PROVE by principle of mathetical Induction that,
+                        f(n) = 3^n -1 is EVEN is a TRUE statement
+
+
+
+
+------------------------------------------------------------------------------------
+Probability
+-----------
+
+lets say, P(A) in N is, P(A) = a/N, where a is the number of times A is possible in N
+lets say, P(B) in N is, P(B) = b/N, where b is the number of times B is possible in N
+
+If A and B are mutually exclusive, that is A and B cannot appear together,
+then P(A & B) = P(A) + P(B)
+
+If A and B are not mutually exclusive, then Probability of them is
+P(A & B) = P(A) + P(B) - P(AB), here P(AB) is the number of ways A and B intersect
+ 
