@@ -1,26 +1,9 @@
-public class Prime{
+public class Sieve{
 
-
-    // check is the given number is prime
-
-    public boolean isPrime(int p){
-        if (p < 2) { 
-            return false;
-        }
-        int sqrt = (int) Math.sqrt(p); 
-        for(int i = 2 ; i < sqrt; i++){
-            if(p % i ==0){
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-
-    // get the next prime number
+        // get all prime numbers till N
     
-    // the approach here is, all non prime numbers are divisble by prime
+    // the approach here is, sieve of eratosthenes
+    // all non prime numbers are divisble by prime
     // we can can make a array and mark all the poistions (numbers as positions) which are divisiable by the primes
     // So generate as much as array as you want and finally check for the next prime you want in that array
 
@@ -55,6 +38,13 @@ public class Prime{
     }
 
 
-
+    /**
+     * We can optimize it to O(n) as follows,
+     * 
+     * We do this by visiting a index only once
+     * 
+     * https://www.geeksforgeeks.org/sieve-eratosthenes-0n-time-complexity/
+     * 
+     */
 
 }

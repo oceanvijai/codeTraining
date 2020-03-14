@@ -1,1 +1,4 @@
 Use the basic math and if required come with equaltions
+
+- any even number can be represented as a product of two prime number
+- 
