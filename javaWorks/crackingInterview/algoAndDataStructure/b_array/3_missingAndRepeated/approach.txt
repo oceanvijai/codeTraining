@@ -3,7 +3,9 @@
 1.    Count - count the number of occurences using array or hashmap
 2.    Sort - Sort and find in the array
 3.    Sum/equation - make equaltions to find the elements
-4.    Bitwise - to get the elements like XOR
+4.    Bitwise 
+		- to get the elements like XOR
+		- sometimes count the individual bits and see if mod will work
 5.    Maker - use the own array and mark its index with -ve value if found
 6.    Runner - linked list cycle find technique
 
@@ -19,6 +21,15 @@
     - Then solve the equation by getting the values out of the array
 4.  Bitwise
     - basically XOR can help in many cases
+    - If lets say we have a array where all elements repeat 3 times, but one number does not repeat
+    	- In this case we can count each bit positions and mod it with 3. We will get 1 for the number/bit which came just once
+5.	Maker
+	See if we use the input array and encode in some form show we can know if its visited or not.
+	Most simple form of encoding can be making it -(value)
+	But this can be done only if numbers in the array are in the range of the length of the array.
+
+6.	The need to use it only if we are asked not to modify the input array
+
 
 
 

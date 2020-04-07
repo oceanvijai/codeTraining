@@ -29,6 +29,13 @@ public class FindNonRepeatingNumbers {
 
      /**
       * 3: https://www.geeksforgeeks.org/find-the-element-that-appears-once/
+      * This is actually simple
+      * 
+      * Approach is, one each bit location count the number if bits and mod 3
+      * So the number(bits) which repeated 3 times gets mod out and only one bit remains. Store its bit value
+      * Do the same for all the bit locations and finally form a number with these bit locations
+      * 
+      * https://www.youtube.com/watch?v=mHfvInveXDQ
       */
 
 }
