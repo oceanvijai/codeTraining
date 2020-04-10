@@ -141,5 +141,26 @@ public class FindDuplicateElement {
     }
 
 
+// interview bit 
+    /* Why does this work?
+First figure out why there will be a cycle when traversing the way we are.
+Also, why will the duplicate element be at the start of the cycle?
+slow moves 1 step at a time, while fast moves two steps at a time.
+Variables:
+x is the distance from the start of list to the start of cycle.
+y is the distance from the start of cycle to where the slow and fast meet.
+z is the disctance from the meeting point to the start of the cycle.
+distance travelled by fast = x + n(y + z) + y  (n is an integer >= 1)
+Also, distance travelled by fast = 2 * distance travelled by slow.
+Distance travelled by slow = x + y
+2(x + y) = x + n(y + z) + y
+x + y = n(y + z) 
+x = (n - 1)(y + z) + z
+Now when we reset slow to 0 and make it travel x distance, fast will travel 
+(n - 1) times around the circle + the distance z. Since fast was already at distance y
+when we started moving them again it will now reach the start of the cycle. 
+*/
+
+
 
 }
