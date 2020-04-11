@@ -32,8 +32,9 @@ public class MinStack2 {
         if (stack.isEmpty()) {
             min = -1L;
         } else if (val < 0) {
-            // previously val = x - prevMin, and currMin = x;
-            // So, prevMin = currMin - val;
+            // we need to find the previous min
+            // At this position, val = x - min; where min = previous min and x = current min
+            // so, val = curMin - prevMin => prevMin = curMin - val
             min = min - val;
         }
         System.out.println("now Min: " + min);
@@ -45,7 +46,7 @@ public class MinStack2 {
         }
 
         long val = stack.peekFirst();
-        if (val < 0) {
+        if (val < 0) { // where min appeared
             return (int) min;
         } else {
             long x = val + min; // previously, val = x - min, so now

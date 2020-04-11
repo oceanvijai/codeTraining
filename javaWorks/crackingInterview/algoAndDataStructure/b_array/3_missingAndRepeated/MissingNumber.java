@@ -51,7 +51,7 @@ public class MissingNumber {
         ArrayList<Bitlnteger> zeroBits = new ArrayList<Bitlnteger>(input.size() / 2);
 
         for (Bitlnteger t : input) {
-            if (t.fetch(column) == e) {
+            if (t.fetch(column) == 0) {
                 zeroBits.add(t);
             } else {
                 oneBits.add(t);
