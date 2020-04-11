@@ -8,6 +8,7 @@
 		- sometimes count the individual bits and see if mod will work
 5.    Maker - use the own array and mark its index with -ve value if found
 6.    Runner - linked list cycle find technique
+7.    Moore's voting algorithm
 
 ----------
 1.  Count
@@ -29,6 +30,9 @@
 	But this can be done only if numbers in the array are in the range of the length of the array.
 
 6.	The need to use it only if we are asked not to modify the input array
+
+7.  If the repeated elements are the majority (in order of n/2), then cancel each repeating element with other numner
+    - Finally only the majority element will be left out
 
 
 
