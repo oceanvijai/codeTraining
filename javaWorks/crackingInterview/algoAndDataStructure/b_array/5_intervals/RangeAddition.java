@@ -11,6 +11,8 @@ public class RangeAddition {
      * 
      * 
      * Input: length = 5, updates = [[1,3,2],[2,4,3],[0,2,-2]] Output: [-2,0,3,5,3]
+     *
+     * Kind of time line technique
      */
 
     public int[] getModifiedArray(int length, int[][] updates) {
@@ -20,9 +22,9 @@ public class RangeAddition {
             int start = update[0];
             int end = update[1];
 
-            res[start] += value;
+            res[start] += value; // update start of the interval
 
-            if (end < length - 1)
+            if (end < length - 1) // update end of the interval
                 res[end + 1] -= value;
 
         }

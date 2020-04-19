@@ -41,10 +41,10 @@ public class HotelBooking {
                 guests--;
                 departIndex++;
             }
-        }
 
-        if (guests > maxGuests) {
-            maxGuests = guests;
+            if (guests > maxGuests) {
+                maxGuests = guests;
+            }
         }
 
         if (maxGuests > K) {
