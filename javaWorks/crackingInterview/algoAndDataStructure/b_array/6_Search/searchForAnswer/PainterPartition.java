@@ -24,8 +24,9 @@ public class PainterPartition {
      * 
      * L : A List which will represent length of each board
      * 
-     * Input : K : 2 T : 5
-     * 
+     * Input : 
+     * K : 2, 
+     * T : 5
      * L : [1, 10]
      */
 
