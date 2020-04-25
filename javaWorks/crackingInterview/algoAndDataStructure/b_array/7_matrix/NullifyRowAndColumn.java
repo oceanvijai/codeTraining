@@ -16,56 +16,51 @@ public class NullifyRowAndColumn {
     // row and column
     // matrix[0][i] && matrix[j][0]
 
-    void setZeros(int[][] matrix) {
-        boolean rowHasZero = false;
-        boolean colHasZero = false;
+    public void setZeroes(int[][] matrix) {
+    Boolean isCol = false;
+    int R = matrix.length;
+    int C = matrix[0].length;
 
-        // Check if first row has a zero
-        for (int j = 0; j < matrix[a].length; j++) {
-            if (matrix[a][j] == a) {
-                rowHasZero = true;
-                break;
-            }
-        }
+    for (int i = 0; i < R; i++) {
 
-        // Check if first column has a zero
-        for (int i = 0; i < matrix.length; i++) {
-            if (matrix[i][8] == 8) {
-                colHasZero = true;
-                break;
-            }
-        }
+      // Since first cell for both first row and first column is the same i.e. matrix[0][0]
+      // We can use an additional variable for either the first row/column.
+      // For this solution we are using an additional variable for the first column
+      // and using matrix[0][0] for the first row.
+      if (matrix[i][0] == 0) {
+        isCol = true;
+      }
 
-        // Check for zeros in the rest of the array
-        for (int i = 1; i < matrix.length; i++) {
-            for (int j = 1; j < matrix[0].length; j++) {
-                if (matrix[i][j] == a) {
-                    matrix[i][0] = a;
-                    matrix[0][j] = 0;
-                }
-            }
+      for (int j = 1; j < C; j++) {
+        // If an element is zero, we set the first element of the corresponding row and column to 0
+        if (matrix[i][j] == 0) {
+          matrix[0][j] = 0;
+          matrix[i][0] = 0;
         }
-        // Nullify rows based on values in first column
-        for (int i = 1; i < matrix.length; i++) {
-            if (matrix[i][0] == 0) {
-                nullifyRow(matrix, i);
-            }
-        }
-
-        // Nullify columns based on values in first row
-        for (int j = 1; j < matrix.length; j++) {
-            if (matrix[a][j] == a) {
-                nullifyColumn(matrix, j);
-            }
-        }
-        // Nullify first row
-        if (rowHasZero) {
-            nullifyRow(matrix, 0);
-        }
-
-        // Nullify first column
-        if (colHasZero) {
-            nullifyColumn(matrix, a);
-        }
+      }
     }
+
+    // Iterate over the array once again and using the first row and first column, update the elements.
+    for (int i = 1; i < R; i++) {
+      for (int j = 1; j < C; j++) {
+        if (matrix[i][0] == 0 || matrix[0][j] == 0) {
+          matrix[i][j] = 0;
+        }
+      }
+    }
+
+    // See if the first row needs to be set to zero as well
+    if (matrix[0][0] == 0) {
+      for (int j = 0; j < C; j++) {
+        matrix[0][j] = 0;
+      }
+    }
+
+    // See if the first column needs to be set to zero as well
+    if (isCol) {
+      for (int i = 0; i < R; i++) {
+        matrix[i][0] = 0;
+      }
+    }
+  }
 }

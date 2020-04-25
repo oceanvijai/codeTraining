@@ -43,6 +43,8 @@ public class PainterPartition {
   
   
     public int paint(int availablePainter, int timePerUnit, ArrayList<Integer> boards) {
+        // for now lets assume board of length 1 takes 1 unit of time.
+        // so the length of board will be the time taken, later we can fix it by multiplying it with our  timePerUnit
         int maxTime = 0;
         int minTime = Integer.MIN_VALUE;
 
@@ -57,7 +59,7 @@ public class PainterPartition {
 
         while (start <= end) {
             long mid = (start + (end - start) / 2) % 10000003;
-            if (isPossible(mid, availablePainter, timePerUnit, boards)) {
+            if (isPossible(mid, availablePainter, boards)) {
                 ans = mid;
                 end = mid - 1;
             } else {
@@ -68,8 +70,7 @@ public class PainterPartition {
         return (int) ((ans * timePerUnit) % 10000003);
     }
 
-    private boolean isPossible(long proposedTimeLimit, int availablePainter, int timePerUnit,
-            ArrayList<Integer> boards) {
+    private boolean isPossible(long proposedTimeLimit, int availablePainter,ArrayList<Integer> boards) {
         int numberOfPainters = 1;
         long time = 0;
         for (Integer length : boards) {
