@@ -20,3 +20,5 @@ Standard algos:
 Pending:
 https://www.youtube.com/watch?v=vi_1eHCsR9A
 https://www.youtube.com/watch?v=9mod_xRB-O0 (optional)
+
+https://leetcode.com/discuss/general-discussion/662866/dp-for-beginners-problems-patterns-sample-solutions
