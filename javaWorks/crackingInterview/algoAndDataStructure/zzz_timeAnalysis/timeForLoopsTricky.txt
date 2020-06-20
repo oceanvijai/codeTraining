@@ -55,7 +55,7 @@ for (int i = 1, i <= n;){
 
 // This is very similare to the upper one except the i = i + k, when you see closly
 so, 
-i = i, inner loop executes k times
+i = 1, inner loop executes k times
 i = k, inner loop executes k times
 i = 2k, inner loop executes k times
 ...
