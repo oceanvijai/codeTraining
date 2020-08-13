@@ -9,5 +9,6 @@ IF they are bound bwtween 1 to n, then we have the following techniqies
 3.  XOR
 4.  marking
 5.  runner
+6. Binary search
 
 look into - FindDuplicateElement.java

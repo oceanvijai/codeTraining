@@ -168,4 +168,40 @@ public class FindDuplicateElement {
 
 
 
+    /**
+        using binary search
+        Use it when we should not modify the array and it should be O(1) extra space 
+        and range is 1 to n
+    **/
+
+    public int findDuplicate(int[] nums) {
+        int start = 0;
+        int end = nums.length -1;
+    
+        // Here we take the range and narrow it down by counting
+        while(start < end){
+            int mid = (end+start) / 2;
+            int count = countLessThan(nums,mid);
+            if(count > mid){
+                end = mid;
+            }else{
+                start = mid+1;
+            }
+        }
+    
+        return start;
+    }
+    
+    private int countLessThan(int[] nums, int i){
+        int count = 0;
+        for(int num : nums){
+            if(num <= i){
+                count++;
+            }
+        }
+        return count;
+    }
+
+
+
 }
