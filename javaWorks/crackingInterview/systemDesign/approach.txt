@@ -19,6 +19,8 @@ Step 1: Requirements
         - where data is it created
         - where data is accessed
 
+Write down an simple API contract 
+
 3. Perforamance, concurency and Consistency
 
     - performance
@@ -38,10 +40,12 @@ Step 1: Requirements
 Step 2: Solve it
 
 Solve it assuming all the data is in one machine
+HIGH LEVEL DESIGN
 ----------------------------------------------------------------------------
-Step 3: split it
+Step 3: split it and scall along
 
 Then start splitting up the data and load
+1. Decide and design the data base and how we store it - Scalable in nature
 1. Figure out the 
     - tire 0 (synchronous realtime like UI) and 
     - tire 1 (async realtime like OTP) systems
@@ -59,11 +63,12 @@ Then start splitting up the data and load
     - Does the input pattern local or international
     - Does the access pattern local or international
 ----------------------------------------------------------------------------
-Step 4: scale it
+Step 4: Validate it
 
 1.  Identity the most important bottlenecks and fix it
 2.  Optimize every decesion taken so far
 3.  Apply the scalability patterns
+4.  Point out tools of the trade for each steps
 
 Do the bit/byte calculation for the estimate
 The total load
