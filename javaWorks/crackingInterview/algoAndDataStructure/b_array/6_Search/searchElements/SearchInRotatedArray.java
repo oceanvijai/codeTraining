@@ -25,11 +25,10 @@ public class SearchInRotatedArray {
         
         while (start <= end){
             int mid = (start + end )/ 2;
-            System.out.println(mid);
             
             if(nums[mid] == target){
                 return mid;
-            }else if(nums[mid] <= nums[end]){ // we are in piovt or its right
+            }else if(nums[mid] < nums[start]){ // we are in piovt or its right
                 if(target > nums[mid] && target <=nums[end]){
                     start = mid+1;
                 }else{
@@ -42,6 +41,10 @@ public class SearchInRotatedArray {
                     start = mid+1;
                 }
             }
+        }
+        
+        if(start >= 0 && start < nums.length && nums[start] == target){
+            return start;
         }
         
         return -1;
