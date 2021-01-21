@@ -1,7 +1,13 @@
 Use common sense
 
 For loops find the number of iterations
+	- Infact count the number of times, the lines inside the loop executes
 
-For recursion, either apply Divide or Subraction theorem
+For recursion, 
+	- First try recursion tree
+		- When we plot the recursion tree, 
+		- In each level, find if there are any linear operations happening.
+		- Then count the number of end/leaf nodes and also in every base condtion what is the operation cost O(1) or O(n)
+	- Second either try induction or masters theorem
 
 For simple cases, can apply substition technique
