@@ -17,13 +17,15 @@ Algorithm: Prims algorithm
     - Now from the distance store we get the next discovered minimum unvisited edge
     - again do the process
 
-    - O (n) for getting the next best vertex * O(e) for every edge where e ~ n
+    - O (n) for getting the next best vertex * O(e) for every edge where e = n in worst case.
     - O(n * n) algo
 
-    - But if we use a heap to get the next min discovered vertex, we get a (E logV) 
-        E - E for the edges and everytime it updates the distance heap it does logV in the heap
+    - But for a sparse grap(edges are linear to the vertices)
+    - If we use a heap to get the next min discovered vertex, we get O(logV E) or O(E logV) 
+        E - E for the total umber of edges
+        LogV - For everytime it updates (delete and add) the vertex heap it does logV in the heap
         O(1) to get from the heap
-    - If we have a Fibonacci heap
+    - If we have a Fibonacci heap - Lazy data structure
         O(VlogV + E)
 
 Follow ups:
@@ -45,7 +47,52 @@ https://www.youtube.com/watch?v=ia1L30l7OIg&list=PLOtl7M3yp-DV69F32zdK7YJcNXpTun
 kruskals-minimum-spanning-tree:
     - This can also find the minimum spanning tree as follows
     - Sort the edges based on the weight
-    - The add every edge such that it does not create a cycle (use UNION FIND or RAND and PATH compression)
+    - The add every edge such that it does not create a cycle (use UNION FIND or RANK and PATH compression)
     - Then when are done with v verteices, we are done
     - O(ElogE) for sorting, O(E log V) for the RANK and PATH COMPRESSION
     - So, O(ELogE + ELogV) => O(ElogE) or O(ElogV)
+
+
+------------------------------------------------------------------------------------------------
+Prims vs kruskals
+
+If the graph is not connected (two or more componets), then kruskals will find the min span tree in all the connected componets.
+Prims will not do that
+
+
+------------------------------------------------------------------------------------------------
+UNION FIND 
+
+It is a simple set operation for graph.
+Using this we find, min span tree and detect cycles.
+We can detect cycles and remove them froom the graph as well.
+We can find connected componets
+
+
+First sort all the edges based on some parameter/weight (optional)
+Pick one edge after the other.
+See to which set vertices of the curret edge belongs to. If there are no set create a new one. 
+If they belong to two different set. Perform union of the set.
+If the belong to the same set, then there is a cycle. Ignore the edge.
+
+------------------------------------------------------------------------------------------------
+Rank and Path compression
+
+It is the same as above (UNION FIND), instead of set, we achieve it though parent relation.
+First sort the edges
+Pick edges one by one.
+Decide a parent for the picked vertcies. 
+For every edge, find if it has a new parent of can be attached to an existing parent.
+This parent child relation will form a tree.
+When merging two trees, picking the one with the most child.
+If a edge has two vertex from the same parent, then its is cycle.
+Repeat until all edges are processed
+
+This can be implemented using linked list or better an array.
+
+https://www.youtube.com/watch?v=wU6udHRIkcc
+
+
+
+
+

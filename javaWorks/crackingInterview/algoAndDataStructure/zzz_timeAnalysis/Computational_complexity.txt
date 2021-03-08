@@ -1,0 +1,57 @@
+Computational complexity
+
+P 	- 	There are problems which can be solved on polynomial time.
+	-	They are quick to solve and verify
+
+EXP	-	Are problems which can be solved in exponetial time
+		So we have a set P, which is a subset of EXP. Meaning most of the problems can be solved in EXP time.
+
+
+NP 	-	Non-deterministic polynomial algorithms.
+		We take an exponential algorithm and find the lines/logic which make them exponential and say it will be running in polynomail/constant.
+		How ? its just magic or non-deterministic or lucky guessing algorithms
+		So the idea is, the NP problems can be solved in polynomial, if those magic/non-deterministic part is somehow solvable in constant time
+	-	They are quick to verify and slow solve
+
+NP HARD 		-	Are the NP problem which are the hardest ones. If we solve NP HARD. We can solve all NP.
+				-	They are slow to verify and slow to solve
+NP COMPLETE 	- 	Any porblem which is both NP and NP HARD is NP complete
+					We can prove a problem is NP-COMPLETE by REDUCING one NP-COMPLETE problem to another
+
+
+----------------------------------------------------------------------------------------------------------------------------
+How is knapsack NP COMPLETE ?
+
+This is an intresting proposal.
+We can do knapsack in polynomial time using dynamic programing.
+So the time will be O(NW), where nn is the number of items and W is the weight
+So we put N as rows and W as columns
+
+The clain is that for some VERY VERY large values of W. like W=2^N or even higher, then the algorithm is said to run in exponential time.
+Because, we have a really really large number of columns (Note that this happens becasue the DP version of knapsack depends on W as columns, and not someother param).
+
+Solving with this huge value is a different problem.
+Let we can tolerate some amount of error in the answer. Then we can do the following.
+Lets divide each of the column value by some number x (say x = 3)
+So, the column with value 6 and 7 will produce 2. So we can group those colums together.
+So the number of columns reduces.
+So the colums will be (w/3) => (w/x)
+So the time complexity becomes O(N * W/x)
+The error in the answer depends on the value of x.
+
+
+
+Also, this is proved by REDUCTION
+We can say the knapsack is similaire to subset sum (Given list of integers, see if we can get a subset with a target sum)
+subset sum can also be solved in polynomial time. 
+So we REDUCE subset sum to annother problem, namely the 3SAT 
+3SAT ? seems to be NP COMPLETE
+So the remaining 2 are also NP COMPLETE.
+
+
+https://www.youtube.com/watch?v=2ObLMmsGuNE&list=PLAwxTw4SYaPl4bx7Pck4JWjy1WVbrDx0U&index=397
+
+----------------------------------------------------------------------------------------------------------------------------
+Links:
+https://www.baeldung.com/cs/p-np-np-complete-np-hard
+https://www.youtube.com/watch?v=moPtwq_cVH8&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=23

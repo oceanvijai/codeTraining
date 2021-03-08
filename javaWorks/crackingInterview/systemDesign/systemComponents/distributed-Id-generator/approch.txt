@@ -1,0 +1,86 @@
+1. Requirement
+
+* Design an distributed ID generation system
+* It needs to be sortable by time
+* It needs to be 64 bit
+
+
+* Highly scalable like - 10,000 unique ids per second
+
+
+2. Design
+
+Option 1: 
+	DB sequences. 
+	Works well for a single DB or table (hi Lo algorithm)
+	Fails for a distributed, sharded system.
+
+Option 2:
+	Time - epoch time
+	Simple and sortable.
+	Works for a single DB or table.
+	Fails for a distributed, sharded system.
+
+Option 3: UUID
+
+	UUID looks like "123e4567-e89b-12d3-a456-426614174000" which are just canonical textual representation.It is a 32 hexadecimal digits and 4 hypes
+	UUIDs are actually 128bits.And comes in 4 varitions. 
+	Works well
+	Sortable
+	Works well for distributed system.
+	But
+
+
+In storage, it a 16 bytes == 128 bits
+If we generate 100,000,000 IDs per day. Then
+128bits * 100_000_000 -> 12_800_000_000 bits ->  1_600_000_000 bytes -> 1_562_500 KB -> 1525 MB -> ~ 1.5 GB 
+So 1.5 GB, just for storing IDs
+
+Option 4: Nano ID ?
+
+	- Seems big in size and reducing size will decrease uniquness
+
+Option 5: Centralized ID generator.
+	- Works well for distributed ens.
+	- But performance is bad
+	- Single point of failure
+
+Option 6: Twitter Snow flake:
+
+The 64 bit is segmented as follows,
+
+bit 1 			- Ignored for sign purpose
+next 42 bits 	- custom epoch (look below). 69 years.
+next 10 bits	- Machine/node id
+next 12 bits 	- Sequence number rolled over after 4096.
+
+Default epoch 
+epoch = 0,  when time was (January 1, 1970 12:00:00 AM)
+
+When epoch = 2199023255551, then time will be (September 7, 2039 3:47:35 PM)
+
+why epoch = 2199023255551, 2^41 = 2199023255551
+
+
+Custom epoch
+epoch = 0, when time was (Nov 3, 2010 1:42:00 AM) actual epoch will be 1288748520000
+
+Why this date. May be this is when the snow flake was launched on twiter.
+
+When epoch = 2199023255551, then time will be (July 9, 2080 5:29:35.551 PM) actual epoch will be 3487771775551 (1288748520000 + 2199023255551)
+
+So we just need to get the value as (current epoch - 1288748520000)
+
+
+When will the Twitter Snow flake create duplicates.
+	- If a SINGLE system, gets more than 4096 requests in a MILLISECOND.
+		- This is less likely to happen for two reason.
+		- The pratical limit for a 16 core machine is around 1 MILLION requests per sec. So 4,096,000 MILLION request is not possible.
+		- Before it reaches this limit, the network will fail due to traffic.
+	- If a system restarts with a old clock time.
+		- how to fix this ?
+
+
+
+
+https://www.youtube.com/watch?v=aLYKd7h7vgY

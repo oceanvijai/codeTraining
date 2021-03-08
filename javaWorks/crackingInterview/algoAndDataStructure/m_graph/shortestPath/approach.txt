@@ -1,7 +1,10 @@
 shortest path from one to another
-    -   Dijkstra's Algo
+    -   Dijkstra's Algo (Greedy)
     -   Same a Prime's algo except for one line
     -   i.e, we need to get a shortest path of a vertex , by also adding the cost of the vertex that connects it
+
+    -   Problem with Dijkstra is that it is does not work if there is a -ve edge.
+    -   It MAY produces wrong results with -ve edges
     
 
 Time: O(EV) or O(V*V) or O(ElogV) with heap or O(VlogV + E) for fibonacci heap
@@ -10,20 +13,67 @@ fibonacci heap:
     - Lazy data structure
     - It delays certain operation for optimization
 
+-----------------------------------------------------------------------------------------------------------------------------------
 
-Bellmen ford Algo:  - This can find the shortest path even if there are -ve weights
-                    - Seems this is similare to Dijkstra which is usign the same distance relation
-                    - Only varies in few conditions
-                    - O(V^2)
+Bellmen ford Algo (DP):  - This can find the shortest path even if there are -ve weights (With one exception. If there is a cycle in the graph
+                      and if the sum of the weights of the cycle is -ve, then it will produce wrong results)
 
-All pair shortest path
+Algo:
+    -   So we must find shortest distance using ALL the edges for N-1 times.
+    -   Initially all the vertices has distance as MAX.
+    -   Now pick ALL the edges (Note that we dont just pick edges based on any vertx, we pick ALL)
+    -   Now lets say the edge is {5,9} with weight 10.
+    -   Then if (distance[5] + 10) < distance[9], we update distance[9]
+    -   So after one iteration, we might has setup the distance for each vertex. But they are pre mature.
+    -   Now start again picking all the edges and try to get a min distance for every vertx.
+    -   This we do for N-1 times.
+    -   Why stop at N-1, because after N-1 iteration there will be no change, unless it has a cycle with -ve sum.
+
+    -   Time complexity O(V E) - V -> number of vertices, E - Total number of edges (Total, not just from a single vertx)
+        Now if its a complete graph, then every vertex pair will have an edge, which is total V^2 edges
+        So we can say the time is O(V * V^2) = O(V^3) = O(N^3)
+
+
+Problems:
+    -   If a graph has a cycle and if the sum of the vertices in the cycle add up to a -ve number.
+    -   Then the distance keeps on changing even after V-1 iteration.
+
+https://www.youtube.com/watch?v=FtN3BYH2Zes&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=53
+-----------------------------------------------------------------------------------------------------------------------------------
+Multistage graph (DP)
+    -   What is a multistage graph
+    -   A graph has a start and end vertex.
+    -   In between we have several stages
+    -   And in each stage, the vertices point only to the next stage vertices. Forward only. Just like a Neural network.
+    
+    -   Now in this type of network, we need to find the shortest path
+    -   We can use dynamic programing
+
+    -   We start from the reverse, something like bottom up.
+    -   In the last but one stage, all vertices will have edges only to the end vertx.
+    -   So the cost of the vertx st stage N-1 is the weight of the edges
+
+    -   Now when we step back one stage.
+    -   The cost of each vertx v1, is the min of {edges cost of the other vertex v2 in the edge + cost(currentStage + 1, V2)}
+    -   So we do this for every vertex in that stage and proceed further till we reach the start
+
+    Time: (Ve) , where e is the degree of each vertx.
+
+
+https://www.youtube.com/watch?v=9iE9Mj4m8jk&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=47
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+All pair shortest path (DP)
     - We can do Dijkstra from every verted to every other O(n^3)
     - FloydWarshallAllPairShortestPath algo
         - It has the same O(n^3)
         - No probelem if -ve weight is present
         - shortest path from i to j, then its is has a shortest path from i -> k and k -> j
         - so we have 3 loops, one for k and other two for i and j
+        - If there is a -ve cycle edge, then the diagonals of the matrix will have -ve number instead of zero. Refer the code.
 
+-----------------------------------------------------------------------------------------------------------------------------------
 K the shortest path:
     - NP HARD
     - Dijkstra for k 

@@ -1,0 +1,44 @@
+Desgin the google authorization system (Zanzibar)
+-----------------------------------------------------------------------------------------------
+1. Requirements:
+	
+	- Single system which takes care of authorizing all apps like gmail, calander, photos etc
+	- Single system so all apps can follow the same sematics while doing authorization
+	- Single system so objects shared between apps can be easy, like photo shared via gmail.
+	- Given a userId and ObjectId, needs to tell if its accessible
+	- All Google apps will be using it
+
+	- Consistent - All apps needs to see the same access
+	- scalable - millions, its google
+	- available - Again needs to be available to the max
+	- latency - not more then 10ms
+	- Geo distributed
+
+	API:
+	USER<Read_USER,Write_USER,OWNER..etc> get_authorised(userId, objectId)
+	void authorised(userId, objectId, [bitmap_array])
+
+2.	Solve
+	- Lets say all data is on one machine
+	- Lets say I am the owner of a photo, I have full access.
+		- We can have a bit map which when did bitwise op will produce a result.
+		- Example: photo 1: View access 01111 (first zero if can be viewed by everyone, 
+												second owner, thrid for shared people, fourth for apps and so on)
+				   photo 1: Edit access 01101 (first zero if can be edited by everyone, and so on) 
+				   photo 1: Delete access 01000 (first zero if can be deleted by everyone, second only by owner) 
+
+				   Each object will have a list of user access bit map
+				   Owner will probably have all bit as 1
+				   Other users will have bits view, edit and other access bits
+			New when a userId and objectId is provided, we need to get the object bit maps and do bit operations.
+
+		- Its object {user1:[1111,1234,123], user2:[1111,1234,123]}
+		- Key value store,more like cassadra where object and user can be primary keys
+
+3.	Scale
+		- In memory cache it. 
+		- pre fetch 
+		- batch fetch
+		- 
+
+4.	
