@@ -1,5 +1,23 @@
 BFS : O(v+E) - v - vertices, E - edges
-    The parent relation with the map is can be used to find the shortest path
+    How ? 
+    -   Inside the while loop, we pop each vertex V times. 
+    -   Then after that we iterate all the edges, that is d (degree of each vertex), which in total is E
+    Ex: the code is like this,
+
+        while(!queue.isEmpty()){
+            pop the next vertex
+
+            for(All the edges){
+                // do some constant time work
+                // 2E for undirected graph and E for directed graph
+            }
+        }
+
+        So the (pop the next vertex) will be executed a total of V times
+        The (do some constant time work) will be executed a total of E times
+        Since, both are in same level, V + E
+    
+The parent relation with the map is can be used to find the shortest path
 
 Properties:
     -   In an undirected graph, it is used to find the shortest path

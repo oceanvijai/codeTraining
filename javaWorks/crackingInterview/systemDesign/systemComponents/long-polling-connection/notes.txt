@@ -1,0 +1,9 @@
+Long conection polling is used as a replacement for the web sockets. Because the websockets are sometimes blocked by firewalls are all the client might not support websockets.
+
+But long poll conections are basic HTTP requests, backed by event sourcing in client side.
+In server side, they can be achieved many ways. One way is AKKA actors.
+
+https://youtu.be/yqc3PPmHvrA?t=534
+https://engineering.linkedin.com/blog/2016/10/instant-messaging-at-linkedin--scaling-to-hundreds-of-thousands-
+https://www.baeldung.com/akka-actors-java#:~:text=Akka%20is%20an%20open%2Dsource,how%20we%20can%20kill%20them.
+

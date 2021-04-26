@@ -1,4 +1,23 @@
 DFS: O(v+E) - v - vertices, E - edges
+    How ? 
+    -   Inside the DFS recurstion, we visit V vertices 
+    -   Then in DFS recurstion we try all the edges. Which is d (degree of each vertex), which in total is E
+    Ex: the code is like this,
+
+        DFS(parmas){
+            
+            mark the current vertx a visited // contant time, which is executed V times
+
+            for(All the edges of this vertex){
+                // do some constant time work, which is executed at most E times.
+                // 2E for undirected graph and E for directed graph
+            }
+        }
+
+        So marking the current vertx a visited will be executed a total of V times
+        The (do some constant time work) will be executed a total of E times
+        Since, both are in same level, V + E
+
 https://www.youtube.com/watch?v=AfSk24UTFS8&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=14
 https://youtu.be/S23W6eTcqdY?list=PLOtl7M3yp-DV69F32zdK7YJcNXpTunF2b
 
