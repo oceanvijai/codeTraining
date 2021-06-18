@@ -1,0 +1,57 @@
+Twitter snowflake
+
+What is snowflake id generator ?
+
+	It is a unique id generator for any usecase. Just like UUID.
+
+When do we use it ?
+	Lets say we use UUID to generate unique ids for for records in the data base table.
+	So a UUID is a 128 bit value. So lets say we generate a 1lakh records per day, which is very minimal,
+	Then how much memory is used to store just the unique ids
+
+	128 / 8 => 16 byte => 0.015 MB
+	0.015 * 1,00,000 => 1562 MB => 1.5 GB
+
+	So to just store a primary key for a recods we needs 1.5 GB per day. So how can we reduce it.
+
+	Options:
+		Nano Id ?
+			Some hardware way
+
+		Simple DB sequence generator
+			Hi/low algorithm ?
+			Is predictable, and also fails in distributed environemnt
+
+
+So we got snowflake:
+
+	- It is a 64 bit long value.
+	- The first 42 bit is the time stamp. It can be custom epoch, from where we start generating the IDs
+	- The next 5 bits, is form the Worker ID (System ID)
+	- The next 5 bits, is from the thread ID
+	- The remaining 12 is a sequece number from range 0 to 4096 which also looks around
+
+So, when does snowflak would create a duplicate id
+	- In the same milisecond (the first 42 bits)
+	- The same machine
+	- The same thread
+	- Server more than 4096 requests.
+	- Meaning 4096 requests per millisecond. this is highly inprobable in read world.
+
+So, when the system producing the IDs start/ restart, and boots with a clock tuned back, will it produce duplicates ?
+	- Yes, there is a possibility
+	- To fix this, the servers needs to follows the NTP protocal
+	- Network Time Protocol synchronizes the clocks in the servers
+		- NTP works as follows,
+			There is a centralized server which has a atomic clock or a GPS clock
+			This server has a Stratum value as 0. Then range is 0-15. 0 being the most accurate. Stratum greater than 15 is not reliable
+			So we can contact/set a NTP server in our devices like router/server, which sysncs the time with this server
+			We usally has a public NTP hosted server, with probably a stratum value of 2 or 3
+			When we use this NTP hosted server values, our stratum becoms +1.
+			From the devices in our network which we have already synchronized the clock, we can sync other devices with +1 stratus value
+
+
+Links: 
+
+https://www.youtube.com/watch?v=aLYKd7h7vgY
+https://blog.pankajtanwar.in/generating-unique-ids-in-a-distributed-environment-at-high-scale

@@ -1,0 +1,86 @@
+A* Algorithm
+------------
+
+- It is very easy to understand
+- To find a shortest path from a source to destination 
+- It is a probablistic algorithm
+- At each step it picks the node according to a value-'f'
+- f = g + h
+- g -> the cost to move from the starting point to a given square on the grid, following the path generated to get there
+	-> Calculating 'g' is straight forward
+- h -> heuristic(smart guess) -> the estimated cost to move from that given square on the grid to the final destination
+	-> Calculating 'h' is done by many ways. Based on the problem in hand, eg,
+		1. Manhattan Distance
+			* It is nothing but the sum of absolute values of differences in the goal’s x and y coordinates and the current cell’s x and y coordinates respectively
+			* h = abs (current_cell.x – goal.x) + abs (current_cell.y – goal.y)
+			* When we are allowed to move only in four directions only (right, left, top, bottom)
+		2. Diagonal Distance
+			* It is nothing but the maximum of absolute values of differences in the goal’s x and y coordinates and the current cell’s x and y coordinates respectively
+			* h = max { abs(current_cell.x – goal.x), abs(current_cell.y – goal.y) }
+			* When we are allowed to move in eight directions only (similar to a move of a King in Chess)
+		3. Euclidean Distance
+			* the distance between the current cell and the goal cell using the distance formula
+			* h = sqrt ( (current_cell.x – goal.x)2 + (current_cell.y – goal.y)2 )
+			* When we are allowed to move in any directions.
+
+
+
+When to use it ?
+----------------
+
+1) One source and One Destination- 
+  	Use A* Search Algorithm (For Unweighted as well as Weighted Graphs)
+2) One Source, All Destination – 
+	Use BFS (For Unweighted Graphs) 
+	Use Dijkstra (For Weighted Graphs without negative weights) 
+	Use Bellman Ford (For Weighted Graphs with negative weights)
+3) Between every pair of nodes- 
+	Floyd-Warshall 
+	Johnson’s Algorithm
+
+
+Algorithm:
+----------
+
+// A* Search Algorithm
+1.  Initialize the open list
+2.  Initialize the closed list
+    put the starting node on the open 
+    list (you can leave its f at zero)
+
+3.  while the open list is not empty
+    a) find the node with the least f on 
+       the open list, call it "q"
+
+    b) pop q off the open list
+  
+    c) generate q's 8 successors and set their 
+       parents to q
+   
+    d) for each successor
+        i) if successor is the goal, stop search
+          successor.g = q.g + distance between 
+                              successor and q
+          successor.h = distance from goal to 
+          successor (This can be done using many 
+          ways, we will discuss three heuristics- 
+          Manhattan, Diagonal and Euclidean 
+          Heuristics)
+          
+          successor.f = successor.g + successor.h
+
+        ii) if a node with the same position as 
+            successor is in the OPEN list which has a 
+           lower f than successor, skip this successor
+
+        iii) if a node with the same position as 
+            successor  is in the CLOSED list which has
+            a lower f than successor, skip this successor
+            otherwise, add  the node to the open list
+     end (for loop)
+  
+    e) push q on the closed list
+    end (while loop)
+
+
+

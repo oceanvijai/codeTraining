@@ -1,0 +1,7 @@
+stream patterns like
+
+	- kafka 
+	- spark (micro batch)
+	- Apache fume
+	- Lambda architecture
+	

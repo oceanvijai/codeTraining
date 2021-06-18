@@ -1,0 +1,25 @@
+In system design we have the following two scearious
+1.	Two general problem
+		- Were two generals need to decide on an attacking time
+		- Now its possible only if there are no problems in sending msg and getting acks from each other
+		- So this explains the failures and hardship in networking
+2.	Byzatine generals problem
+		- Here there are many generals and some of them are traitor.
+		- So when trying to aggree upon one time to attack, the bad generals might give false information when relaying the msgs to others
+		- This shows the difficulties in aggreeing upon a time due to faulty/bad nodes
+
+
+So in general, in a distributed system 3 things needs to be considered
+
+1.	Network (How reliable)
+2.	Nodes (crashes)
+3.	Timing (clocks, latency etc)
+
+----------------------------------------------------------------------------------------
+Failure - If the entire system goes down
+Fault - Some part of the system goes down due to network/node creash etc
+
+If a system can tollerate some faults (some components goinng down), then its FAULT TOLERANT
+If one componnets goes down, and system becomes unavailable (Failure), then its a SINLE POINT OF FAILURE
+
+Fault detecters should be present to achieve FAULT TOLERANT systems

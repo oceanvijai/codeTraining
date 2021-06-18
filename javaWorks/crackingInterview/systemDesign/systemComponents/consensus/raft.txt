@@ -1,0 +1,49 @@
+RAFT is a consenses protocol used to elect and distribute messages in a distributed system
+Rules:
+	- Will need to come up with only one leader
+	- Will need to be fault tolerant - If the leader crash or get network partitioned, the algo need to elect a leader automatically
+	- All messages delivered by the leader should be received by the followers in order
+
+TERM - The number of times leader election happened
+	 - This is important to know which term the current leader was elected
+	 - A node can vote only once in a term (Can be for any node which asked it first)
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+When a node starts up or restarts
+
+- The node is be maked as a follower
+- It get gets the details from the leader such as TERM, message/log offset, entries etc
+- The term value should be lesser than or equal than the leader
+
+
+When a node decided to go for a election
+
+- If a node is unable to communicate with a leader (Leader failure), it marks itself as a CANDIDATE node.
+- It then increases its (currentTerm + 1) and sends a message to all the nodes asking for a vote
+- It can happen, that another node also can do this at the same time
+	- This is taken care, by making each node vote only once for a TERM
+- If a node gets a quorum of votes, it declares itself as a leader and start receiving and broadcasting the messages in order
+- If the candidate node does not get a quorum of votes or a leader msg from any other node, after a timeout it goes for another reelection
+- For re-election it increments the (TERM+1) and does then same
+
+
+The leader also makes sure, the order are messages are delivered in right order by
+	- Including the term in the msg
+	- Including the last commit offset in the msg etc
+
+
+It can happen, a node is still alive, but got partitioned by the network
+	- Due to this, a new leader (Higher term value) is selected in the other side of the partition and msgs are received
+	- But the old leader may be un-aware of this new election and leader due to the network partition
+	- Due to this, lets new msg from this leader should be igored
+
+	- For this, when ever a leader want to send msg, it first send's a message to it followers with the TERM value and msg payload
+	- If a quorum of followers sends a ack back, that the msg is received and valid (Term validation), then the leader commits and responds saying the msg is delivered to all the nodes
+	- Otherwise, its a failed request
+
+---------------------------------------------------------------------------------------------------------------------------------------
+Links
+-----
+
+https://www.youtube.com/watch?v=IPnesACYRck

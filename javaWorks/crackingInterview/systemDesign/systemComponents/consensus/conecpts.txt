@@ -1,0 +1,56 @@
+Consensus is needed when 
+	- To elect a leader(node) so the messages can be to dispersed in order
+	- Avoid split brain (Two leader)
+	- It is also used when we want the messages to be accepted in a single value
+		- Lets say, whenever we deliver a msg. We make sure they are accepted by a quorum which is a consensus
+	- It is also used when we want to deliver/replicate multiple msgs to the followers
+		- Lets say, we have multiple events/updates and we need to get a consense before delivering every msg, so when delivered they are i order
+
+
+total order broadcast ?
+	- In a distributed system we tend to replicate data to other nodes for availability
+	- When we are sending the data to the replicas, we need to make sure we send the data in the right sequence
+		- Meaning, if we get a write request, the leader need to make sure the write requests are sequenced properly, or
+		  they might get out in order in network transit
+	- So the leader is responsible for making this happen. 
+	- But how do we select the leader in the first place ?
+
+State machine replication
+	- A way to replicate data from one node to other in a distributed environnment
+	- This can be done by total order broadcast, which makes sure events are delivered in order
+
+
+Crash stop failures ?
+
+Algos
+	- paxos (single value consensus)
+		- Multi-Paxos (total order broadcast)
+	- Zookeeper atomic broadcast (zab)
+	- Raft
+	- View stamped replication
+
+
+- Asynchronous system ?
+	- If the system are not bound by any time
+	- No system has a SLA
+	- Every system can responsd on their own time which is from ms to hours
+	- Problem: no difference between a crached system vs one which is delaying
+
+- Synchronous system ? 
+	- All the clocks of the systems are synchronized. 
+	- No time drifts
+	- No/same Network latency
+	- Impossible or highly unrealistic
+
+- partially Synchronous ?
+	- All have a shared clock, but not completely synchronized
+	- Bound by SLAs
+	- More realtime
+	- We can try and achieve consensus in this system
+
+
+- Fisher Lynch Paterson (FLP) theorem
+	- It is impossible to get a consensus on a asynchronous system.
+
+
+

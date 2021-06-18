@@ -1,0 +1,6 @@
+All about querying fexibility
+- User can decide which data they want
+- versioning is more easy - sinnce we introduce or deperate new fields
+
+
+- Complex both in client and server

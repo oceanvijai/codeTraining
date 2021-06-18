@@ -21,15 +21,18 @@ Step 1: Requirements (functional and non-functional)
 
 3. Non functional requirements (Scalability, Perforamance, concurency and Consistency etc)
 
-    - Scalability 
-        - How fast can the system scale for high loads
     - performance
+        - How fast is the system for a single user/request
         - How fast does the needs data needs to be collected and stored
             - How mush data is collected per second
             - use analystics/monitoring to find the input pattern
         - How fast is the data needs to be retrived
              - use analystics/monitoring to find the access patterns
              - use analystics/monitoring to find the per transaction patterns
+    - Scalability 
+        - How fast can the system scale for high loads
+        - How fast can the system be for the entire users/requests
+        - It is scalable, if we add more resources, then it should either maitain or increase the preformance
     - concurency
         - What is concurency of the data injested
         - What is concurency of the data accessed

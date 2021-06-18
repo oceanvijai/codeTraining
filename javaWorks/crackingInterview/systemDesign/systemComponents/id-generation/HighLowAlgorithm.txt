@@ -1,0 +1,19 @@
+When and where it is used ?
+	- Used in ORM frameworks like hibernate
+	- When we dont want to go to the DB everytime to get the next value for the sequence number
+	- When we want to know the value of primary number before inserting
+
+
+How ?
+	- Simple, let say we have 4 computes/vm running the app.
+	- And all 4 are inserting into the DB
+
+	- Now when the first VM boots, it goes to the DB and ask for the current sequence number, which is lets say 36
+	- Now we set a Value in our locak HIGH = 35.
+	- Now in local we have two other values, BATCH_SIZE (lets say 50) and LOW (0 to 50)
+	- Now the next value for the promary key in this VM/app is calculated as key = (HIGH * BATCH_SIZE) + LOW
+	- After then we increment the value of LOW.
+	- So next time we want to insert into the DB, we use the same formula until we reach LOW = BATCH_SIZE
+	- This way we can generate keys for 50 records without going to the DB
+
+	- Now the same, happens in the other 3 VMs. But they may get a HIGH value different like 36 or 36 etc.
