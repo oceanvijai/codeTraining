@@ -116,6 +116,14 @@ so, remove r! from nPr
 
 so, nCr = cPr/ r! = n!/ (n-r)! * r!
 ------------------------------------------------------------------------------------
+permutation with repetation:
+----------------------------
+if we have N number and the number of ways we can permutate them is n!
+lets say we have a in N which is repeated An times, and B repeated Bn times,
+If we have to cancel out their permutations, we just divide their permutations
+
+so Ans = N! / (An! * Bn!)
+--------------------------------------------------------------------------------------------------------------
 Condradiction:
 --------------
 We can prove a a statement is TRUE, but first assuming the statement is FALSE and 
