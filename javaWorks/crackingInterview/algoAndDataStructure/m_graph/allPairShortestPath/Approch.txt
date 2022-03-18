@@ -1,0 +1,8 @@
+All pair shortest path (DP)
+    - We can do Dijkstra from every verted to every other O(n^3)
+    - FloydWarshallAllPairShortestPath algo
+        - It has the same O(n^3)
+        - No probelem if -ve weight is present
+        - shortest path from i to j, then its is has a shortest path from i -> k and k -> j
+        - so we have 3 loops, one for k and other two for i and j
+        - If there is a -ve cycle edge, then the diagonals of the matrix will have -ve number instead of zero. Refer the code.

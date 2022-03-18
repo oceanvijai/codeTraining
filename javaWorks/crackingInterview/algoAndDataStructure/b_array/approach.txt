@@ -7,7 +7,7 @@ Interval
 -----------------------------------------------------------------------------
 
 If ans only needs one/ multiple pairs, we can perform two pointer
-It ans is a continious subsequence, we can use kadane variation
+If ans is a continious subsequence, we can use kadane variation
 
 -----------------------------------------------------------------------------
 
@@ -17,6 +17,10 @@ Sorting
 Kadane
 TimeLine (Interval approach) 
 
+-----------------------------------------------------------------------------
+On a matrix if we need to miimize something. Try
+DP
+Graph
 -----------------------------------------------------------------------------
 
 

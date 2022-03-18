@@ -24,6 +24,8 @@ public class AddNumbers {
      * 
      */
 
+    ListNode ans = null;
+
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         int l1Size = getSize(l1);
         int l2Size = getSize(l2);

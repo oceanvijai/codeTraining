@@ -1,0 +1,37 @@
+What is UUID
+------------
+	- It is basically a number like int or long, only bigger
+	- It is a 128 bit integer (long is 64 bit integer)
+	- So 16^32 (2^128) possible ids/ numbers
+
+	- In UI form it is represented as a 32 char hexadecimanl values seperated by "-"
+	- The UUID is of the format xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx
+	- The M is for the version (1/2/3/4)
+	- The N is the varient in the version, like version_1 - variant_1
+
+
+Versions:
+---------
+
+	version 1: Time stamp + mac address
+		- It will be incremental ID because the time stamp is gone keep increasing.
+
+	version 2: Time stamp + mac address + user ID
+		- Similar to version1, but also include userd ID as part of the UUID for security released keys 
+
+	version 3(&5): Name based
+		- Uses a namespace or name to generate a UUID
+		- For the same name, you always get the same ID
+		- Ex: is name is the domain host name, then "google.com" name will aways generate the same ID
+		- version 3 uses the MD5 hash
+		- version 5 uses the SHA hash
+
+	version 4: Random
+		- Totally random generation
+
+
+When will it collide?
+---------------------
+
+	- If we generate 1 billion UUIs in one second for the next 100 years. Then the chance of getting a duplicate is 50%
+	- If the UUID is using process for generating some part of it, then when we use child process, we might get duplicates

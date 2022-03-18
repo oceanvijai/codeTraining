@@ -1,5 +1,6 @@
 BFS
     - shortest path
+    - bipartite
 DFS
     -   cycles
     -   topological sort
@@ -11,6 +12,7 @@ Strongly connected graph - http://www.geeksforgeeks.org/strongly-connected-compo
 
 bipartite - if we can color the graph with two colors without conflicts
           - can be solved using BFS
+          - Trees (Any type of tree) are naturally bipartite
 Applications:
     - Students and the course they take
     - Sex replationship - male and female sex replationship

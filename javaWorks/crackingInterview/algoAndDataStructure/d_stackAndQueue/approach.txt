@@ -1,3 +1,5 @@
+If you want to arrange/manage the numbers/chars on some constraints
+
 Applications:
     - stack - to evalution of expression and conversion
     - min stack

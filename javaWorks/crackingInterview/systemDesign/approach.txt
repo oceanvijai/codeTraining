@@ -3,13 +3,13 @@ https://github.com/donnemartin/system-design-primer
 Dont use Data structure or algorithms yet
 
 ----------------------------------------------------------------------------
-Step 1: Requirements
+Step 1: Requirements (functional and non-functional)
 
-1. What core problem is the system solving
+1. What core problem is the system solving (functional)
     - list all the things the system needs to do
     - narrow down the most important things
 
-2. Who are its users
+2. Who are its users (fucntional)
     - How/where does the sysem gets the input
         - geo consideration
         - Eg: live video conference is internationaly distributed
@@ -19,33 +19,51 @@ Step 1: Requirements
         - where data is it created
         - where data is accessed
 
-3. Perforamance, concurency and Consistency
+3. Non functional requirements (Scalability, Perforamance, concurency and Consistency etc)
 
     - performance
+        - How fast is the system for a single user/request
         - How fast does the needs data needs to be collected and stored
             - How mush data is collected per second
             - use analystics/monitoring to find the input pattern
         - How fast is the data needs to be retrived
              - use analystics/monitoring to find the access patterns
              - use analystics/monitoring to find the per transaction patterns
+    - Scalability 
+        - How fast can the system scale for high loads
+        - How fast can the system be for the entire users/requests
+        - It is scalable, if we add more resources, then it should either maitain or increase the preformance
     - concurency
         - What is concurency of the data injested
         - What is concurency of the data accessed
     - Consistency
         - What is consistency requirements of the system
+    - availability
+        - When one crashes, it should be handled smartly
+        - Ensure, the downtime is none to minimal
+        - Also ensures performance. Even after failture the performace is maintained
+    - Fault tolerent
+        - Not same a Availibility
+        - This is higer form of availibility. ?
+        - Ensures, zero down time, but NOT the same performance.
+
+4.  Write down an simple API contract 
+
 
 ----------------------------------------------------------------------------
 Step 2: Solve it
 
 Solve it assuming all the data is in one machine
+HIGH LEVEL DESIGN
 ----------------------------------------------------------------------------
-Step 3: split it
+Step 3: split it and scale along
 
-Then start splitting up the data and load
-1. Figure out the 
+Start with Data store 
+1. Decide and design the data base and how we store it - Scalable in nature
+2. Figure out How the request does throught the system 
     - tire 0 (synchronous realtime like UI) and 
     - tire 1 (async realtime like OTP) systems
-2. Figure out the rest of the systems
+3. Figure out the rest of the systems
     - preprossing systems - Eg: crawler for search system to create indexes
     - processing systems - Eg: Order management service in e-commerce
     - post processing systems - Eg: Validation, Reporting, notfication, bussiness alerting 
@@ -55,25 +73,19 @@ Then start splitting up the data and load
     - message queues
     - scheduling sysems
     - telemetry systems
-3. Figure out the geo infact
+4. Figure out the geo infact / distrubute it
     - Does the input pattern local or international
     - Does the access pattern local or international
 ----------------------------------------------------------------------------
-Step 4: scale it
+Step 4: Validate it
 
-1.  Identity the most important bottlenecks and fix it
-2.  Optimize every decesion taken so far
-3.  Apply the scalability patterns
+1.  Fail each component and check its availability and fault tolerence
+2.  Load and stress test each component (find bottle neck)
+3.  Optimize every decesion taken so far and apply the scalability patterns
+4.  Tech stack
 
 Do the bit/byte calculation for the estimate
 The total load
 Calculate the processing power
 The total storage
-----------------------------------------------------------------------------
-Step 5: Design and add scalable components
-
-Draw the overall components with a standard design
-Fix your design to address the bottlenecks
-Fix Consistency, availability and partition problems
-
 ----------------------------------------------------------------------------

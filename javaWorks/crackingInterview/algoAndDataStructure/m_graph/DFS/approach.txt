@@ -1,4 +1,23 @@
 DFS: O(v+E) - v - vertices, E - edges
+    How ? 
+    -   Inside the DFS recurstion, we visit V vertices 
+    -   Then in DFS recurstion we try all the edges. Which is d (degree of each vertex), which in total is E
+    Ex: the code is like this,
+
+        DFS(parmas){
+            
+            mark the current vertx a visited // contant time, which is executed V times
+
+            for(All the edges of this vertex){
+                // do some constant time work, which is executed at most E times.
+                // 2E for undirected graph and E for directed graph
+            }
+        }
+
+        So marking the current vertx a visited will be executed a total of V times
+        The (do some constant time work) will be executed a total of E times
+        Since, both are in same level, V + E
+
 https://www.youtube.com/watch?v=AfSk24UTFS8&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=14
 https://youtu.be/S23W6eTcqdY?list=PLOtl7M3yp-DV69F32zdK7YJcNXpTunF2b
 
@@ -10,11 +29,12 @@ Properties:
             Forward edge:
                 Which has a edge which is its successor already
             back edge
-                Which has a edge to its ancesstor - cycle edge - can be foudn by the visited or parent relation
+                Which has a edge to its ancesstor - cycle edge - can be found by the visited or parent relation
             cross edge
                 Which is connecting two graph ???
     - Topological sort in a directed graph
     - Articulation vertices - a vertex when deleted will make the graph diconnected
+    - Graph coloring
 
 Applications:
     - Job scheduling using Topological sort
@@ -27,11 +47,14 @@ Topological:
 
  Articulation vertices:
     - Suppose you want to disconnect the graph how would you do it ?
+        - Application - In a network, it one node (Articulation vertex) fails, then we have netwrok partition
     - So try deleting one edge and do DFS - O(V(V+E))
     - The better way is as folows,  
       If you take any graph and visualize it, any edge which does not touched (backed up) by a 
       cycle/back edge , if removed will disconnect the graph.
       i.e a tree edge which does not have a back edge when deleted will disconnect the graph
+    - or using the following approach
+        - https://www.youtube.com/watch?v=jFZsDDB0-vo&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=62
 
 ------------------------------------------------------------------------------------------------------------
 OPTIONAL:

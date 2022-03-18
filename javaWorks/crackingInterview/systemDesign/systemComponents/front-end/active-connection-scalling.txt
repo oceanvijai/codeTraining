@@ -1,0 +1,4 @@
+
+How to scale the number of active connections in an single node.
+
+https://engineering.linkedin.com/blog/2016/10/instant-messaging-at-linkedin--scaling-to-hundreds-of-thousands-

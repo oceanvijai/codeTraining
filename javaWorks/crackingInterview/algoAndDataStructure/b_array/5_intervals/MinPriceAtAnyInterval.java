@@ -9,8 +9,7 @@ public class MinPriceAtAnyInterval {
 
     // We cannot use interval merge, cause the merging is too complicated
     // we cannot use two pointers, cause the end and start is coupled with the price
-    // and many
-    // overlapping intervals may smaller price
+    // and many overlapping intervals with smaller price
 
     // So we go for the third technique, Time line
 

@@ -1,0 +1,7 @@
+The space for recursion is bit tricky but easy.
+
+Lets say a recursion leads to 2^n time complexity. So there are 2^n nodes in the recursion tree.
+We may think the space for such algo is 2^n.
+
+But if you look closely, at on point we dont have all the nodes, just one path from root to leaft is in the call stack.
+So we can say the space is the depth of the tree, like O(n) sometimes.

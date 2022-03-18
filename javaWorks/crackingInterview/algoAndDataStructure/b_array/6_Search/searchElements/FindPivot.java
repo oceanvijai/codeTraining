@@ -19,7 +19,7 @@ public class FindPivot {
      * 
      * 1. pivot - where pivot - 1 > mid and pivot +1 < mid
      * 2. We end up in before pivot, where mid > start, so we can go right
-     * 3. We end up left of pivot, where mid < end, so we go left and search
+     * 3. We end up righr of pivot, where mid < end, so we go left and search
      */
 
     public int findPvt(final List<Integer> a) {

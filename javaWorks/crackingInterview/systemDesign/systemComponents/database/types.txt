@@ -1,0 +1,33 @@
+caches:
+	In-memory
+		Redis
+
+
+File/media/blob storage
+	Amazon s3
+	CDN
+
+Analytics store
+	Hadoop
+
+Time series Data base
+	openTSDB
+
+Text search
+	Lucene
+	Solr
+	Elastic search
+
+Query DB
+	SQL
+		Oracle
+		MySql
+	NoSQL - Column
+		Cassandra
+		Hbase
+	Document
+		MangoDB
+		Couchbase
+	Graph
+		Neo4j
+

@@ -1,0 +1,100 @@
+Requirements:
+	Core: Limit/ throttle the requests for a particular service 
+			- If requests are allowed send 200
+			- If not either send a different staus code
+				- or queue them and retry
+	Who: USERs can use the API from any location, but they need to throtelled accordingly
+	How: - Applications can easily integerate with the rate limiting solution
+			- Type of throtelling
+				- Rate of requests per sec
+				- Rate of concurent active requests at any given time (for CPU intensive apps)
+				- Load sheader
+					- always allocate certain amount of requests for high prioprity requests
+					- POST/PUT (high priority) GET (low priority)
+
+	API contract:
+		- allowRequest (request)
+	Non functional:
+		- Low latency (perfomance)
+		- High accuracy (consistent)
+		- Ease of integration
+		- Scalable
+
+
+HLD:
+	user -> LB -> rateLimiter -> destination
+							  -> Rejet queue
+
+
+LLD:
+	
+	1: Data store
+		For rules. cache it in memory.
+	2. Request flow
+		users -> LB -> nodes(rate limiters, forworder)
+		rate limiters -> client -> client idetification -> decesion engine
+		decesion engine -> rules store
+
+		rules store -> cache -> DB
+
+		Users: Users can be identified as follows
+			- 	IP address
+			-	Cookies (browser or cooki store)
+			-	Headers
+			-	Token (recomended)
+			-	query params
+
+		Decesion Engine
+			-	Takes the rules form the rules cahce execute them
+			-	Algorithms
+				- Leeky bucket
+					- a Queue implementation. Have a buffer and allow requests only if there are enough capacity
+					- If not reject it
+					- Have a processor at the forward to process requests at a desired rate
+					- The new requests gets queued untill old requests are processed
+				- Token bucket
+					- Have a token count and a rate, like 10 per 10 seconds.
+					- Take token and also refill them whever the requests are comming in
+					- There can be a suddent spike in the requests and the traffic is not smooth
+				- Fixed window
+					- Soppose you can allow 10 requests per second, then
+					- All requests are ceiled down to their second
+					- Like 12.00 and 12.05 -> 12.00 
+					- And their buckets are counted
+					- Have issues, when there is a huge load at the last second
+				- Sliding window
+					- Two ways
+					- One is the algoritmic way I solved it.
+					- Second: For the current request check how may percentage of time is over.
+							 	- let say 25% of 10 seconds
+							 	- Then for the remaining 75%, pick from the previous window
+							 	- This may look in accurate, but works for most cases
+
+	3: 	See the image in the folder
+
+	4.	Distribution:
+			- The request may end up in any one of the node
+			- So each node needs to know how much it can allow at this point
+			- So we need node synchronization
+				- Common distributed cache
+					- Have the token count in a distributed cache
+					- Scalable and but adds latency
+				- Gossip protocal
+					- Talk to the nearby nodes and get the entire custer details
+					- Complex, but also may have split brain issues due to network partition
+	5. Ease of integration
+			- The rate limiter can be a library that can be included in app or a seperate demon
+					- If library, 
+						- the latency is less
+						- Less or no changces of network failures
+					- If a demon, 
+						- the process memmory is seperate
+						- Easily maintnable
+
+
+
+
+Validation:
+	- If the rate limiter fails, then NO throtelling, leading to high requests than expected.
+	- Need to setup telemetry and alert to check if the traffic flow.
+

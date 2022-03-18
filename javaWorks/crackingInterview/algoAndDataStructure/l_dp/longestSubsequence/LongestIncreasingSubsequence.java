@@ -43,7 +43,9 @@ public class LongestIncreasingSubsequence{
      * 
      * Now take 5, if you see it does not matter if we have 5 or 10 at index 0,
      * because both will give the same result.
-     * But if we place 5, we might get a element lesser than 5, so we place the smallest  so i = 0; {5,100,0,0,0,0}
+     * But if we place 5, we might get a element lesser than 5 later producing a new longer series, 
+     * Look into LongestIncreasingSubsequence2 Approach2 is you didnt get this.
+     * so we place the smallest  so i = 0; {5,100,0,0,0,0}
      * 
      * Now take 9, 9 can be placed at index 1 since it will give the same result, so i = 0; {5,9,0,0,0,0}
      * Now take 200, 200 at the last making it LIC 3, so i = 0; {5,9,200,0,0,0}

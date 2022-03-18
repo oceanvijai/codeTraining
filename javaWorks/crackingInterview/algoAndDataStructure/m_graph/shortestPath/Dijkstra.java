@@ -7,7 +7,8 @@ public class Dijkstra {
         while (next != -1) {
             visited[next] = true;
             LinkedList<Edge> edges = g.adjancyList[next];
-            for (Edge edge : edges) { // rotuine updating the ditance
+            for (Edge edge : edges) { 
+                // rotuine updating the ditance
                 if (distance[edge.endVertex] > distance[next] + edge.weight) {
                     distance[edge.endVertex] = distance[next] + edge.weight;
                     parent[edge.endVertex] = next;
@@ -28,6 +29,9 @@ public class Dijkstra {
         System.out.println(parent);
 
     }
+
+
+    
 
     private static void findShortestPath_dijkstraAlgo(Graph1 g, int src, int dest) {
         // do dfs

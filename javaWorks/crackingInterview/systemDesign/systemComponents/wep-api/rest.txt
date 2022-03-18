@@ -1,0 +1,14 @@
+All about resources
+Easy to implement and use
+CRUD
+
+
+PUT
+GET
+POST
+DELETE
+OPTIONS
+
+Cons:
+	- If you want a resource and a sub-resource - we need to make multiple calls
+		- Ex: A customer and details, and then his orders

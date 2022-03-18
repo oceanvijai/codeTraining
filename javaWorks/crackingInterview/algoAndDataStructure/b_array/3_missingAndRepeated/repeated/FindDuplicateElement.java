@@ -64,10 +64,10 @@ public class FindDuplicateElement {
     }
 
     /**
-     * So let try the marking and runner techinques
+     * So let try the marking 
      */
 
-    void printRepeating(int arr[], int size) {
+    void marker(int arr[], int size) {
         int i;
         System.out.println("The repeating elements are : ");
 
@@ -117,6 +117,11 @@ public class FindDuplicateElement {
      *      array with duplicates and for a linked list using its index and values
      */
 
+    /*
+     * Complexity - Time O(n) 
+     * Space - O(1) 
+     */
+
 
     public int findDuplicate_runner(int[] nums) {
         
@@ -138,6 +143,63 @@ public class FindDuplicateElement {
         
         
         return slow;
+    }
+
+
+// interview bit 
+    /* Why does this work?
+    First figure out why there will be a cycle when traversing the way we are.
+    Also, why will the duplicate element be at the start of the cycle?
+    slow moves 1 step at a time, while fast moves two steps at a time.
+    Variables:
+    x is the distance from the start of list to the start of cycle.
+    y is the distance from the start of cycle to where the slow and fast meet.
+    z is the disctance from the meeting point to the start of the cycle.
+    distance travelled by fast = x + n(y + z) + y  (n is an integer >= 1)
+    Also, distance travelled by fast = 2 * distance travelled by slow.
+    Distance travelled by slow = x + y
+    2(x + y) = x + n(y + z) + y
+    x + y = n(y + z) 
+    x = (n - 1)(y + z) + z
+    Now when we reset slow to 0 and make it travel x distance, fast will travel 
+    (n - 1) times around the circle + the distance z. Since fast was already at distance y
+    when we started moving them again it will now reach the start of the cycle. 
+    */
+
+
+
+    /**
+        using binary search
+        Use it when we should not modify the array and it should be O(1) extra space 
+        and range is 1 to n
+    **/
+
+    public int findDuplicate(int[] nums) {
+        int start = 0;
+        int end = nums.length -1;
+    
+        // Here we take the range and narrow it down by counting
+        while(start < end){
+            int mid = (end+start) / 2;
+            int count = countLessThan(nums,mid);
+            if(count > mid){
+                end = mid;
+            }else{
+                start = mid+1;
+            }
+        }
+    
+        return start;
+    }
+    
+    private int countLessThan(int[] nums, int i){
+        int count = 0;
+        for(int num : nums){
+            if(num <= i){
+                count++;
+            }
+        }
+        return count;
     }
 
 

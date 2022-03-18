@@ -1,0 +1,40 @@
+Lets compare traditional and Hadoop map reduce 
+
+Lets say we want to count the number of 200s, 400s and 500s in a 10TB log dump.
+
+In traditional system, the work is done as follows,
+
+	We can spin up 10 machines. Then we need to split the 10TB data and send 1TB to all the 10 computes.
+	Then we make each of the machines MANUALLY to execute the code to count the status codes
+
+	Then we from one machine we need to collect all the result and aggregrate it
+	Looks tedious and not so efficient. Also there are other isses
+		- If one machine goes down no way to find it until the end
+		- If one machine has less compute than the other, so might not do justice for that compute
+		- The results are computed in each machine and waiting until the master calls
+		- Need to write seperate logic for aggreation
+
+In Hadoop Map reduce this is done as follows
+	- First, inherently the 10TB is split to different machine while saving itself
+	- The relicas of the data are also mantained 
+	- No transfer of Data is required
+
+	- Then the master, decide which JOB to be executed and send the code to all the executor nodes
+	- The master than takes care of the heath check of each nodes
+	- Redistributes the work in case of failures
+	- Collectes data from each node
+	- Aggreates the data finally
+
+
+
+So, in each node the following happens.
+	- The 1TB data is SPLIT and given to different workers
+	- Then split data is now MAPPED. Meaning we only say 200:1, 200:1, 400:1, 500:1, 200:1... etc
+	- We dont count them yet
+	- Then we do the SHUFFLE, where we send the data to respective buckets
+	- Then we count the values in each bucket and REDUCE them
+	- Finally we aggregrate the values from each bucket and return the result
+
+
+
+

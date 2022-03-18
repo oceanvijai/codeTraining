@@ -1,0 +1,35 @@
+Why do we need In Memory data bases
+	- When we wat to reduce the latency for the disk seeks
+	- Reading from disk vs reading from RAM is a HUGE HUGE difference
+	- In latency in read and write, 
+		- Normal hard disk - ~64 MB/sec READ, 69 MB/sec write
+		- SSD - ~400 MB/sec READ, 264 MB/sec write
+		- RAM - ~4000 MB/sec READ, 5000 MB/sec write
+	- Reading and writing in RAM does not required serialization
+
+How we store in memory
+	- As we know we store all values in RAM
+	- In disk seek we used the B+ tree to get as fast to the data location
+	- In RAM use use AVL tress modifications to get the range queries
+	- We also mostly can store values as KEY VALUE pairs
+
+Problems
+	- RAM is volatile and can go off when the power goes off
+
+How reliability is maintained
+	- Using a secondary thread to create two things
+		1. Append only logs for every mutation
+		2. Snap shot of the inmemnory values periodically
+	- If a ram crashes, we can build the same state using the logs
+	- But if the writes are too much, then we might go out of memeory in the disk
+		- For that we can periodically trim the logs, so we can maintian only the latest logs
+		- Also we can also, delete the logs after a succesufull snapshot creation
+
+
+Some inmemory DBs
+	- Redis
+	- Memcache
+	- Sqlite
+	- Volt DB
+	- Hana (SAP)
+	- Aerospike

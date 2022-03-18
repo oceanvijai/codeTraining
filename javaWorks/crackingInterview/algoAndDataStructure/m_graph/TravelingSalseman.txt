@@ -1,0 +1,21 @@
+Hamiltonian cycle/path
+	- If we start from a vertex and visit all other vertices only once and come back to the starting point. Then its a Hamiltonian cycle.
+	- This can be solved using backtracing.
+	- Its an NP-HARD problem
+	- If the following exist in a graph, then we can say there is no Hamiltonian cycle
+		- Articulation node - The node which connects two components
+			- Obiously the Articulation node needs to visted twice
+		- Pendent vertices 
+			- Like leaf node of a tree. When from parent one leaf is visted, we need to vist the parent again to go to the other leaft node
+
+
+
+Problem statement:
+	A salesman needs to travel from a soruce vertex to all other vertices and come back to where he started. Only in min cost.
+	This can be solved using recursive branch and bound (O(N!) - factorial) or DP Held-Karp (2^n . n^2)
+
+
+
+https://www.youtube.com/watch?v=Q4zHb-Swzro&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=58
+https://www.youtube.com/watch?v=-JjA4BLQyqE
+https://medium.com/basecs/speeding-up-the-traveling-salesman-using-dynamic-programming-b76d7552e8dd

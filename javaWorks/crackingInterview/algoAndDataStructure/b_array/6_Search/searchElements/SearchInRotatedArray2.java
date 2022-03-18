@@ -11,6 +11,52 @@ public class SearchInRotatedArray2 {
      * Input: nums = [2,5,6,0,0,1,2], target = 0 Output: true
      */
 
+
+    public boolean search(int[] nums, int target) {
+        int left = 0; 
+        int right = nums.length-1;
+        
+        while(left < right){
+            int mid = left + (right-left) / 2;
+            if(nums[mid] == target){
+                return true;
+            }else if(nums[mid] > nums[left]){
+                // we are in the right of the pivot and left side will be sorted
+                // so, first search right and then left
+                if(target < nums[mid] && target >= nums[left]){
+                    right = mid;
+                }else{
+                    left = mid+1;
+                }
+                
+            }else if(nums[mid] < nums[left]){
+                // we are in the left of the pivot and right side will be sorted
+                // so, first search in the right if not left
+                if(target > nums[mid] && target <= nums[right]){
+                    left = mid+1;
+                }else{
+                    right = mid;
+                }
+
+            }else{
+                // now mid and start are same, so lets remove start form the search space
+                // As we search it will take care when there are ducpicates in the middle
+                left++;
+            }
+        }
+        
+        if(left >= 0 && left < nums.length && nums[left] == target){
+            return true;
+        }
+                     
+        return false;
+    }
+
+
+
+
+    
+
     public boolean search(int[] nums, int target) {
         int left = 0, right = nums.length - 1, mid;
 

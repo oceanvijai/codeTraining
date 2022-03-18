@@ -38,9 +38,10 @@ public class FindMissingAndRepeated {
      * Another optimized method is as follows sum(actual) = sum(n) + A - B So,
      * sum(actual) - sum(n) = A - B; (EQ1)
      * 
-     * Then SumOfSquare(actual) = SumOfSquare(n) + A^2 - B^2 SumOfSquare(actual) -
-     * SumOfSquare(n) = A^2 - B^2 SumOfSquare(actual) - SumOfSquare(n) = (A - B) *
-     * (A + B) (SumOfSquare(actual) - SumOfSquare(n)) / (A - B) = (A + B) (EQ2)
+     * Then SumOfSquare(actual) = SumOfSquare(n) + A^2 - B^2 
+     * SumOfSquare(actual) - SumOfSquare(n) = A^2 - B^2 
+     * SumOfSquare(actual) - SumOfSquare(n) = (A - B) * (A + B) 
+     * (SumOfSquare(actual) - SumOfSquare(n)) / (A - B) = (A + B) (EQ2)
      * 
      * with EQ1 and EQ2 we can find A and B
      */

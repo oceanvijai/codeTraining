@@ -1,0 +1,30 @@
+UNION FIND 
+
+It is a simple set operation for graph.
+Using this we find, min span tree and detect cycles.
+We can detect cycles and remove them from the graph as well.
+We can find connected componets
+
+
+First sort all the edges based on some parameter/weight (optional)
+Pick one edge after the other.
+See to which set vertices of the curret edge belongs to. If there are no set create a new one. 
+If they belong to two different set. Perform union of the set.
+If the belong to the same set, then there is a cycle. Ignore the edge.
+
+------------------------------------------------------------------------------------------------
+Rank and Path compression
+
+It is the same as above (UNION FIND), instead of set, we achieve it though parent relation.
+First sort the edges
+Pick edges one by one.
+Decide a parent for the picked vertcies. 
+For every edge, find if it has a new parent of can be attached to an existing parent.
+This parent child relation will form a tree.
+When merging two trees, picking the one with the most child.
+If a edge has two vertex from the same parent, then its is cycle.
+Repeat until all edges are processed
+
+This can be implemented using linked list or better an array.
+
+https://www.youtube.com/watch?v=wU6udHRIkcc

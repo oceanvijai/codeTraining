@@ -59,6 +59,8 @@ We place the elements count in its own value index.
 
 https://www.geeksforgeeks.org/count-frequencies-elements-array-o1-extra-space-time/
 
+or encode using value = [(value % n) + n]
+
 
 ---------------------------------------------------------------------------------------------------
 

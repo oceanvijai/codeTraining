@@ -1,5 +1,14 @@
 1 > loglogn > sqt(n) > 2^logn > n > logn! > nlogn > n^2 > n^3 > 2^n > 4^n > n!(n^n) > 2^2^n
 
+n!      - factorial
+2^n     - exponential
+n^2     - Quadratic
+nlogn   - lineararithmic
+n       - linear
+logn    - logarithmic
+1       - constant
+
+
 omega(n) - lower bound for an algo time
             Ex: for time n, any thing lower or equal is omega, but we get the nearest
 
