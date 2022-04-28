@@ -4,7 +4,7 @@ public class UniqueBinarySearchTrees {
      * Given n, how many structurally unique BST's (binary search trees) that store
      * values 1 ... n?
      * 
-     * 
+     * https://www.youtube.com/watch?v=0pTN0qzpt-Y
      * 
      * 
      * Input: 3
@@ -26,6 +26,8 @@ public class UniqueBinarySearchTrees {
      * 
      * lets say for any value of n we make each element from 1 to n as root and
      * calculate its combination with the left and right subtrees count.
+     * For more details : https://www.youtube.com/watch?v=0pTN0qzpt-Y
+     * basically its a catlan number
      */
 
     public int numTrees(int n) {
