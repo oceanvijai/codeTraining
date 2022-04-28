@@ -3,8 +3,8 @@ public class UniqueBinarySearchTrees {
     /**
      * Given an integer n, generate all structurally unique BST's (binary search
      * trees) that store values 1 ... n.
-     * 
-     * 
+     *  for time complexity: https://www.youtube.com/watch?v=0pTN0qzpt-Y
+     *  O(Cn) - Cn - catlan number
      * Input: 3
             Output:
             [
