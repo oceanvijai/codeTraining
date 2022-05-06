@@ -43,6 +43,46 @@ public class ValidateParentheses {
 
         return count == 0;
     }
+    
+    /** 
+        Simple DP types
+        Idea is very simple which will need O(n) time and O(1) space but two iterations
+        
+        We have 3 scenarios
+        1- There are more open parenthesis but we have enough '*' so we can balance the parenthesis with ')'
+        2- There are more close parenthesis but we have enough '*' so we can balance the parenthesis with '('
+        3- There are as many '(' than ')' so all parenthesis are balanced, we can ignore the extra '*'
+        
+        You can parse the String twice, once from left to right by replacing all '*' by '(' and once from right to left by replacing all '*' by ')'
+        So at anypoint the left or right count goes -ve, we know the string is unbalanced
+    /**
+    
+    public boolean checkValidString(String s) {
+        
+        int leftCount = 0;
+        for(int i =0; i < s.length(); i++){
+            if(s.charAt(i) == '(' || s.charAt(i) == '*'){
+                leftCount++;
+            }else{
+                leftCount--;
+            }
+            if(leftCount < 0) return false;
+        }
+        
+        int rightCount = 0;
+        for(int i=s.length()-1; i >= 0; i--){
+            
+            if(s.charAt(i) == ')' || s.charAt(i) == '*'){
+                rightCount++;
+            }else{
+                rightCount--;
+            }
+            if(rightCount < 0) return false;
+        }
+        
+        return true;
+        
+    }
 
 
     /*
