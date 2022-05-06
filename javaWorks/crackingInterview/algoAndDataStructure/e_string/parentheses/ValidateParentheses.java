@@ -55,7 +55,7 @@ public class ValidateParentheses {
         
         You can parse the String twice, once from left to right by replacing all '*' by '(' and once from right to left by replacing all '*' by ')'
         So at anypoint the left or right count goes -ve, we know the string is unbalanced
-    /**
+    **/
     
     public boolean checkValidString(String s) {
         
