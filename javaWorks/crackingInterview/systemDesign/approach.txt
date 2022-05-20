@@ -94,6 +94,8 @@ Step 5: Maintain it
 1. Security
 2. Monitoring
 3. Alerting
+4. Backup/warehouse
+5. Audit
 
 ----------------------------------------------------------------------------
 Step 6: Validate it
