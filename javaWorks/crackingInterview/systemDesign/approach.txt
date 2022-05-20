@@ -62,6 +62,11 @@ Step 3: Solve it
 
 Solve it assuming all the data is in one machine
 HIGH LEVEL DESIGN
+
+- events in the system
+- data flows
+- how data is read
+- how data is written
 ----------------------------------------------------------------------------
 Step 4: Scale
 
