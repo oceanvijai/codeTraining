@@ -47,16 +47,23 @@ Step 1: Requirements (functional and non-functional)
         - This is higer form of availibility. ?
         - Ensures, zero down time, but NOT the same performance.
 
+
 4.  Write down an simple API contract 
 
-
 ----------------------------------------------------------------------------
-Step 2: Solve it
+Step 2: Estimate
+
+Do the bit/byte calculation for the estimate
+The total load
+Calculate the processing power
+The total storage
+----------------------------------------------------------------------------
+Step 3: Solve it
 
 Solve it assuming all the data is in one machine
 HIGH LEVEL DESIGN
 ----------------------------------------------------------------------------
-Step 3: split it and scale along
+Step 4: Scale
 
 Start with Data store 
 1. Decide and design the data base and how we store it - Scalable in nature
@@ -77,15 +84,18 @@ Start with Data store
     - Does the input pattern local or international
     - Does the access pattern local or international
 ----------------------------------------------------------------------------
-Step 4: Validate it
+Step 5: Maintain it
+
+1. Security
+2. Monitoring
+3. Alerting
+
+----------------------------------------------------------------------------
+Step 6: Validate it
 
 1.  Fail each component and check its availability and fault tolerence
 2.  Load and stress test each component (find bottle neck)
 3.  Optimize every decesion taken so far and apply the scalability patterns
 4.  Tech stack
 
-Do the bit/byte calculation for the estimate
-The total load
-Calculate the processing power
-The total storage
 ----------------------------------------------------------------------------
