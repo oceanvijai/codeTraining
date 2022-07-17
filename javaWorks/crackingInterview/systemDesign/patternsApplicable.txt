@@ -25,6 +25,24 @@ Fault tolerence:
     Redendency
         Not same as replication. One exact same copy is maintined to make sure if one goes down another can serve
 
+Peer to peer communcation
+
+Event driven systems
+
+Async queing system
+    - kafka
+    - DB as queue
+    
+Sharding
+
+Caching
+
+Reactive 
+
+CQRS
+
+MapReduce
+
 
 
 
