@@ -1,0 +1,16 @@
+https://engineering.fb.com/2020/08/24/production-engineering/scaling-services-with-shard-manager/
+
+Provide sharding as a service so engineers dont have to do redo it.
+
+Requirement - This generic sharder should do the following
+
+Fault tolerant - If one node/shard does down, it need to fall back and recover
+Maintanence    - For maintanence activites, we need to move data/shard to different server temporarely and back
+Load balance   - Make sure the load is evenly distributed in realtime - load balance with request load not data
+Hotspot shards - A single shard has more load which a single server cant handle - Add extra replicas for the shard
+
+Shard data
+Shard requests
+
+
+ 
