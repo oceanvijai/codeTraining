@@ -1,1 +1,16 @@
 https://engineering.fb.com/2021/02/22/production-engineering/foqs-scaling-a-distributed-priority-queue/
+
+
+Requirement:
+
+Produce: 
+   - Produce events with priority
+   - Produce event with delays
+
+
+Consumer
+   - Consumes the events in order of priority
+   - ACK or NO_ACK
+   - Continue from where it left
+   
+   
