@@ -4,6 +4,8 @@ Inorder || preorder || post order
 
 use stack and queue with mix of the above traversals
 
+modest traversal ?????
+
 -------------------------------------------------------------------------------------------------------
 In validating BST, Inorder with duplicates is a issue, sicnce we dont know from which leaf it came from
                     - This is because the duplicates in the resulting sorted array may have come from left or right. 
