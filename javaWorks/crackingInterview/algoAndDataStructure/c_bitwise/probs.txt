@@ -1,0 +1,2 @@
+PowerSet
+Divide by 2
