@@ -1,1 +1,8 @@
 steps 
+When we want to try all posibilities
+If you see a tree flow/ decesion tree
+If the constraints are less
+
+
+probs:
+ - 
