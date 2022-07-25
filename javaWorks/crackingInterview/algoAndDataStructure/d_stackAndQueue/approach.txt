@@ -1,4 +1,5 @@
 If you want to arrange/manage the numbers/chars on some constraints
+Which element is the next best than the current index
 
 Applications:
     - stack - to evalution of expression and conversion
