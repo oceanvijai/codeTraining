@@ -17,15 +17,40 @@ for(int i = 1; i < n; i = i+3) => k = n/3 => O(n)
 // power/fraction series
 for(int i = 1; i < n; i = i * 2) => 2^k = n => O(log n base 2) => O(logn)
 for(int i = 1; i < n; i = i * 3) => 3^k = n => O(log n base 3) => O(logn)
-for(int i = n; i > 1; i = i / 2) =>  n/2^k = 1 => n = 2^k => log n = k =>  O(logn)
+for(int i = n; i > 1; i = i / 2) =>  n/2^k=1 => n=2^k => logn=k =>  O(logn)
 
-for(int i = 1; i * i < n; i++) => i * i = n => O(sqr(n))
+for(int i = 1; i * i < n; i++) => i * i = n => O(sqr(n)) How ?
+1*1 => 2*2 => 3*3, then on some point the look stops at K*K >= n
+So, K^2=n => k=n^1/2 => k=sqr(n)
 
-for(int i = 1; i < n; i*2) {p++;} and for(int j = 1; j < p; j*2)
-here p = log n and j = log p => O(loglogn)
+// Another case
+for(int i = 1; i < n; i*2) {p++;} // Loop1
+and 
+for(int j = 1; j < p; j*2) // Loop2
+Independent loops by dependent on the bounds
 
-for(int i = 1; i < n; i++) => i = n => O(n)
-for(int i = 1; i < n; i++) => i = n => O(n)
+for loop1, p is executed logn times
+For loop2, time is logp, which is O(loglogn)
+
+
+// while case
+
+int i=1, k=1;
+while(k < n){
+   k=k+i;
+   i++;
+}
+
+Let see how the value to k added us
+In first iteration, i=1,k=1, so k = 2
+In next iteration,  i=2,k=2, so k = 2+2
+In next iteration,  i=3,k=2+2, so k = 2+2+3
+In next iteration,  i=4,k=2+2+3, so k = 2+2+3+4
+In next iteration,  i=5,k=2+2+3+4, so k = 2+2+3+4+5
+
+It roughly looks like m(m+1)/2 = m^2
+So at, M^2 it will reach n, so M^2=n => M = sqr(n)
+
 
 ---------------------------------------------------------------
 // nested
