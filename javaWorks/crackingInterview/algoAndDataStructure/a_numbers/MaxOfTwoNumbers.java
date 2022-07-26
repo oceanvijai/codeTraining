@@ -70,15 +70,23 @@ public class MaxOfTwoNumbers {
      /**
      * Algorithm changed
      * 
-     * let a, b be the given numbers
      * 
-     * if a and b have different signs, then 
-     * k = sign(a)
-     * else 
-     * k = sign(a-b)
-     * 
-     * Let q be the negation of k
-     * return a * k + b * q
+     * observation/intution/pattern whatever (Need to remember this)
+     *  Lets say a=2,b=5   -> k=1
+     *           a=5,b=2   -> k=0
+                 a=-2,b=-5 -> k=0
+                 a=-5,b=-2 -> k=1
+                 
+                 a=-2,b=5  -> k=1
+                 a=-5,b=2  -> k=1
+                 a=2,b=-5  -> k=0
+                 a=5,b=-2  -> k=0
+                 
+        From the first set, we can see k depends on whichever value is greater, like if b is greater k=1 & vice versa
+        From the second set where a & b have different sign, we notice that k sign is same as a's sign
+        So lets do something like this,
+        
+     *  If a & b have a different sign, then use a's sign for K, then do it normally from the first solution
      * 
      */
 
