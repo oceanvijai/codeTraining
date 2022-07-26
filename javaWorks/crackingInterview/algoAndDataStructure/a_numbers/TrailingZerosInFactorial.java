@@ -23,7 +23,7 @@ public class TrailingZerosInFactorial {
 
      int trailingZeros(int num){
         int count = 0;
-        for(int i = 5; (num / i) > 0 ;i = i * 5){
+        for(int i = 5; (num / i) > 1 ;i = i * 5){
             count = count + (num / i);
         }
         return count;
