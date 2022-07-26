@@ -1,4 +1,10 @@
 public class PowerFunction {
+    
+    /**
+    
+        Log(n)
+    
+    **/
 
     int power_recursive(int x, int n) {
         int m;
