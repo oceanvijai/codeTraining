@@ -21,13 +21,6 @@ Lets say a=000010010001000
 3. and with mask a & mask
 
 
-
-
-
-
-
-
-
 private static int msb(int num){
         int pos = 0;
         System.out.println(Integer.toBinaryString(num));
