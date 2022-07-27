@@ -1,3 +1,12 @@
+Java methods to generate random numbers
+
+Math.random() -> produces numbers from 0.0 (inclusive) till 1.0 (exclusive)
+
+Random randomeGenerator = new Random();
+randomeGenerator.nextInt(); // All 232 possible int values are produced with (approximately) equal probability
+randomeGenerator.nextInt(upperBound); // All values from 0 till upperBound are produced
+
+-------------------------------------------------------------------------------------------------------
 Random.getNextInt() in java still not clear 
 -------------------------------------------------------------------------------------------------------
 
