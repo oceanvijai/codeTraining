@@ -1,3 +1,8 @@
+Use "Resorvior sampling" if you have to pick from a stream of numbers (basically the total size n is unknown or super large)
+
+When you want to minimize the use of Math.random() call, then ?
+
+-------------------------------------------------------------------------------------------------------
 Java methods to generate random numbers
 
 Math.random() -> produces numbers from 0.0 (inclusive) till 1.0 (exclusive)
