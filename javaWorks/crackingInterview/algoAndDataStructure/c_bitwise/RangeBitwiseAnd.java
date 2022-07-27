@@ -4,6 +4,23 @@ public class RangeBitwiseAnd{
 
 	// Input: [5,7]
 	// Output: 4
+	
+	/**
+	    Think about the a range lets say 17 to 19
+	    17 - 10001
+	    18 - 10010
+	    19 - 10011
+	    
+	    you can note that, the most significant bit is the only common bit in the range
+	    Likewise, 
+	    
+	    if we have range 18 to 19
+	    you have the most significant bit as common bit and then the 2nd bit. 
+	    So only the those bits will produce 1 in the AND operation
+	    
+	    so in most cases the we need to find the most significant bit add it to the answer,
+	    then find the 2ns most common significant bit, add it to the answer and so on until the MSB are not in the same location
+	**/
 
 	public int rangeBitwiseAnd(int m, int n) {
         if(n == m){
