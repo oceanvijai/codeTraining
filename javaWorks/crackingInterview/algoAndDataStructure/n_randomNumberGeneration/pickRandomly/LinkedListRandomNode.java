@@ -40,12 +40,13 @@ public class LinkedListRandomNode{
 
 
     /**
-		For follow up, where from a stream of data, we need to pick samples randomly, so that all of them have equal chances
+	For follow up, where from a stream of data, we need to pick samples randomly, so that all of them have equal chances
 
-		we can use the Resorvior sampling
-		https://leetcode.com/problems/linked-list-random-node/solution/ - Approach 2
-		https://en.wikipedia.org/wiki/Reservoir_sampling
-
+	we can use the Resorvior sampling
+	https://leetcode.com/problems/linked-list-random-node/solution/ - Approach 2
+	https://en.wikipedia.org/wiki/Reservoir_sampling
+	https://www.youtube.com/watch?v=DWZqBN9efGg (explanation and math proof - simple)
+	
     **/
 
 	private ListNode head;
