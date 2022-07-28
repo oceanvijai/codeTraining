@@ -1,4 +1,20 @@
+To count the number of set bit in an integer:
+---------------------------------------------
+Integer.bitCount(i);
+
+Java integer to binary
+----------------------
+Integer.toBinaryString(l)
+
+Java binary to integer
+----------------------
+Integer.parseInt("1010",2)
+
+
+--------------------------------------------------------------------------------------------------
+
 Binary addition:
+--------------------
 
 1 + 1 = 10 (decimal 2)
 0 + 1 = 1 
@@ -6,6 +22,7 @@ Binary addition:
 0 + 0 = 0
 
 Binary subtraction:
+--------------------
 
 1 - 1 = 0 
 0 - 1 = 1 (borrow 1 from the farest 1 making it 10(decimal 2), so (2 - 1 = 1)
@@ -13,6 +30,7 @@ Binary subtraction:
 0 - 0 = 0
 
 Binary multiplication:
+------------------------------
 
 It is simply the way normal decimal multiplication happens
 
@@ -39,33 +57,33 @@ x << 1 // arithmetic shift is equal to multiply by 2
 
 
 get a bit:
+----------
 int num
 int mask = 1 << i;
 num & mask > 0 ? "1" : "0"
 
 
 set a bit:
+----------
 int num
 int mask = 1 << i;
 num | mask
 
 
 clear a bit: put 1 if 0
+------------------------------
 int num
 int mask = ~(1 << i); // will get 1111101111
 num & mask
 
 update a given value to the bit
+----------------------------------------
 int num
 int mask = ~(1 << i); // will get 1111101111
 int tmp = num & mask // will get 0 in that position, basically we clear it
 num = tmp | (value << i) // will now set it
 
 Make all bits right of i to 1 
+------------------------------
 int m = 1 << i;
 int mask = m -1; // will do binary subraction to get the 1s
-
-
-To count the number of set bit in an integer:
-
-Integer.bitCount(i);
