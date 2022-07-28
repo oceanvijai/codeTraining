@@ -1,8 +1,9 @@
 
 
 Stream of numbers - Use "Resorvior sampling" if you have to pick from a stream of numbers (basically the total size n is unknown or super large)
-When you want to minimize the use of Math.random() call, then - preprocess of some sort
-When we have a list of blacklisted values which needs to ignored - remove them and map it to some other valid values
+minimize Math.random() - When you want to minimize the use of Math.random() call, then - preprocess of some sort
+blacklisted values - When we have a list of blacklisted values which needs to ignored, re-map it to some other valid values
+values with weights - lay them out and do binary search
 
 -------------------------------------------------------------------------------------------------------
 Java methods to generate random numbers
