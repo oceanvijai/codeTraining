@@ -1,7 +1,9 @@
 // create mask and achieve
-// Use trie - multiple numbers are involved
-// Use bits from all numbers - multiple numbers are involved
 // Use & and XOR a lot
+
+// multiple numbers are involved - Use trie
+// multiple numbers are involved - Use bits from all numbers
+// multiple numbers are involved - Cantor's Diagonalization (findDifferentBinaryString)
 
 --------------------------------------------------------------------------------------------------
 
