@@ -1,3 +1,10 @@
+// create mask and achieve
+// Use trie - multiple numbers are involved
+// Use bits from all numbers - multiple numbers are involved
+// Use & and XOR a lot
+
+--------------------------------------------------------------------------------------------------
+
 To count the number of set bit in an integer:
 ---------------------------------------------
 Integer.bitCount(i);
@@ -8,7 +15,10 @@ Integer.toBinaryString(l)
 
 Java binary to integer
 ----------------------
-Integer.parseInt("1010",2)
+Integer.parseInt("1010",2) // But will be in trimmed format
+
+
+
 
 
 --------------------------------------------------------------------------------------------------
