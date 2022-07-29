@@ -1,7 +1,10 @@
 Use the basic math and if required come with equaltions
 
+Most of the questions in number formation will have upper and lower limit overflow scenarioes. WATCH OUT.
+------------------------------------------------------------------------------------------
 prime   - any even number can be represented as a product of two prime number
 
+------------------------------------------------------------------------------------------
 GCD     - GCD of two numbers is the biggest number what can divide both.
             Ex: GCD(54,24)
             Factors of 54 = 1,2,3,6,9,18,27,54
