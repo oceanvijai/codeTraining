@@ -1,0 +1,14 @@
+1) Clarify and gather data as much data. dont apporach the problem without clarity. Give examples and confirm
+
+2) If its not intutive, find insight with small input examples
+3) Try brute force first
+4) Look if you can apply general patterns
+
+5) Use common libs correctly to present small and consise solutions
+6) Break your solution into small methods 
+7) If your solution is more than 50 line, that is clue you are in a wrong track
+8) Done overdo syntax issues
+
+9) Input valid and corner cases up front
+
+
