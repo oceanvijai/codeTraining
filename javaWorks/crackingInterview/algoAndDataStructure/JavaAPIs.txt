@@ -29,13 +29,24 @@ int[] arr = new int[]{1,2,3};
 Character[] c = new char[]{'a','b'}; // compile error
 
 
+
+
 Sorting:
 ----------
 
 
 
+
+
 Math:
 ----------
+
+abs(-34.5)
+ceil(2.17)
+floor(3.14)
+min(x, -4), max(3 . 14, y)
+pow(2.71, 3 . 14)
+sqrt(225)
 
 
 loops:
@@ -44,3 +55,9 @@ loops:
 
 Random:
 ----------
+
+nextlnt(16)
+nextlnt() 
+nextBoolean() 
+nextDouble() (which returns a value in [0, 1))
+
