@@ -1,10 +1,15 @@
 Creations:
 ----------
+
+byte -> 8bit -> -128 to 127
+short -> 16bit -> -32,768 to 32,767 
+
 Integer.MIN_VALUE = -2_147_483_648, -2^32 
 Integer.MAX_VALUE = 2_147_483_647 (2 billion, 200cr)
 
-int[] arr = new int[]{1,2,3};
-Character[] c = new char[]{'a','b'}; // compile error
+long -> -2^63 - 2^63-1
+
+
 
  
 Conversions:
@@ -15,10 +20,13 @@ char to int -> Character.getNumericValue('2'); or '0'-'2'
 Integer to String -> String.valueOf(123);
 String to Integer  -> Integer.parseInt("123");
 
+Long to integer -> Math.toIntExact or myLong.intValue();
+
 
 Collections:
 ----------
-
+int[] arr = new int[]{1,2,3};
+Character[] c = new char[]{'a','b'}; // compile error
 
 
 Sorting:
