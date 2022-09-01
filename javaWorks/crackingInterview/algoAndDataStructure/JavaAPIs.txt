@@ -1,0 +1,38 @@
+Creations:
+----------
+Integer.MIN_VALUE = -2_147_483_648, -2^32 
+Integer.MAX_VALUE = 2_147_483_647 (2 billion, 200cr)
+
+int[] arr = new int[]{1,2,3};
+Character[] c = new char[]{'a','b'}; // compile error
+
+ 
+Conversions:
+----------
+int to char -> 
+char to int -> Character.getNumericValue('2'); or '0'-'2'
+
+Integer to String -> String.valueOf(123);
+String to Integer  -> Integer.parseInt("123");
+
+
+Collections:
+----------
+
+
+
+Sorting:
+----------
+
+
+
+Math:
+----------
+
+
+loops:
+----------
+
+
+Random:
+----------
