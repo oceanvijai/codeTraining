@@ -9,8 +9,13 @@ Integer.MAX_VALUE = 2_147_483_647 (2 billion, 200cr)
 
 long -> -2^63 - 2^63-1
 
+scientific notation for 
+3e2 = 300.0 (3*10^2)
+3.1e2 = 310.0
+3.1e-1 = 0.31
 
-
+hexa decimal (prefix '0x')
+0xf = 15
  
 Conversions:
 ----------
