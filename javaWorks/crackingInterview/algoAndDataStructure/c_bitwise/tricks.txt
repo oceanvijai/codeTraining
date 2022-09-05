@@ -63,6 +63,14 @@ x ^ x  = 0
 
 x >> 1 // arithmetic shift is equal to divide by 2
 x << 1 // arithmetic shift is equal to multiply by 2
+arithmetic shift meaning it will preserve the sign bit, 
+for ex: -2 = 1100, then -2 >> 1 will be 1010.
+
+x >>> 1 // logical shift
+arithmetic shift meaning it will NOT preserve the sign bit, 
+for ex: -2 = 1100, then -2 >> 1 will be 0110.
+
+
 
 // Find out the hash code impl in hashmap with bitwise impl
 
