@@ -66,3 +66,15 @@ nextlnt()
 nextBoolean() 
 nextDouble() (which returns a value in [0, 1))
 
+Bits:
+-----
+
+To count the number of set bit in an integer:
+Integer.bitCount(i);
+
+Java integer to binary
+Integer.toBinaryString(l)
+
+Java binary to integer
+Integer.parseInt("1010",2) // But will be in trimmed format
+
