@@ -23,7 +23,7 @@ public class FindParity{
             int mask = (int)(num & 15);
             System.out.println("mask: "+mask);
             bitCount += sixteenBitBitCount[mask];
-            num = num >> 4;
+            num = num >>> 4;
          }
          
          return bitCount%2 == 0 ? 0 : 1;
