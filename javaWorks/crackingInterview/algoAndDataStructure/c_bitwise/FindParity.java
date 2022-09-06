@@ -3,7 +3,11 @@ public class FindParity{
   /**
       The parity of a binary word is 1 if the number of Is in the word is odd; otherwise, it is 0
   
-  
+      Approach: Simple enough. Have a memtable of any size which already knows the count of its bit, 
+      then break the given number into the same size which means within the same number range and get the bit count in O(1)
+      
+      Here we have used chunk size as 4, and count all the bits.
+      Time is O(1) since even in worse case the iteration time is fixed
   
   **/
   
