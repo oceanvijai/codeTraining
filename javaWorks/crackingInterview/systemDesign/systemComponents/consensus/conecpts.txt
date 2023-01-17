@@ -7,7 +7,7 @@ Consensus is needed when
 		- Lets say, we have multiple events/updates and we need to get a consense before delivering every msg, so when delivered they are i order
 
 
-total order broadcast ?
+total order broadcast (released to Delivery gauranties - FIFO, causual & total order gauranty)
 	- In a distributed system we tend to replicate data to other nodes for availability
 	- When we are sending the data to the replicas, we need to make sure we send the data in the right sequence
 		- Meaning, if we get a write request, the leader need to make sure the write requests are sequenced properly, or
