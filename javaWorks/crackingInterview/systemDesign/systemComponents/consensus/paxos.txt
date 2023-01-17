@@ -1,3 +1,5 @@
-
+Proposed by Leise lamport (father of distubited system who created lamport logical clock and turing award winner)
+  - Paper 1 - 1998
+  - Paper 2 - 2002 - paxos made simple
 
 reference: https://www.youtube.com/watch?v=fYfX9IGUiVw
