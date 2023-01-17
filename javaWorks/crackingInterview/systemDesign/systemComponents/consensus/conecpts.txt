@@ -1,10 +1,13 @@
 Consensus is needed when 
-	- To elect a leader(node) so the messages can be to dispersed in order
+	- To elect a leader(node) so the messages can be to dispersed in order (Leader election)
 	- Avoid split brain (Two leader)
+	- Need to know which are the nodes/processes which can work together (Group membership)
+	- Need to get access to a shared resource (Distributed mutual exclusion - lock)
 	- It is also used when we want the messages to be accepted in a single value
 		- Lets say, whenever we deliver a msg. We make sure they are accepted by a quorum which is a consensus
-	- It is also used when we want to deliver/replicate multiple msgs to the followers
-		- Lets say, we have multiple events/updates and we need to get a consense before delivering every msg, so when delivered they are i order
+	- It is also used when we want to deliver/replicate multiple msgs to the followers in the same order (total order broadcast)
+		- Lets say, we have multiple events/updates and we need to get a consense before delivering every msg, so when delivered they are in order
+	- Distributed transaction commit problems
 
 
 total order broadcast (released to Delivery gauranties - FIFO, causual & total order gauranty)
