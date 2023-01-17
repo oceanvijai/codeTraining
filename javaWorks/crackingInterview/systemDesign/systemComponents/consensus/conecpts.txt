@@ -24,6 +24,7 @@ State machine replication
 
 
 Crash stop failures ?
+	- System in not sure whether a node is crashed or slow
 
 Algos
 	- paxos (single value consensus)
