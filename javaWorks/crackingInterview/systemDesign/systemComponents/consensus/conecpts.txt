@@ -51,6 +51,11 @@ Algos
 
 - Fisher Lynch Paterson (FLP) theorem
 	- It is impossible to get a consensus on a asynchronous system.
+	- Like CAP it has 3 gaurenties and we need to choose 2 among them
+	  - Termination - Each process/nodes eventually decides a value
+	  - Agreement - All nodes agress/decides on a same value
+	  - Validity - The agreed value should be from the set of proposed values
+	- Paxos - may not satisfy Termination gaurenty
 
 
 
