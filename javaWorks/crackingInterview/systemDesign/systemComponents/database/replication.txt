@@ -13,8 +13,10 @@ Eventual consistency - Where the replicas will eventuallu get consistent
 Active & passive replication
 
 Active - Where each replicas EXECUTE the changes individually and apply it to their copy
+  - Also called state machine replication
   - useful when
     - If the state update is large which is very big to send it accros, in that case better compute it quickly on each replicas
 Passive - Where only primary EXECUTE the changes and asks the replicas to just update their copies with new value
   - Useful when
     - When the computation is too expensive so you can compute it once and share it with others
+    - If the execution involves generating random number, then better use passive
