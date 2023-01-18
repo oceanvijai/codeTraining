@@ -30,7 +30,9 @@ Algos
 	- paxos (single value consensus)
 		- Multi-Paxos (total order broadcast)
 	- Zookeeper atomic broadcast (zab)
+		- atomic broadcast ~ totally ordered broadcast
 	- Raft
+		- Easy to understand View stamped replication :) 
 	- View stamped replication
 
 
