@@ -1,0 +1,18 @@
+For availability & fault tolerance we need to duplicate data
+
+The challenge is to keep the replicas consistent
+
+consistent - The client should feel as if there is only one copy of the data
+
+Strong consistent model - Where all copies are updated before commiting
+  - Primary - backup model provides stong consistency 
+  
+Eventual consistency - Where the replicas will eventuallu get consistent
+  
+  
+Active & passive replication
+
+Active - Where each replicas EXECUTE the changes individually and apply it to their copy
+  - useful when
+    - 
+Passive - Where only primary EXECUTE the changes and asks the replicas to just update their copies with new value
