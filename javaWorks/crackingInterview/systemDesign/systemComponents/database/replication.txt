@@ -10,8 +10,10 @@ Strong consistent model - Where all copies are updated before commiting
 Eventual consistency - Where the replicas will eventuallu get consistent
 
 Read you write consistency - The client must be always able to read what it wrote
+  - How to achieve ?
 
 casual consistency - Writes with a causing order are seen by all process in the same order
+  - How to achieve ?
   
   
 Active & passive replication
