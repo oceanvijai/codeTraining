@@ -34,6 +34,7 @@ Algos
 	- Raft
 		- Easy to understand View stamped replication :) 
 	- View stamped replication
+	- Comparisons - white paper - Vive la differnce
 
 
 - Asynchronous system ?
