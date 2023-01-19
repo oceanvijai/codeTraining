@@ -6,17 +6,27 @@ consistent - The client should feel as if there is only one copy of the data
 
 Safty properties:
 -----------------
-Strong consistent - Where all copies are updated before commiting
-  - Primary - backup model provides stong consistency 
-
-casual consistency - Writes with a causing order are seen by all process in the same order
+Read you write consistency - The client must be always able to read what it wrote
+  - Wrote to a replica and read from another replica which is not yet updated
   - How to achieve ?
 
 FIFO consistence - Writes mush ensure first out first written
+  - 2 writes to a replicae which were applied OUT OF ORDER in another replica will create mismatch in data between replicas
   - How to achieve ?
+  
+casual consistency - Writes with a causing order are seen by all process in the same order
+  - Read bank balance from one replica(Which has +ve balance) and tried to withraw from another outdate of data replica can cause casual order violation.
+  - Since the write has casually happened before a read
+  - How to achieve ? Lamport clocks & vector clocks  
 
-Read you write consistency - The client must be always able to read what it wrote
-  - How to achieve ?
+Strong consistent - Where all copies are updated before commiting
+  - Primary - backup model provides stong consistency 
+
+
+
+
+
+
 
 Liveness properties:
 --------------------
