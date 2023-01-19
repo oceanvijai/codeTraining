@@ -16,6 +16,7 @@ FIFO consistence - Writes mush ensure first out first written
   
 casual consistency - Writes with a causing order are seen by all process in the same order
   - Read bank balance from one replica(Which has +ve balance) and tried to withraw from another outdate of data replica can cause casual order violation.
+  - Happens before relations between writes must not be violated
   - Since the write has casually happened before a read
   - How to achieve ? Lamport clocks & vector clocks  
 
