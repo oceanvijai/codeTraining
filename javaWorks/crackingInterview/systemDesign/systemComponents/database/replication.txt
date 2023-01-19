@@ -4,16 +4,27 @@ The challenge is to keep the replicas consistent
 
 consistent - The client should feel as if there is only one copy of the data
 
-Strong consistent model - Where all copies are updated before commiting
+Safty properties:
+-----------------
+Strong consistent - Where all copies are updated before commiting
   - Primary - backup model provides stong consistency 
-  
-Eventual consistency - Where the replicas will eventuallu get consistent
+
+casual consistency - Writes with a causing order are seen by all process in the same order
+  - How to achieve ?
+
+FIFO consistence - Writes mush ensure first out first written
+  - How to achieve ?
 
 Read you write consistency - The client must be always able to read what it wrote
   - How to achieve ?
 
-casual consistency - Writes with a causing order are seen by all process in the same order
-  - How to achieve ?
+Liveness properties:
+--------------------
+Eventual consistency - Where the replicas will eventually get consistent
+
+
+
+
   
   
 Active & passive replication
