@@ -1,0 +1,10 @@
+C - consistency - Consistent view of data as if there is only one replica
+A - Availability - every request is responded
+P - Network Partition - Happens naturally
+
+You can choose A or C when a P occurs.
+AP - Dynamo, cassandra etc
+CP - SQL Dbs & mangoDB
+
+You cant have CA.
+  - Mango DB ?
