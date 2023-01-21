@@ -49,3 +49,13 @@ Passive - Where only primary EXECUTE the changes and asks the replicas to just u
   - Useful when
     - When the computation is too expensive so you can compute it once and share it with others
     - If the execution involves generating random number, then better use passive
+    
+    
+Merkel trees (Hash trees):
+  - When the data to be replicated is large and to save bandwith, we use merkel tree to identity only a small portion of data 
+    which needs to transfered.
+  - The leaf nodes are values. Its parents is the hash of its children and so is its parents. Finally we use compare hash tree to find out the point of difference.
+  - We can use this like a check sum and in cryptography
+    - https://youtu.be/9KX2wvAgVSo?t=2477
+    - http://decomposition.al/blog/2019/05/31/how-i-learned-about-merklix-trees-without-having-to-become-a-cryptocurrency-enthusiast/ (optional)
+   
