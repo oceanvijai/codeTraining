@@ -15,7 +15,7 @@ Some applications of map reduce:
 - Grep 
 - etc
 
-We can have plain vanialla map reduce or hadoop (clone of MR).
+We can have plain vanilla map reduce or hadoop (clone of MR).
 
 Algo in a distrubted system fashion:
   Lets say we have a 10, 1TB files of data from which we need to create the inverted index.
