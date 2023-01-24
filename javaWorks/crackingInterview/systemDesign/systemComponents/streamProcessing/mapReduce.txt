@@ -1,5 +1,59 @@
 Its an ofline processing system
 
+If we want to merge large data to collect useful devired data we can use 2 operation.
+1. Map - Which creates tokens for each data set
+2. Reduce - combine them to form useful derived data
 
+It a simple alog which can be written is 5 lines in Java. Then why do we need a framework around this simple algo.
+  - Because this algo is for a distrubited system. Not a single machine algo.
+  
 
+Some applications of map reduce:
+- Create inverted index for text search (lucene)
+- Word count
+- Sorting
+- Grep 
+- etc
+
+We can have plain vanialla map reduce or hadoop (clone of MR).
+
+Algo in a distrubted system fashion:
+  Lets say we have a 10, 1TB files of data from which we need to create the inverted index.
+  
+Step 1: Map  
+       - Spin up 10 mapper servers one for each file
+       - Parse the file and emit a tuple which looks like this <word, fileId>
+       - These emited tuples are called Intermediate map values
+       - When we say emit, it means we store them to the local RAM/Disk
+       - Note that at this point no two mapper servers coordinate
+       
+Step 2: Reduce
+       - Spin few Reduce servers/workers depending upon the need
+       - Assign a range of words to each reduce servers
+       - These reduce servers will then connect to the mapping servers and reduce the emmited values like these
+          <word1,fileId_1>
+          <word1,fileId_2>
+          <word1,fileId_4>
+          <word2,fileId_2>
+          <word2,fileId_3>
+          etc..
+       - It then reduces it further to form the inverted index like this
+          <word1, [fileId_1, fileId_2, fileId_4]
+          <word2, [fileId_2, fileId_3]
+       - Final step it to store the derived data (inverted index) into a distributed file system GFS (Google file system) for MP or HDFS for Hadoop
+       
+Each reduce server will have to connect to each map server to search for its assigned key values. To avoid this we have a intermediate step 
+called SHUFFLE
+Step 1.5:
+      - The map reduce framework shuffls the values to the reduce servers
+      
+Additionally, the Ma servers also can do a extra level of optimisation which is COMBINE.
+Lets say it can also group like in case of wordcount use case
+  <word1,4>
+  <word1,1>
+  <word1,2>
+       
+       
+Not that we need to write only two functions for this framework to work.
+  Map f() & Reduce f() rest all is taken care by the framework
 - https://youtu.be/sGuGBkH79iI?t=2008
