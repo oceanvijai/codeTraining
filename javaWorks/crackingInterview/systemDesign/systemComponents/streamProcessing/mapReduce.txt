@@ -48,7 +48,7 @@ Step 1.5:
       - The map reduce framework shuffls the values to the reduce servers
       
 Additionally, the Map servers also can do a extra level of optimisation which is COMBINE.
-  - This we can often do if the reduce fundtion is associative, meaning (a+b)+c = a+b+c
+  - This we can often do if the reduce fundtion is associative, meaning (a+b)+c = a+b+c is associate and avg(a,b,c) != avg(avg(a,b),c) is not
 
 Lets say it can also group like in case of wordcount use case
   <word1,4>
