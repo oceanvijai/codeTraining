@@ -47,7 +47,7 @@ called SHUFFLE
 Step 1.5:
       - The map reduce framework shuffls the values to the reduce servers
       
-Additionally, the Ma servers also can do a extra level of optimisation which is COMBINE.
+Additionally, the Map servers also can do a extra level of optimisation which is COMBINE.
 Lets say it can also group like in case of wordcount use case
   <word1,4>
   <word1,1>
