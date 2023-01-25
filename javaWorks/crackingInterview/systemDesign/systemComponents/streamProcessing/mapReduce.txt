@@ -58,4 +58,11 @@ Lets say it can also group like in case of wordcount use case
        
 Not that we need to write only two functions for this framework to work.
   Map f() & Reduce f() rest all is taken care by the framework
+  
+  
+Limitations of map reduce:
+  - Its very structured so very complex computations may not be stright fowrad. We then have to chain multiple map reduce jobs where on MP provides input to the other job. Flume is usually used to tackel this problem.
+  - We have to know everything in advance. We cant make incremental updates/inputs. For these purposes we should use streaming tools.
+  
+  
 - https://youtu.be/sGuGBkH79iI?t=2008
