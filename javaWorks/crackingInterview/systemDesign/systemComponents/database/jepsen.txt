@@ -1,0 +1,9 @@
+Jepsen is an open-source Clojure library, written by Kyle Kingsbury, designed to test the partition tolerance 
+of distributed systems by fuzzing them with random operations. 
+The results of these tests are analyzed to expose failure modes and to verify if the system 
+violates any of the consistency properties it claims to have.
+
+The Jepsen project did an analysis of Cassandra in 2013
+
+https://aphyr.com/posts/294-call-me-maybe-cassandra
+
