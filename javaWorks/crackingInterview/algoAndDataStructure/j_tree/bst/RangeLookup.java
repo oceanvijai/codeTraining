@@ -22,6 +22,16 @@ public class RangeLookup {
         Time: O(height) - to reach the node with interval start + O(intervalNodes) 
                 
     **/
+    
+    /**
+        The varient of this problem can ask for just the number of nodes in this interval.
+        For such problems we can try and add more details in every node like,
+            1. Parent info
+            2. Size of its left & right tree
+            3. etc
+         We can do a much better traversal using the property of the BST together.
+        
+    **/
         
     
 
