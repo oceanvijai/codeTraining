@@ -111,6 +111,82 @@ public class MostVisitedPages{
   **/
 
 
+
+    public static void main(String[] args) {
+    System.out.println("Hello world!");
+    char[] logs = new char[]{'g','a','t','t','a','a','a','g','t','c','t','a','t'};
+
+    Map<Character, BucketList> pages = new HashMap<>();
+    BucketList head = null;
+    
+    BucketList tail = new BucketList();
+    tail.count = 1;
+
+    for(char c : logs){
+        if(!pages.containsKey(c)){
+          tail.bucket.add(c);
+          pages.put(c,tail);
+        }else{
+          BucketList currentBucket = pages.get(c);
+          currentBucket.bucket.remove(c);
+          
+          if(currentBucket.next == null){
+            // If its at the head of the linked list
+            currentBucket.next = new BucketList();
+            currentBucket.next.bucket.add(c);
+            pages.put(c,currentBucket.next);
+            currentBucket.next.count = currentBucket.count+1;
+            currentBucket.next.previous = currentBucket;
+            // update to new head
+            head = currentBucket.next;
+          }else if(currentBucket.next.count > currentBucket.count+1){
+            // If there is an interleaved list
+            BucketList newBucket = new BucketList();
+            newBucket.count = currentBucket.count+1;
+            newBucket.bucket.add(c);
+            pages.put(c,newBucket);
+            // Insert between the middle and the next
+            currentBucket.next.previous = newBucket;
+            newBucket.next = currentBucket.next;
+            newBucket.previous = currentBucket;
+            currentBucket.next = newBucket;
+          }else if(currentBucket.next.count == currentBucket.count+1){
+            // if the next node is correct
+            currentBucket.next.bucket.add(c);
+            pages.put(c,currentBucket.next);
+          }
+
+          // Now if the current node is empty, lets delete it
+          // If the tail dont delete it
+          if(currentBucket.bucket.isEmpty()){
+            if(currentBucket != tail){
+              currentBucket.previous.next = currentBucket.next;
+              if(currentBucket.next != null){
+                currentBucket.next.previous = currentBucket.previous;
+              }
+            }
+          }
+        }
+    }
+
+
+    BucketList current = head;
+    while(current != null){
+        System.out.print(current.count);
+        System.out.println(":"+current.bucket);
+        current = current.previous;
+    }
+    
+  }
+
+  private static class BucketList{
+    int count;
+    Set<Character> bucket = new HashSet<>();
+    BucketList next;
+    BucketList previous;
+  }
+
+
   
 
 }
