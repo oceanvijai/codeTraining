@@ -10,7 +10,10 @@ public class WordSquares {
      * square because each word reads the same both horizontally and vertically.
      * 
      * 
-     * b a l l a r e a l e a d l a d y
+     *  b a l l 
+        a r e a 
+        l e a d 
+        l a d y
      */
 
     class TrieNode {
