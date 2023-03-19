@@ -82,8 +82,9 @@ public class LastStoneWeight2{
         }
         
         // totalSum = bestSum + b --> b = totalSum - bestSum
-        int b = totalSum - bestSum;
-        int ans = Math.abs(bestSum - b);
+        int b = totalSum - bestSum; // b is the value of the other subset
+	
+        int ans = Math.abs(bestSum - b); // Now cancel these two subset to get the min value
         return ans;
     }
 
