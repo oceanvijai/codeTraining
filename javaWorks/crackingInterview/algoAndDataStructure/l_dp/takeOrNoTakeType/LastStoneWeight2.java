@@ -38,8 +38,13 @@ public class LastStoneWeight2{
 		The intution behind this is not straight forward
 		Let say we sort all the stones and cancel the next smallest one, it will not provide a valid answer.
 		
+		We dont have to cancel and see. We just need to find the following.
+		
 		So we want to cancel the value of one stone with other and make it min
 		So we can add all the values and divide it by 2
+		Why is that, lets say one subset has only one number which can cancel all the other elements in the other subset.
+		So if we get a subset which is half or close to half of the total, we can try and find the min we can achieve
+		
 		If we can achieve the target values with the available stones, then we are good
 		Else find the closest achievable value and see how much is missingf from the total.
 
