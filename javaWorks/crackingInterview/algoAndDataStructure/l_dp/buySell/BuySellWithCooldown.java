@@ -17,6 +17,55 @@ public class BuySellWithCooldown {
      * 
      * transactions = [buy, sell, cooldown, buy, sell]
      */
+    
+    
+    
+    /**
+     * Approach: When we have 1D dp for buy and sell states, we might find that we need only few values which are
+     * bestProfitWithCoolDown - best profit seen so far which does not include the cooldown day trans value
+     * sellDay - The sell value of a day before (on the cool down day)
+     * buyDay - The buy value of a day before (on the cool down day)
+     * 
+     * On the current day/iteration if we decide to buy, we need to take a best profile so far and
+     * buy from that profit (bestProfitWithCoolDown-prices[i])
+     * If we decide to sell that day, we need not worry about cooldown. So take the best buy we did so far and add the current price
+     * Then we setup the next day accordingly
+     */
+    
+    public int maxProfit(int[] prices) {
+        if(prices.length <= 1){
+            return 0;
+        }
+        
+        // best profit seen so far which does not include the cooldown day trans value
+        int bestProfitWithCoolDown=0; 
+        
+        // Sell value on the previous day
+        int sellDay=0;
+        
+        // buy value on the previous day
+        int buyDay=-prices[0];
+
+        for(int i=1; i < prices.length; i++){
+            // current day's transaction
+            int currentDayBuy = bestProfitWithCoolDown-prices[i];
+            int currentDaySell = buyDay + prices[i];
+            
+            // setup the next day
+            // If today's buy is better or last buy was a better one
+            buyDay =  Math.max(buyDay, currentDayBuy); 
+
+            // Current cooldown was better or the previous day sell was better
+            // Meaning either the profit before cooldown or the previous sell value is 
+            // used as the bestProfitWithCoolDown for the next iteration
+            bestProfitWithCoolDown = Math.max(bestProfitWithCoolDown, sellDay); 
+
+            // currentDaySell becomes the sellDay for the next iteration
+            sellDay = currentDaySell; 
+        }
+        
+        return Math.max(bestProfitWithCoolDown,sellDay);
+    }
 
     /**
      * Approach: when you are doing a transaction on that day, we need to take the
@@ -47,28 +96,4 @@ public class BuySellWithCooldown {
     }
 
     // The above one id derived from
-
-    /**
-     * The below one is not fully complete yet, need to verify corner cases
-     * @param prices
-     * @return
-     */
-
-    public int maxProfit_(int[] prices) {
-
-        if (prices.length <= 1)
-            return 0;
-        int days = prices.length, buy[] = new int[days], sell[] = new int[days];
-        buy[0] = -prices[0];
-        for (int i = 1; i < days; i++) {
-            if (i == 1) {
-                buy[i] = prices[0] - prices[1];
-            } else {
-                buy[i] = Math.max(buy[i - 1], sell[i - 2] - prices[i]);
-            }
-
-            sell[i] = Math.max(sell[i - 1], buy[i - 1] + prices[i]);
-        }
-        return sell[days - 1];
-    }
 }
