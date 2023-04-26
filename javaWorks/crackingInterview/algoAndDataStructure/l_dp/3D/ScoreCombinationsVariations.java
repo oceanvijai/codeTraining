@@ -1,4 +1,4 @@
-public class ScoreCombinationsVariation1{
+public class ScoreCombinationsVariations{
     
     /**
         Write a program that takes a final score and scores for individual plays, 
@@ -71,6 +71,37 @@ public class ScoreCombinationsVariation1{
         }
   
   
-      
+       /** 
+        Variant: Suppose the final score is (s,s'). How would you compute the maximum number of times the 
+        team that lead could have changed? 
+        For example, if s =10 and s' = 6, the lead could have 
+        changed 4 times: Team 1 scores 2, then Team 2 scores 3 (lead change), then Team 1 scores 2 (lead change), 
+        then Team 2 scores 3 (lead change), then Team 1 scores 3 (lead change) followed by 3.
+        
+        Here the first D is s, the second D is s` and the third D is the socres.
+        
+        Recurssion is trying out the all ways as above, only the base case changes
+        
+        Time: ????
+    **/
+    
+    public int findSquences(int s, int sPrime, int[] availableScores){
+        // BAse case which returns 1
+        
+        int count = 0;
+        for(int i : availableScores){
+            count += findSquences(s-i,sPrime);
+            count += findSquences(s,sPrime-i);
+        }
+        
+        return count;
+      }
+    
+    
+    /**
+        DP will be similar
+    
+    
+    **/
   
 }
