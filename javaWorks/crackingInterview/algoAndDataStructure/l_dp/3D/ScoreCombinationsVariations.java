@@ -67,7 +67,7 @@ public class ScoreCombinationsVariations{
               }
           }
         
-          return count;
+          return dp[s][sPrime];
         }
   
   
@@ -99,9 +99,39 @@ public class ScoreCombinationsVariations{
     
     
     /**
-        DP will be similar
+        DP will be similar, only difference are as follows,
+        Base case
+        Since its a max, we may need one more iteration at the end
     
     
     **/
+    
+    
+    public int findSquences(int s, int sPrime, int[] availableScores){
+          int[][] dp = new int[s+1][sPrime+1];
+          int count = 0;
+           
+          for(int c : availableScores){ // For each score available
+              for(int i = 0; i <= s; i++){
+                for(int j = 0; i <= sPrime; j++){
+                    // Check for bound overflow
+                  
+                    // Set "1" for the base condition
+                  
+                    // USE the same recurrence relation
+                    dp[i][j] += dp[i-c][j] + dp[i][j-c];
+                }
+              }
+          }
+        
+          int maxChanges = 0;
+            for (int i = 0; i <= s; i++) {
+                for (int j = 0; j <= sPrime; j++) {
+                    maxChanges = Math.max(maxChanges, dp[i][j]);
+                }
+            }
+    
+            return maxChanges;
+   }
   
 }
