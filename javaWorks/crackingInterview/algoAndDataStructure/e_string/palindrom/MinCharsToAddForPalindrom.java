@@ -1,4 +1,6 @@
 public class MinCharsToAddForPalindrom {
+    
+    
 
     public int solve(String A) {
         String copyString = new StringBuilder(A).reverse().toString();
@@ -19,4 +21,9 @@ public class MinCharsToAddForPalindrom {
     private boolean isPanlindrome(String s) {
         return new StringBuilder(s).reverse().toString().equals(s);
     }
+    
+    /**
+        This can be a DP problem - javaWorks/crackingInterview/algoAndDataStructure/l_dp/string/palindromic/LongestPalindromicSubsequence2.java
+    
+    **/
 }
