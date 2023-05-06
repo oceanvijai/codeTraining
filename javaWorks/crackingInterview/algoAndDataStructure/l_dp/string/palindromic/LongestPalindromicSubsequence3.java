@@ -40,7 +40,7 @@ public class LongestPalindromicSubsequence3{
     We need to use two pointer greedy 
     
     
-    Check in String folder /string/stringFormation/LongestPalindromicSubsequence3.java
+    Check in String folder /e_string/stringFormation/LongestPalindromicSubsequence3.java
     
   
   
