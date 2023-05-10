@@ -22,7 +22,21 @@ public class MaximumWidthRamp{
       Approach: For every index we need to know the farthest index which is equal or greater than the value in that current index.
       How to get that info ?
       
-      We can start the other way 
+      We can reverse it as well. For any index we need to know what is the index with the smallest index to the left.
+      We can do this using a monotone stack.
+      We start from zero index and add elements to the stack in such a way the stack contains indices which are in descreasing order. 
+      This is allow us to check from the last index what is the smallest index to the left.
+      
+      In the second iteration, Lets say we get a number in the larger index and which is greater that the one in the top, we can consider it for the answer.
+      If we can also try other elements in the stack with the same number. Reason being, 
+      
+      If we get a smaller number after that, that smaller number would be either in the stack or the larger number after it can produce a better ramp.
+      input -> [6,0,8,2,1,5], stack -> [6,0]
+      Now when i is 5 in the lower loop, we compare it with the first element in the stack and pop it out after computing the answer.
+      Now when i moves to 4(value=1), it could not produced a better result that 5. So we are good. 
+      
+      If we get a larger number after that , that number will be  again can try poping out things from stack, but it will not affect the prvious computation.
+      Ex, when i is 2(value=8) it can pop out 6, but still the previous answer was better. It make no difference to our previous answer.
   
   
   **/
