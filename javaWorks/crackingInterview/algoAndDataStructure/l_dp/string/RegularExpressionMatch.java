@@ -6,9 +6,9 @@ public class RegularExpressionMatch {
      */
 
     /**
-     * '.' Matches any single character.
+     * '.' Matches any single character. It can accomadate any one char.
      * 
-     * '*' Matches zero or more of the preceding element.
+     * '*' Matches zero or more of the preceding element. Meaning if * come before char 'k' like k*, then we can conside "","k","kk..." but not other chars
      */
 
     public boolean isMatch(String s, String p) {
