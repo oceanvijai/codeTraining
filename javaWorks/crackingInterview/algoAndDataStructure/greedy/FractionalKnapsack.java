@@ -85,6 +85,19 @@ public class FractionalKnapsack{
  
         return totalValue;
     }
+  
+  // Item value class
+    static class ItemValue {
+ 
+        int profit, weight;
+ 
+        // Item value function
+        public ItemValue(int val, int wt)
+        {
+            this.weight = wt;
+            this.profit = val;
+        }
+    }
 
 
 }
