@@ -61,9 +61,43 @@ public class TwoCityScheduling {
   
   
   /**
-      Now lets convert the above recusrion into a 3D DP
-      
+      Now lets convert the above recusrion into a 3D DP.
+      Time: O()
   **/
+  
+  
+  public int twoCitySchedCost(int[][] costs) {
+        int size = costs.length;
+        int n = size/2;
+        int[][][] dp = new int[size+1][n+1][n+1];
+        Arrays.stream(dp).forEach(TwoDArray -> Arrays.stream(TwoDArray).forEach(oneDArray -> Arrays.fill(oneDArray, -1)));
+        int ans =  solve(0, costs, n, 0, 0, dp);
+        return ans;
+    }
+
+    private int solve(int index, int[][] costs, int n, int aCount, int bCount, int[][][] dp){
+        if(index == costs.length){
+            return 0;
+        }
+
+        if(dp[index][aCount][bCount] != -1){
+            return dp[index][aCount][bCount];
+        }
+
+        int aPath = Integer.MAX_VALUE;
+        int bPath = Integer.MAX_VALUE;
+        if(aCount < n){
+            aPath = costs[index][0] + solve(index+1, costs, n, aCount+1, bCount, dp);
+        }
+        if(bCount < n){
+            bPath = costs[index][1] + solve(index+1, costs, n, aCount, bCount+1, dp);
+        }
+
+        dp[index][aCount][bCount] = Math.min(aPath, bPath);
+        return dp[index][aCount][bCount];
+    }
+  
+  
 
 
 }
