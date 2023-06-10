@@ -38,22 +38,25 @@ public class TwoCityScheduling {
   public int twoCitySchedCost(int[][] costs) {
         int size = costs.length;
         int n = size/2;
-        return solve(0, costs, n, 0,0,0,0);
+        int ans =  solve(0, costs, n, 0, 0);
+        return ans;
     }
 
-    private int solve(int i, int[][] costs, int n, int aCount, int aValue, int bCount, int bValue){
-        if(aCount == n && bCount == n){
-            return aValue + bValue;
+    private int solve(int index, int[][] costs, int n, int aCount, int bCount){
+        if(index == costs.length){
+            return 0;
         }
 
-        if(aCount == n){
-            return solve(i+1, costs, n, aCount, aValue, bCount+1, bValue+costs[i][1]);
-        }else if(bCount == n){
-            return solve(i+1, costs, n, aCount+1, aValue+costs[i][0], bCount, bValue);
-        }else{
-            return Math.min(solve(i+1, costs, n, aCount+1, aValue+costs[i][0], bCount, bValue),
-                        solve(i+1, costs, n, aCount, aValue, bCount+1, bValue+costs[i][1]));
+        int aPath = Integer.MAX_VALUE;
+        int bPath = Integer.MAX_VALUE;
+        if(aCount < n){
+            aPath = costs[index][0] + solve(index+1, costs, n, aCount+1, bCount);
         }
+        if(bCount < n){
+            bPath = costs[index][1] + solve(index+1, costs, n, aCount, bCount+1);
+        }
+
+        return Math.min(aPath, bPath);
     }
   
   
