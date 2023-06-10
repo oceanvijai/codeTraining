@@ -38,7 +38,6 @@ public class TwoCityScheduling {
   public int twoCitySchedCost(int[][] costs) {
         int size = costs.length;
         int n = size/2;
-        int[][][] dp = new int[size+1][n+1][n+1];
         return solve(0, costs, n, 0,0,0,0);
     }
 
