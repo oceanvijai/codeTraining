@@ -62,7 +62,8 @@ public class TwoCityScheduling {
   
   /**
       Now lets convert the above recusrion into a 3D DP.
-      Time: O()
+      Time: O(2n(n+n)) = O(4n^2) = O(n^2)
+      Space: O(n^3)+n => DP + stackSize
   **/
   
   
@@ -96,6 +97,19 @@ public class TwoCityScheduling {
         dp[index][aCount][bCount] = Math.min(aPath, bPath);
         return dp[index][aCount][bCount];
     }
+  
+  /**
+      Now lets Optimise the above solution for space
+      Space: O(n^3)+n => DP + stackSize
+      We cant do anything about stacksize. But we can do something about DP.
+      We if see the states of DB[i][acount][bcount], i is almost always acount+bcount.
+      Secondly, lets say i=5, acount=2 and bcount=3 or i=5, acount=3 and bcount=2 or i=5, acount=1 and bcount=4 etc.
+      The rest of solution will come from the reset of the imput array which is min.
+      
+      So lets use only a 2d DP
+  **/
+  
+  
   
   
 
