@@ -6,6 +6,7 @@ Functional requirement:
 - User online status
 - Msg delivery status
 - Push notifications
+- Phone call audio/video
 - Group msg with all the above
 
 
