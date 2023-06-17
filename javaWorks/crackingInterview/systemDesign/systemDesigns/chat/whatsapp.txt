@@ -5,6 +5,7 @@ Functional requirement:
 - The msg needs to be delivered when the other user is offline
 - User online status
 - Msg delivery status
+- Push notifications
 - Group msg with all the above
 
 
