@@ -1,1 +1,15 @@
+Functional requirement:
+- Auth
+- Send msg from one user to other
+- The msg needs to be sent in order
+- The msg needs to be delivered when the other user is offline
+- User online status
+- Msg delivery status
+- Group msg with all the above
 
+
+Non fuctional:
+- Need to scale when the user load increases
+- Msg deliver latency needs to be less than a 500ms
+- Needs to always available
+- Can be eventually consistent
