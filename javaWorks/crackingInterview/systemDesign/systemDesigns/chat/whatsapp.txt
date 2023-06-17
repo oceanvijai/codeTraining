@@ -16,3 +16,9 @@ Non fuctional:
 - Msg deliver latency needs to be less than a 500ms
 - Needs to always available
 - Can be eventually consistent
+
+
+
+reference links:
+https://www.youtube.com/watch?v=2XJYN7FRD70
+
