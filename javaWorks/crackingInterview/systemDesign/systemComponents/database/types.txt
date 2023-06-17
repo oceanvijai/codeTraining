@@ -31,3 +31,11 @@ Query DB
 	Graph
 		Neo4j
 
+Real time DB:
+   - Firebase Realtime Database (GCP)
+   - RethinkDB
+   - Apache Kafka
+   - Apache Pulsar
+   - Hazelcast (in memmory)
+   - Amazon DynamoDB Streams
+
