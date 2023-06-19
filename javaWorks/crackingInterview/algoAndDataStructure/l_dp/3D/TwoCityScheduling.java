@@ -145,6 +145,47 @@ public class TwoCityScheduling {
       Now lets try tabluar. Since tabular can remove the space for stack.
   
   **/
+
+
+  public int twoCitySchedCost(int[][] costs) {
+        int size = costs.length;
+        int n = size/2;
+        int[][][] dp = new int[size+1][n+1][n+1];
+
+        // base cases
+
+        // If we have zero items then zero cost
+        // like dp[0][a][b] are all zeros
+        for(int i=0; i<=size; i++){
+            dp[i][0][0] = 0;
+        }
+
+        // When I can considering only 'a' to pick from for size n from that item index
+        for(int i=1; i<=size; i++){
+            for(int a=1; a <= n; a++){
+                dp[i][a][0] = costs[i-1][0]+dp[i-1][a-1][0]; // This addition is fully not so clear
+            }
+        }
+
+        // When I can considering only 'b' to pick from for size n from that item index
+        for(int i=1; i<=size; i++){
+            for(int b=1; b<=n; b++){
+                dp[i][0][b] = costs[i-1][1]+dp[i-1][0][b-1]; 
+            }
+        }
+        
+        for(int i=1; i<=size; i++){
+            for(int a=1; a<=n; a++){
+                for(int b=1; b <= n; b++){
+                    int aPath =  costs[i-1][0]+dp[i-1][a-1][b];
+                    int bPath =  costs[i-1][1]+dp[i-1][a][b-1];
+                    dp[i][a][b] = Math.min(aPath,bPath);
+                }
+            }
+        }
+         
+        return dp[size][n][n];
+    }
   
   
 
