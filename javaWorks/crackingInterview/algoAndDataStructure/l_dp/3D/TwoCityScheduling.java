@@ -143,6 +143,8 @@ public class TwoCityScheduling {
   
   /**
       Now lets try tabluar. Since tabular can remove the space for stack.
+      Time: 2n(n*n) = n^3
+      Space: n^3
   
   **/
 
@@ -187,7 +189,12 @@ public class TwoCityScheduling {
         return dp[size][n][n];
     }
   
+  /**
+      Now lets try to optimise the above one like we did for the top down.
+      Time: (n*n) = n^2
+      Space: n^2
   
+  **/
 
 
 }
