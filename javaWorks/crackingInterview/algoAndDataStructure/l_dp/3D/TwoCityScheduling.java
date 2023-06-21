@@ -164,24 +164,35 @@ public class TwoCityScheduling {
 
         // When I can considering only 'a' to pick from for size n from that item index
         for(int i=1; i<=size; i++){
-            for(int a=1; a <= n; a++){
-                dp[i][a][0] = costs[i-1][0]+dp[i-1][a-1][0]; // This addition is fully not so clear
-            }
+            dp[i][1][0] = costs[i-1][0];
         }
 
         // When I can considering only 'b' to pick from for size n from that item index
         for(int i=1; i<=size; i++){
-            for(int b=1; b<=n; b++){
-                dp[i][0][b] = costs[i-1][1]+dp[i-1][0][b-1]; 
-            }
+            dp[i][0][1] = costs[i-1][1]; 
         }
         
         for(int i=1; i<=size; i++){
-            for(int a=1; a<=n; a++){
-                for(int b=1; b <= n; b++){
-                    int aPath =  costs[i-1][0]+dp[i-1][a-1][b];
-                    int bPath =  costs[i-1][1]+dp[i-1][a][b-1];
-                    dp[i][a][b] = Math.min(aPath,bPath);
+            for(int a=0; a<=n; a++){
+                for(int b=0; b <= n; b++){
+                    if(a == 0 || b == 0){
+                        if(a == 0 && b == 0){
+                           dp[i][a][b] = 0; // If we dont pick from both, then value is zero
+                        }else if(b == 0){
+                            // If we are not picking from 'b', then lets pick from a + the solution with one reduced from a count
+                            // The is same as the recursion logic, but only we didnt consider b path
+                            dp[i][a][b] = costs[i-1][0]+dp[i-1][a-1][b]; 
+                        }else if(a == 0){
+                            // If we are not picking from 'a', then lets pick from b + the solution with one reduced from b count
+                            // The is same as the recursion logic, but only we didnt consider a path
+                            dp[i][a][b] = costs[i-1][1]+dp[i-1][a][b-1];
+                        }
+                    }else {
+                        // Else do the recursion logic
+                        int aPath = costs[i-1][0]+dp[i-1][a-1][b];
+                        int bPath = costs[i-1][1]+dp[i-1][a][b-1];
+                        dp[i][a][b] = Math.min(aPath,bPath);
+                    }
                 }
             }
         }
