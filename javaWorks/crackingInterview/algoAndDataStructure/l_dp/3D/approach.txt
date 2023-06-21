@@ -1,0 +1,16 @@
+How to approach a 3d DP problem.
+
+Moslty 3D DP problems happens when more than 2 things are moving at a time. Like more than 3 constraints.
+
+So we can see it as part of the recursion method signature fun(int i, int a, int b, ....).
+The base cases are also based on these three params i,a,b.
+And also we can usually visuallise it in the 2D tablular column
+
+When this kind , we just simple convert this recursion to a 3D, by using the three params and DP's dimentions 
+like we did for the TwoCityScheduling.java problem.
+
+That is most likely a TOP DOWM approach.
+Then we can try and see if we reduce it to a 2D top town problem.
+
+Then in order to improve memory space, we can try the bottom down way/ tabular way to solve the same 
+with the same base conditions and recursion formula either in 3d or 2d way.
