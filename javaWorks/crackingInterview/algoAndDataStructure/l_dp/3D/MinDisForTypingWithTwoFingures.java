@@ -24,7 +24,8 @@ public class MinDisForTypingWithTwoFingures{
 
 
     /**
-      Approach 1: Recursion 
+      Approach 1: Recursion where at every level we decide to with fingure 1 or fingure 2
+      O(2^n)
 
     **/
 
@@ -89,6 +90,12 @@ public class MinDisForTypingWithTwoFingures{
         gridMap.put('Z', new int[]{4,1});
         return gridMap;
     }
+
+
+    /**
+        Approach 2: top down DP
+
+    **/
 
   
 }
