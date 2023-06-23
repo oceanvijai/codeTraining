@@ -33,29 +33,30 @@ public class MinDisForTypingWithTwoFingures{
     Map<Character, int[]> gridMap;
     public int minimumDistance(String word) {
         gridMap = getGridMap();
-        return solve(0, word,'$','$');
+        return solve(0, word,-1,-1);
     }
 
-    private int solve(int currentIndex, String word, char ff_currentChar, char sf_currentChar){
+    private int solve(int currentIndex, String word, int ff_currentCharIndex, int sf_currentCharIndex){
         if(currentIndex >= word.length()){
             return 0;
         }
 
-        char currentCharacter = word.charAt(currentIndex);
-        int firstFingerPath = getDistance(ff_currentChar, currentCharacter) + solve(currentIndex+1, word, currentCharacter, sf_currentChar);
+        int firstFingerPath = getDistance(ff_currentCharIndex, currentIndex, word) 
+                                + solve(currentIndex+1, word, currentIndex, sf_currentCharIndex);
 
-        int secondFingerPath = getDistance(sf_currentChar, currentCharacter) + solve(currentIndex+1, word, ff_currentChar, currentCharacter);
+        int secondFingerPath = getDistance(sf_currentCharIndex, currentIndex, word) 
+                                + solve(currentIndex+1, word, ff_currentCharIndex, currentIndex);
 
         return Math.min(firstFingerPath, secondFingerPath);
     }
 
-    private int getDistance(char currentChar, char targetChar){
-        if(currentChar == '$'){
+    private int getDistance(int currentCharIndex, int targetCharIndex, String word){
+        if(currentCharIndex == -1){
             return 0;
         }
 
-        int[] c1 = gridMap.get(currentChar);
-        int[] c2 = gridMap.get(targetChar);
+        int[] c1 = gridMap.get(word.charAt(currentCharIndex));
+        int[] c2 = gridMap.get(word.charAt(targetCharIndex));
         
         return Math.abs((c1[0]-c2[0]))+Math.abs((c1[1]-c2[1]));
     }
@@ -96,6 +97,9 @@ public class MinDisForTypingWithTwoFingures{
         Approach 2: top down DP
 
     **/
+
+
+    
 
   
 }
