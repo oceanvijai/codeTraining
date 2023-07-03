@@ -116,9 +116,8 @@ public class MinDisForTypingWithTwoFingures{
             return 0;
         }
 
-        if(ff_currentCharIndex != -1 && sf_currentCharIndex != -1 
-            && dp[currentIndex][ff_currentCharIndex][sf_currentCharIndex] != 0){
-                return dp[currentIndex][ff_currentCharIndex][sf_currentCharIndex];
+        if(dp[currentIndex][ff_currentCharIndex+1][sf_currentCharIndex+1] != 0){
+                return dp[currentIndex][ff_currentCharIndex+1][sf_currentCharIndex+1];
         }
 
         int firstFingerPath = getDistance(ff_currentCharIndex, currentIndex, word) 
@@ -126,13 +125,10 @@ public class MinDisForTypingWithTwoFingures{
 
         int secondFingerPath = getDistance(sf_currentCharIndex, currentIndex, word) 
                                 + solve(currentIndex+1, word, ff_currentCharIndex, currentIndex, dp);
-        int result   = Math.min(firstFingerPath, secondFingerPath);
-        if(ff_currentCharIndex != -1 && sf_currentCharIndex != -1){
-            dp[currentIndex][ff_currentCharIndex][sf_currentCharIndex] = Math.min(firstFingerPath, secondFingerPath);
-        }
 
+        dp[currentIndex][ff_currentCharIndex+1][sf_currentCharIndex+1] = Math.min(firstFingerPath, secondFingerPath);
         
-        return result;
+        return dp[currentIndex][ff_currentCharIndex+1][sf_currentCharIndex+1];
     }
 
     private int getDistance(int currentCharIndex, int targetCharIndex, String word){
