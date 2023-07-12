@@ -1,4 +1,18 @@
 WE need recusions sample for 
+
+int f = (int n) => {
+  if (n === 1) {
+    return 1;
+  }
+
+  for (let i = 0; i < n; i++) {
+    console.log(i);
+  }
+
+  return f(n-1) + f(n-1)
+}
+
+
 O(n)
 
 O(n^2)
