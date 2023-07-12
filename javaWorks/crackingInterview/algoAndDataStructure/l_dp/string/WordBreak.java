@@ -8,6 +8,17 @@ public class WordBreak {
 
     // Recursive with memorization
 
+    /**
+        Time: 
+            recurence relation T(n) = T(n-1) + 1 + T(n-2) + 2 +  T(n-3) + 3 + T(n-4) + 4 ... T(0)
+                                    = T(n-1) + T(n-2) + T(n-3) + T(n-4) ... T(0) + 1 + 2 + 3 + 4 ... n 
+                                    = T(n-1) + T(n-2) + T(n-3) + T(n-4) ... T(0) + n^2
+                                    = T(n-1) + T(n-1) + n^2 ,since T(n-2) + T(n-3) + T(n-4) ... T(0) is what we get for T(n-1) on LHS
+                                    = 2T(n-1) + n^2
+                                    = 2^n + n^2
+                                    = 2^n // This is same via masters therom
+    **/
+
     public boolean wordBreak(String s, List<String> wordDict) {
         int[] dp = new int[s.length()];
         return solve(s, 0, wordDict, dp);
