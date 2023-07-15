@@ -1,3 +1,10 @@
+Always try to have one recurrence relation before starting the induction. 
+If you have two recurrence relation in your solution, then recude it to one by either
+1. approx, for example T(n-2) can be approximted to T(n-1) since T(n-1) will always be greater than T(n-2)
+2. Try t(n-2) and see if those are getting recuded by putting them in the first equation
+
+
+
 WE need recusions sample for 
 
 int f = (int n) => {
