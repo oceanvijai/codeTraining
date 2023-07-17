@@ -129,6 +129,81 @@ Then the other part is n^2 (1+2+3+4...n)
 T(n) = 2^n + n^2
 T(n) ~= 2^n 
 
+
+--------------------------------------------------------------------------------
+O(2^n)
+
+func(){
+  for(int i =0; i < n; i++){
+      solve(i);
+  }
+}
+
+solve(n){
+  if (n == 1) {
+    return 1;
+  }
+  for(i to n){
+    for(1 to i) -> print(something);
+    return f(i);
+  }
+}
+
+This might be tempting to say n*2^n. But not so.
+We have to check what everytime the outer loop is executed.
+The solve function is O(2^n). Based on the above problem.
+So in the first iteration its, solve takes 2^0 = 1
+So in the second iteration its, solve takes 2^1 = 2
+So in the third iteration its, solve takes 2^2 = 4
+so ... nth iteration is 2^n = 2^n
+
+So totally, 1+2+4+...2^n
+Or 2^0 + 2^1 + 2^2 + 2^3... 2^n = (2^n-1 - 1) / (2-1)
+                                = 2^n-1 - 1
+                                ~= 2^n
+
+--------------------------------------------------------------------------------
+
+
+int numChars = 26;
+void printSortedStrings(int remaining) {
+    printSortedStrings(remaining, "");
+}
+void printSortedStrings(int remaining, String prefix) { 
+    if (remaining== 0) {
+      if (isinOrder(prefix)) {
+        System.out.println(prefix);
+      }
+    }else {
+        for (int i= 0; i < numchars; i++) {
+        char c = ithletter(i);
+        printSortedStrings(remaining - 1, prefix + c); }
+    }
+}
+
+boolean isinOrder(String s) {
+  for (int i= 1; i < s.length(); i++) {
+    int prev ithLetter(s.charAt(i - 1));
+    int curr = ithLetter(s.charAt(i));
+    if (prev > curr) {
+    return false;
+    } 
+  }
+  return true;
+}
+char ithLetter(int i) {
+    return (char) (((int) 'a') + i); 
+}
+
+In the recursion loop, we have C characters.
+And on every iteration we do k-1 (remaining).
+
+So, T(k) = C * T(k-1), which will lead to C^k as time.
+
+So at the end of recursion tree, we do O(K) to do isinOrder.
+
+So total, T(k) = KC^k
+
 --------------------------------------------------------------------------------
 O(n^3)
 
