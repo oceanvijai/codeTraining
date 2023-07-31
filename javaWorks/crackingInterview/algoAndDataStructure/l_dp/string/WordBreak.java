@@ -19,6 +19,19 @@ public class WordBreak {
                                     = 2^n // This is same via masters therom
     **/
 
+
+    /**
+        Top down
+        t(n)  = T(n-m) + T(n-2m) + T(n-3m)... + Km
+              = 2T(n-m) + km
+              = 2^f T(n-fm) + fkm
+        
+              f = (n+1)/m == n/m
+        
+              = 2^(n/m) + nk
+
+    **/
+
     public boolean wordBreak(String s, List<String> wordDict) {
         int[] dp = new int[s.length()];
         return solve(s, 0, wordDict, dp);
