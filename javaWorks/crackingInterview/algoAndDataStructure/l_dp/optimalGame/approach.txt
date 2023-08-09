@@ -38,5 +38,31 @@ In that case the recurence relation is as follows,
   sum(left+1, right) - rec(left+1, right)) is called the total revenue we can get after picking coins[left]
   So, that is why sum(left+1, right) - rec(left+1, right)) became min(rec(left+2, right), rec(left+1, right-1)) based on line 33 reasoning
 
+  So the new recurence is as follows,
+  leftChoice = coins[left] + min(rec(left+2, right), rec(left+1, right-1))
+  rightChoice = coins[right] + min(rec(left+1, right-1), rec(left, right-2))
+  ------------------------------------------------------------------------------------------------------------------------------------------------
+  Another way to justify the above relations.
+  Again lets conside only leftChoice relation,
+
+  leftChoice = coins[left] + sum(left+1, right) - rec(left+1, right)
   
+  Lets, expand rec(left+1, right)
+  SecondRecleftChoice = coins[left+1] + sum(left+2, right) - rec(left+2, right)
+  SecondRecRightChoice = coins[right] + sum(left+1, right-1) - rec(left+1, right-1)
+  SecondRecAns = max(SecondRecleftChoice, SecondRecRightChoice)
+
+  If we look closely, coins[left+1] + sum(left+2, right) == sum(left+1, right) and coins[right] + sum(left+1, right-1) == sum(left+1, right)
+  So we can rewrite line 51 & 52 as,
+  SecondRecleftChoice = sum(left+1, right) - rec(left+2, right)
+  SecondRecRightChoice = sum(left+1, right) - rec(left+1, right-1)
+  SecondRecAns = sum(left+1, right) - max(rec(left+2, right),rec(left+1, right-1))
+  Which is rec(left+1, right) = sum(left+1, right) - max(rec(left+2, right),rec(left+1, right-1))
+
+  So we put SecondRecAns in line 48 equation, 
+  leftChoice = coins[left] + sum(left+1, right) - {sum(left+1, right) - max(rec(left+2, right),rec(left+1, right-1))}
+             = coins[left] + sum(left+1, right) - sum(left+1, right) + min(rec(left+2, right),rec(left+1, right-1))
+             = coins[left] + + min(rec(left+2, right),rec(left+1, right-1))
+  Which is same equation in line 42.
+  ------------------------------------------------------------------------------------------------------------------------------------------------
   
