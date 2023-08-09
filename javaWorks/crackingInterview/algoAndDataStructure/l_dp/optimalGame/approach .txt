@@ -1,0 +1,28 @@
+
+Coin pick game:
+
+In the pick-up-coins game, an even number of coins are placed in a line.
+Two players take turns at choosing one coin each—they can only choose from the two coins at the ends of the line. 
+The game ends when all the coins have been picked up. 
+The player whose coins have the higher total value wins. A player cannot pass his turn.
+
+Design an efficient algorithm for computing the maximum total value for the starting
+player in the pick-up-coins game.
+
+This might look like a straight foward recursion and DP as follows, 
+
+For each player we have two choices. Pick from left (begining) or right(end) of the queue.
+In that case the recurence relation is as follows,
+
+  leftChoice = coins[left] + sum(left-1, right) - rec(left-1, right) // Since rec(left-1, right) is what B will get from index left-1 to right, we minus that from the total.
+  rightChoice = coins[right] + sum(left, right-1) - rec(left, right-1)
+
+  ans = max(leftChoice, rightChoice)
+
+
+solve(coins, a , b)
+  if(a > b){
+    return 0;
+  }
+
+  int 
