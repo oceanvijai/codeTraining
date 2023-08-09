@@ -26,10 +26,17 @@ In that case the recurence relation is as follows,
 
   Now lets consider only the leftChoice (coins[left] + sum(left+1, right) - rec(left+1, right))
   When first player picks up coins[left] from the left, the second player now has two options, 
+  
   either pick coint[left+1] or coins[right] and play the game further, which will be rec(left+2, right) and rec(left+1, right-1),
   In the second iteration B will make sure A gets the min passed back to the fist recursion (B plays optimally)
-
   So what A will get from the second recursion is Min(rec(left+2, right), rec(left+1, right-1)).
 
   So the original recursion can be updated as follows,
   leftChoice = coins[left] + sum(left+1, right) - rec(left+1, right) => coins[left] + min(rec(left+2, right), rec(left+1, right-1))
+  
+  How did, sum(left+1, right) - rec(left+1, right)) become min(rec(left+2, right), rec(left+1, right-1)) ?
+  sum(left+1, right) - rec(left+1, right)) is called the total revenue we can get after picking coins[left]
+  So, that is why sum(left+1, right) - rec(left+1, right)) became min(rec(left+2, right), rec(left+1, right-1)) based on line 33 reasoning
+
+  
+  
