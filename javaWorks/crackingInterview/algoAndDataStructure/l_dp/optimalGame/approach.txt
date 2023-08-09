@@ -14,15 +14,16 @@ This might look like a straight foward recursion and DP as follows,
 For each player we have two choices. Pick from left (begining) or right(end) of the queue.
 In that case the recurence relation is as follows,
 
-  leftChoice = coins[left] + sum(left-1, right) - rec(left-1, right) // Since rec(left-1, right) is what B will get from index left-1 to right, we minus that from the total.
+  leftChoice = coins[left] + sum(left+1, right) - rec(left+1, right) // Since rec(left+1, right) is what B will get from index left-1 to right, we minus that from the total.
   rightChoice = coins[right] + sum(left, right-1) - rec(left, right-1)
 
   ans = max(leftChoice, rightChoice)
 
 
-solve(coins, a , b)
-  if(a > b){
-    return 0;
-  }
+  The above will be O(2^n) and can be reduced to a DP with N^2
 
-  int 
+  Another way to optimise this, is as follows,
+
+  Now lets consider only the leftChoice (coins[left] + sum(left+1, right) - rec(left+1, right))
+  When first player picks up coins[left] from the left, the second player now has two options, 
+  either pick coint[left-1] or coins[right] and play the game further, which will be rec(left+2, right) and rec(left+1, right-1) 
