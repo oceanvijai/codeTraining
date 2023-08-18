@@ -99,7 +99,43 @@ public class StoneGame{
     /**
         Let do DP for this. bottom up.
         Time:O(n^2), space:O(n)
+        We DP in a diagonal fashion as follows,
+        input [1,2,5,1,9,3]
+        We first calculate range is 2, 3 ...till we find the answer for range n.
+
+        1, 2, 6, 6, 15, 15
+        0, 2, 5, 3, 14, 6
+        0, 0, 5, 5, 10, 14
+        0, 0, 0, 1, 9,  4
+        0, 0, 0, 0, 9,  9
+        0, 0, 0, 0, 0,  0
     **/
-  
+
+
+
+    public boolean stoneGame(int[] piles) {
+        int sum = Arrays.stream(piles).sum();
+        int n = piles.length;
+        int[][] dp = new int[piles.length+1][piles.length+1];
+
+        for(int i = 1; i <= n; i++){
+            dp[i][i] = piles[i-1];
+        }
+
+        for(int length = 2; length < n; length++){
+            for(int row = 1; row <= n; row++){
+                int l = row, r = l+length;
+                if(r <= n){
+                    int a = piles[l-1] + Math.min(l+2 > r ? 0: dp[l+2][r], l+1 > r-1 ? 0: dp[l+1][r-1]);
+                    int b = piles[r-1] + Math.min(l+1 > r-1 ? 0: dp[l+1][r-1], l > r-2 ? 0: dp[l][r-2]);
+                    dp[l][r] = Math.min(a,b);
+                }
+            }
+        }
+
+        int firstPlayerMaxSum = dp[1][n];
+
+        return sum - firstPlayerMaxSum > 0;
+    }
   
 }
