@@ -8,16 +8,13 @@ public class StoneGame2{
     Assuming Alice and Bob play optimally, return the maximum number of stones Alice can get.
 
     Example 1:
-    
     Input: piles = [2,7,9,4,4]
     Output: 10
     Explanation:  If Alice takes one pile at the beginning, Bob takes two piles, then Alice takes 2 piles again. Alice can get 2 + 4 + 4 = 10 piles in total. If Alice takes two piles at the beginning, then Bob can take all three piles left. In this case, Alice get 2 + 7 = 9 piles in total. So we return 10 since it's larger. 
-    Example 2:
     
+    Example 2:
     Input: piles = [1,2,3,4,5,100]
     Output: 104
-
-
   **/
 
 
@@ -25,7 +22,7 @@ public class StoneGame2{
     Like stoneGame1 we dont want to complicate, since at each recursion we got a max of sum + further recursions.
     So we keep it simple and straight forward
 
-    Time ???
+    Time ???, there is O(n^2) states. And at each recursion we try n times of the other states. So O(n^3)
   **/
 
 
