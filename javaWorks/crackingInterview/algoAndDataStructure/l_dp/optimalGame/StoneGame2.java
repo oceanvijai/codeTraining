@@ -25,7 +25,7 @@ public class StoneGame2{
     Like stoneGame1 we dont want to complicate, since at each recursion we got a max of sum + further recursions.
     So we keep it simple and straight forward
 
-
+    Time ???
   **/
 
 
