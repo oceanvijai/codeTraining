@@ -111,9 +111,14 @@ public class StoneGame5{
                 dp[start][end] = ans;
             }
         }
-
         return dp[0][n-1];
-
     }
+
+
+  /**
+    WE can further optimise it. We need to find the right K value which give us the optimal value for alice without iterating over all K for that range.
+    How ?
+
+  **/
   
 }
