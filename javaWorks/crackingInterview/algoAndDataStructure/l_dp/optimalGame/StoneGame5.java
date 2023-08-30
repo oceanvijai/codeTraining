@@ -118,7 +118,7 @@ public class StoneGame5{
   /**
     WE can further optimise it. We need to find the right K value which give us the optimal value for alice without iterating over all K for that range.
     How ?
-
+    check here : https://leetcode.com/problems/stone-game-v/solutions/911676/java-o-n-3-o-n-2-log-n-and-o-n-2-with-explanation/
   **/
   
 }
