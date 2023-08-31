@@ -13,7 +13,9 @@ public class StoneGame6{
     If Alice wins, return 1.
     If Bob wins, return -1.
     If the game results in a draw, return 0.
- 
+
+     1 <= aliceValues[i], bobValues[i] <= 100
+
 
       Example 1:
       
@@ -109,5 +111,58 @@ public class StoneGame6{
 
     }
 
-  
+  /**
+    We dont have to sort to form the queue. We can do a counting sort.
+    
+    Since 1 <= aliceValues[i], bobValues[i] <= 100, we can count them and pick them from reverse.
+    So we have a O(n) time
+  **/
+
+  public int stoneGameVI(int[] aliceValues, int[] bobValues) {
+        int n = aliceValues.length;
+        int[] queue = new int[201];
+
+        Map<Integer, LinkedList<Integer>> aQueue = new HashMap<>();
+        Map<Integer, LinkedList<Integer>> bQueue = new HashMap<>();
+
+        for(int i = 0; i < n; i++){
+            int sum = bobValues[i] + aliceValues[i];
+            queue[sum]++; // Count each sum
+            addToQueue(sum, aQueue, aliceValues[i]);
+            addToQueue(sum, bQueue, bobValues[i]);
+        }
+
+        int aliceScore = 0, bobScore = 0, i = 0, j = 200;
+        boolean alice = true;
+        while(i < n){
+            while(queue[j] == 0){
+                j--;
+            }
+            int aliceValue = aQueue.get(j).pollFirst();
+            int bobValue = bQueue.get(j).pollFirst();
+            if(alice){
+                aliceScore += aliceValue;
+            }else{
+                bobScore += bobValue;
+            }
+            queue[j]--;
+            i++;
+            alice = !alice;
+        }
+
+        if(aliceScore == bobScore){
+            return 0;
+        }else if(aliceScore > bobScore){
+            return 1;
+        }else{
+            return -1;
+        }
+
+    }
+
+    private void addToQueue(int sum, Map<Integer, LinkedList<Integer>> q, int value){
+        LinkedList lst = q.getOrDefault(sum, new LinkedList<>());
+        lst.addLast(value);
+        q.put(sum, lst);
+    }
 }
