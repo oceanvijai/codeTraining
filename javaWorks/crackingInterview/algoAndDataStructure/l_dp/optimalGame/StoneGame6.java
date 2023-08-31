@@ -48,7 +48,30 @@ public class StoneGame6{
     But Which criteria to use for sorting the queue. We can get the diff or both the values of alice and bob for each store and use it.
     But it might not work since it might be biased to one side.
 
-    So we add them get a effective sum which can we used for sorting and have a queue which is always having the most effective values for pick from the front.
+   So lets if we can get a pattern
+
+   aliceValues=[5, 99999]
+  bobValues=[1000000, 3]
+  Alice prefers Stone1
+  
+  aliceValues=[5, 1000000]
+  bobValues=[1000000, 3]
+  Alice prefers Stone1
+  
+  aliceValues=[5, 1000001]
+  bobValues=[1000000, 3]
+  Alice prefers Stone1
+  
+  aliceValues=[5, 1000002]
+  bobValues=[1000000, 3]
+  Alice doesn't have a favorite stone
+  
+  aliceValues=[5, 1000003]
+  bobValues=[1000000, 3]
+  !!Alice prefers Stone2!!
+
+  We can see if the sum of values of each is greater, the player pickes it up.
+  So we will use that for our sorting.
 
   **/
 
