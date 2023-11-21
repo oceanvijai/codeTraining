@@ -11,7 +11,13 @@ public class HashCheckBoard{
       So, 64 char lenght hashcode can be created with each char with a digit which is base 13. 
       like 0=empty, 1=blackKing, 2=blackQueen... 9=somePiece, A=somePiece,B&C. 
 
-      Approach 2: 
+      So we form a 64 digit alphanumerical numnber like HEX.
+
+      When a move is made we try and assign the respective values to the respective digit locations.
+
+      O(1) soluation
+
+      Approach 2: An aswesom solution with XOR, check the book page 233.
   **/
 
 
