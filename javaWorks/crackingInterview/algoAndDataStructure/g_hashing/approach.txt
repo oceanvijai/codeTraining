@@ -8,3 +8,11 @@ HashSet (What happens if collision happens)
 TreeMap and TreeSet
 
 Hash collision
+
+Hash funtction techniques:
+1. If we have a hash code and which will change and we need to do the change in the hashcode itself. Try this one
+    Each char in the hashcode can be a digit. The digit can be base x where x is the number of possible options available for that char.
+    Ex: We need to hash a chess board state and change it state
+        We have 4 types of pieces + 2 colours + 1 empty. so totally 13 values are possible. So we need 4 bits to represent 13 pieces.
+        So, 64 char lenght hashcode can be created with each char with a digit which is base 13. like 0=empty, 1=blackKing, 2=blackQueen... 9=somePiece, A=somePiece,B&C.
+
