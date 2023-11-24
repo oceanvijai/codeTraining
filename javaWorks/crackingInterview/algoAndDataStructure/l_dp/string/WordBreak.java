@@ -23,22 +23,8 @@ public class WordBreak {
 
 
     /**
-        Top down
-        t(n)  = T(n-m) + T(n-2m) + T(n-3m)... + Km
-              = 2T(n-m) + km
-              = 2^f T(n-fm) + fkm
-              f = (n+1)/m == n/m
-              = 2^(n/m) + nk
-
-              When m = 1, we have 2^n
-
-              But if we look closer, we return when we got true from the reursion, which means, T(n) does not 
-              go for T(n-m) , T(n-2m)... so on
-
-              So in worst case, It goes like this
-      T(n) = T(n-m) + km, km - for the dict check and only one goes for the recursion
-
-      Which means we have, T(n) = nk
+    
+    T(n) = nk
               
 
     **/
