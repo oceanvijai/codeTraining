@@ -2,6 +2,7 @@ BFS : O(v+E) - v - vertices, E - edges
     How ? 
     -   Inside the while loop, we pop each vertex V times. 
     -   Then after that we iterate all the edges, that is d (degree of each vertex), which in total is E
+    -   Or, it can we written as V + SUM_OF_DEGREE(V), SUM_OF_DEGREE(V) will be total edges
     Ex: the code is like this,
 
         while(!queue.isEmpty()){
