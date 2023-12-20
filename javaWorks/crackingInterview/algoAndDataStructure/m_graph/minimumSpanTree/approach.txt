@@ -39,6 +39,12 @@ Follow ups:
         - When a edge gets deleted we get two components O(m+n)
         - So get the min edge which will connect to the delete edge vertex O(n)
 
+3.    If we add a constant c to all the edges of a graph. Will the before and after MST be the same.
+      No, because, lets say the sapnning tree has 3 vertices, like 1->2(1), 2->3(1), 1->3(3)
+      So the MST now will be 1->2->3 and the value is 3.
+      Now lets add a constant 2 to all the edges.
+      Now graph becomes, 1->2(3), 2->3(3), 1->3(5), the MST will 1->2, 1->3 and the values is 
+
 
 https://www.youtube.com/watch?v=ia1L30l7OIg&list=PLOtl7M3yp-DV69F32zdK7YJcNXpTunF2b&index=15
 
