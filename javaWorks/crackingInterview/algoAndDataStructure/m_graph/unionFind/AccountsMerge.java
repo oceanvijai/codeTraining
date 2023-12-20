@@ -39,6 +39,13 @@ public class AccountsMerge{
 	**/
 
 
+	/**
+		This is basically a graph problem where we need to find connected components.
+  		Connected componenets can we done via DFS and union find once we form a graph
+
+ 	**/
+
+
 	// Approach 1: DFS
 
 	/**
