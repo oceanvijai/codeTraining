@@ -27,9 +27,9 @@ public class TrappingRainWater2 {
 	/**
 		So, we need to find the water collected on the adjacent cells. But then they dependent on their adjacent cells.
 		Ex: [[5,5,5,1],
-			 [5,1,1,5],
-			 [5,1,5,5],
-			 [5,2,5,8]]
+		     [5,1,1,5],
+		     [5,1,5,5],
+		     [5,2,5,8]]
 
 		So, we see a GRAPH traversal here.
 
