@@ -79,6 +79,7 @@ public class TrappingRainWater2 {
             maxHeight = Math.max(maxHeight, heightMap[i][j]);
             
             // relax the costs
+	    // Discover new edges
             if(i-1 >= 0 && !visited[i-1][j]){
                 heap.offer(new int[]{i-1,j});
                 //visited[i-1][j] = true;
@@ -98,6 +99,7 @@ public class TrappingRainWater2 {
             
             
             // if the maxHeight is less than the current cell height, then include it
+	    // Meaning the max didnt update because the current block is a smaller block and the previous one is bigger
             if(maxHeight > heightMap[i][j]){
                 filledWater += maxHeight - heightMap[i][j];
             }
