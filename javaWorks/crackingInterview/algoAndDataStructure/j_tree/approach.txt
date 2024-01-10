@@ -40,4 +40,6 @@ Validate if the array is preorder for a BST
 ----------------------------------------------------------------------------------------------------------
 Selft balancing trees
     AVL and red black tree
+    - AVL is strictly balanced, so its search is always logn but insert and delete might take a bit longer
+    - red black tree is not strickly balances but tries its best. so its avg is logn for operations. Its a general purpose tree
     - Tree map uses redblack tree
