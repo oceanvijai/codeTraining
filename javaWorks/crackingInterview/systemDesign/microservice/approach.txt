@@ -26,6 +26,9 @@ Service discovery
       - Infra registry
         - A centralised process checks on a the services health in the infra
         - Cant update services ouside its reach
+  - Service mesh
+    - ????
+  - 
 
 
     
