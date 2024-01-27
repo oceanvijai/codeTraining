@@ -1,0 +1,30 @@
+Event driven
+SAGA
+Event sourcing
+
+
+Distributed transactions
+  - Two phase commit
+  - Saga
+
+Service discovery
+  - Client side discovery
+    - Ask's DNS or regristry and get an IP to connect
+    - Coupled and effiecient
+  - Server side discovery
+    - Client contacts a proxy which asks the regrsitry and then do the forwarding to server itlsef
+    - Client dosent not call sever directly
+
+  - Update availability
+    - Self update
+      - The services updated the registry on its health
+      - Not reliable when the server crashes
+    - Third party update
+      - Side car
+        - A parallel process along with the serivice checks and updates the registry on the availablity
+      - Infra registry
+        - A centralised process checks on a the services health in the infra
+        - Cant update services ouside its reach
+
+
+    
