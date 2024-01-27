@@ -1,6 +1,7 @@
 Event driven
 SAGA
 Event sourcing
+CQRS
 
 
 Distributed transactions
