@@ -86,7 +86,7 @@ Processing pattern:
 Hierarchical Topics:
     - Set of topics of interest is listened by the consumers to process them
     - This mainly focuses on the goof practices of creating and using topics
-    - When to use
+    - When to use ???
 
 
 Event Filtering:
@@ -97,11 +97,48 @@ Event Filtering:
         - Good for performance and network bandwidth
     - Client side
         - Simplicity & flexible and complex filtering patterns
+    - When to use ???
+    - Tools ???
 
-Guaranteed Delivery
+Guaranteed Delivery:
     - Important concept in event-driven architecture
     - prevent event loss or omission during transmission
     - Both while producing and consuming
+    - When to use ???
+    - Tools ???
 
+Backpressure and Push:
+    - When the receiver is not able to keep up, it lets the sender to slow down until it catches up
+    - When to use ???
+
+
+Consumer Scalability Patterns:
+------------------------------
+
+Competing Consumers:
+    - Multiple consumers are used to process events from a shared event stream or queue in parallel
+    - When a single consumer may not be able to keep up with the event rate or handle the processing workload efficiently
+    - When to use ???
+    - Tools ??? 
+
+Consumer Groups:
+    - Is similar to the competing consumers pattern but with an added layer of abstraction
+    - The consumers are grouped allowing to scale them independently
+    - When to use ???
+    - Tools ???
+
+Shock Absorber:
+    - A buffer or a queue between the event source and the downstream services that consume the events
+    - buffered even when downstream services are not immediately available
+    - When to use ???
+    - Tools ??? 
+
+Partitioning:
+    - To improve scalability, performance, and reliability by distributing events across multiple queue partitions
+    - By partitioning the queue, the workload can be distributed among different servers or processing units
+    - Improving the overall efficiency of the event processing system
+    - When to use ???
+    - Tools ??? 
+    
         
 
