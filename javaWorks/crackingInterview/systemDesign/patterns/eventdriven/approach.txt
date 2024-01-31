@@ -1,1 +1,9 @@
+The flow of date is based on responding to the events created in a system. Mostly asynchronous.
+When an event is created and communicated to the downstream systems, the systems needs to process them in sequence or parallel and produce desired results.
 
+So lets see some concepts on how events driven system can
+Create events
+Communicate events
+Processe events at scale
+Error handling
+Manage - deploying and developing
