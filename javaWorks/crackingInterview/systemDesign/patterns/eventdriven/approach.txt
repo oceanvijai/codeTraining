@@ -6,6 +6,7 @@ Create events
 Communicate events
 Processe events at scale
 Error handling
+Transaction handling
 Manage - deploying and developing
 
 Creational patterns:
@@ -49,4 +50,37 @@ Communication Patterns:
 
 Publish subscribe:
     - Publisher is decoupled for the receiver via an intermidiate 
+    - One-to-many model
+    - Most often used in event driven systems
+    - When to use ???
+    - Tools
+        - Kafka
+
+
+Point-to-point:
+    - Deliver to a specific receipient
+    - Many sender can send msg to a single receipient
+    - Many to one model
+    - When to use ??
+    - Tools ???
+
+
+Request-Reply:
+    - Its a two way communication
+    - The sender can use pub/sub or point-to-point to send a request
+    - But the reply must be sent back to a point-to-point queue since the reply msg is intended for a specific system
+    - When to use ??
+    - Tools ???
+
+Event-streaming:
+    - Continuous delivery of events to interested parties
+    - Realtime processing of events
+    - The ability to build instant insights and take immediate actions
+    - When to use
+        - fraud detection, predictive maintenance, and IoT systems
+    - Tools ???
+
+Processing pattern:
+-------------------
+        
 
