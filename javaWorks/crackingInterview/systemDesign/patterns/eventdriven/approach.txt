@@ -192,6 +192,15 @@ Saga:
 
 ----------------------------------------------------------------------------------------------------
 Governance Patterns:
+    - for establishing control over access, management, security and oversight of the event-driven system
+    - organizations can promote consistency, standardization, and best practices across the event-driven system
+    - system integrity, enhance collaboration among teams, enable effective event discovery and management
+
+
+
+
+
+
 
 
 
