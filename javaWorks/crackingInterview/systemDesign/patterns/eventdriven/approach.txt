@@ -7,3 +7,30 @@ Communicate events
 Processe events at scale
 Error handling
 Manage - deploying and developing
+
+Creational patterns:
+-------------------
+Event Carried State Transfer (ECST)
+    - Events holds the state which other services can pick up and update their local state.
+    - When to use ???
+    - Drawbacks ???
+
+Command Query Response Segregation (CQRS)
+    - Seperate the command and query events
+    - When to use ???
+    - Drawbacks ???
+
+Change Data Capture (CDC)
+    - To capture and process changes made to a database
+    - When to use ???
+    - Drawbacks ???
+
+Event Sourcing
+    - Capturing all changes to an application’s state as a sequence of events
+    - This sequence of events is used to build and rebuild the state of the application
+    - When to use ???
+    - Drawbacks ???
+
+
+Communication Patterns:
+-----------------------
