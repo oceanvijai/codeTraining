@@ -140,5 +140,7 @@ Partitioning:
     - When to use ???
     - Tools ??? 
     
-        
+
+Reference: https://solace.com/event-driven-architecture-patterns/#consumer-scalability
+
 
