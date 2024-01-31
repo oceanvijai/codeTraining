@@ -10,6 +10,17 @@ Manage - deploying and developing
 
 Creational patterns:
 -------------------
+Types of messages:
+Command 
+    - Send a command instruction and expect the receiver to take actions on the same
+Document
+    - Used to send data between sender and receiver
+Event
+    - Basically sending a notification
+    - Notification - only
+    - Notification + metadata
+    - Notification + data (ECST)
+
 Event Carried State Transfer (ECST)
     - Events holds the state which other services can pick up and update their local state.
     - When to use ???
@@ -32,5 +43,10 @@ Event Sourcing
     - Drawbacks ???
 
 
+
 Communication Patterns:
 -----------------------
+
+Publish subscribe:
+    - Publisher is decoupled for the receiver via an intermidiate 
+
