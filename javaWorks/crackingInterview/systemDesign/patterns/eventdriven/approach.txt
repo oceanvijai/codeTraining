@@ -82,5 +82,26 @@ Event-streaming:
 
 Processing pattern:
 -------------------
+
+Hierarchical Topics:
+    - Set of topics of interest is listened by the consumers to process them
+    - This mainly focuses on the goof practices of creating and using topics
+    - When to use
+
+
+Event Filtering:
+    - Processing only the events of interest
+    - Filtering can occur both in client and broker side
+    - Broker side
+        - Subscription based on rules
+        - Good for performance and network bandwidth
+    - Client side
+        - Simplicity & flexible and complex filtering patterns
+
+Guaranteed Delivery
+    - Important concept in event-driven architecture
+    - prevent event loss or omission during transmission
+    - Both while producing and consuming
+
         
 
