@@ -153,6 +153,16 @@ Event bridge:
 
 
 Event mesh:
+    - Not sure, looks like a interconencted brokers for some reason ???
+
+Event gateway:
+    - It is a services which filters, validates, transforms before entering the event network
+
+Error handling:
+---------------
+
+Deadletter queue:
+    - 
     
 
 
