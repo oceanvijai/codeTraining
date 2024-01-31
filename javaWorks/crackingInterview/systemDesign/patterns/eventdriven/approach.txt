@@ -9,8 +9,10 @@ Error handling
 Transaction handling
 Manage - deploying and developing
 
+
+----------------------------------------------------------------------------------------------------
 Creational patterns:
--------------------
+
 Types of messages:
 Command 
     - Send a command instruction and expect the receiver to take actions on the same
@@ -45,8 +47,10 @@ Event Sourcing
 
 
 
+
+----------------------------------------------------------------------------------------------------
 Communication Patterns:
------------------------
+
 
 Publish subscribe:
     - Publisher is decoupled for the receiver via an intermidiate 
@@ -80,8 +84,9 @@ Event-streaming:
         - fraud detection, predictive maintenance, and IoT systems
     - Tools ???
 
+
+----------------------------------------------------------------------------------------------------
 Processing pattern:
--------------------
 
 Hierarchical Topics:
     - Set of topics of interest is listened by the consumers to process them
@@ -112,8 +117,9 @@ Backpressure and Push:
     - When to use ???
 
 
+
+----------------------------------------------------------------------------------------------------
 Consumer Scalability Patterns:
-------------------------------
 
 Competing Consumers:
     - Multiple consumers are used to process events from a shared event stream or queue in parallel
@@ -141,8 +147,9 @@ Partitioning:
     - Tools ??? 
     
 
+
+----------------------------------------------------------------------------------------------------
 Deployemnt architecture:
--------------------------
 
 Event bridge:
     - Each producer service has its own local broker where it produces the events
@@ -159,13 +166,37 @@ Event gateway:
     - It is a services which filters, validates, transforms before entering the event network
 
 Error handling:
----------------
+----------------------------------------------------------------------------------------------------
+    - failed event processing, network issues, unavailable services, and data inconsistencies
 
 Deadletter queue:
+    - For messages which failed during processing, expired, permission denied etc
+    - Need a seperate service to monitor and take action if requried
+
+
+Discard, Pause and Retry:
+    - when a message processing error occurs, the message can be handled in one of three ways
+    - Discard: The message is simply discarded, and no further action is taken. This option is typically used for non-critical messages that can be safely ignored.
+    - Pause: The message is temporarily paused and held in a retry buffer until the issue causing the failure is resolved. The message can then be retried and processed again.
+    - Retry: The message is retried immediately or after a specified delay. 
+                If the message processing still fails after a set number of retries, the message is either discarded or paused.
     - 
-    
+
+Saga:
+    - A saga is a sequence of transactions or operations that must occur in the correct order to ensure a specific outcome
+    - It can compensate for errors that occur in an event-driven or streaming application
+    - It detects that something has gone wrong, it can start to execute compensation logic
+    - maintain data consistency and ensure that any transactions that occur are executed in the correct order
+    - This helps to avoid race conditions, data inconsistencies, and other issues that can arise when working with distributed systems.
 
 
+----------------------------------------------------------------------------------------------------
+Governance Patterns:
+
+
+
+
+----------------------------------------------------------------------------------------------------
 Reference: https://solace.com/event-driven-architecture-patterns/#consumer-scalability
 
 
