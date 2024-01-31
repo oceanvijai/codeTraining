@@ -141,6 +141,21 @@ Partitioning:
     - Tools ??? 
     
 
+Deployemnt architecture:
+-------------------------
+
+Event bridge:
+    - Each producer service has its own local broker where it produces the events
+    - The bridge brokers collect these and distribute them
+    - The receiver services receive them in their local brokers
+    - When to use ?
+    - Toools ?
+
+
+Event mesh:
+    
+
+
 Reference: https://solace.com/event-driven-architecture-patterns/#consumer-scalability
 
 
