@@ -195,6 +195,7 @@ Dual write failure:
         - How to solve this ?
             - CDC - Change data transfer
             - Transactional OUTBOX 
+            - Event sorcing/ event log to store data, then emit whatever is changed
             - Listen to yourself 
 
 
