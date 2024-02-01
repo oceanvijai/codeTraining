@@ -189,6 +189,14 @@ Saga:
     - maintain data consistency and ensure that any transactions that occur are executed in the correct order
     - This helps to avoid race conditions, data inconsistencies, and other issues that can arise when working with distributed systems.
 
+Dual write failure:
+    - Lets say a database needs to be udpated and emit an event
+        - If one of them fails the other should not happen
+        - How to solve this ?
+            - CDC - Change data transfer
+            - Transactional OUTBOX 
+            - Listen to yourself 
+
 
 ----------------------------------------------------------------------------------------------------
 Governance Patterns:
