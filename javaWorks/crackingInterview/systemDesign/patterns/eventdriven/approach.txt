@@ -84,6 +84,7 @@ Event-streaming:
     - When to use
         - fraud detection, predictive maintenance, and IoT systems
     - Tools ???
+        - Apache flink - https://www.youtube.com/watch?v=FphVFtCCcS8
 
 
 ----------------------------------------------------------------------------------------------------
