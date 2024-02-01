@@ -64,6 +64,7 @@ Publish subscribe:
 Point-to-point:
     - Deliver to a specific receipient
     - Many sender can send msg to a single receipient
+    - Like HTTP
     - Many to one model
     - When to use ??
     - Tools ???
