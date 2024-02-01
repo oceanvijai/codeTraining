@@ -197,6 +197,7 @@ Dual write failure:
             - Transactional OUTBOX 
             - Event sorcing/ event log to store data, then emit whatever is changed
             - Listen to yourself 
+                - Listen to your own event and udpate the state
 
 
 ----------------------------------------------------------------------------------------------------
