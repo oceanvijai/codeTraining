@@ -76,6 +76,8 @@ public class Dijkstra {
             BellManFordAlgo(g, parent, distance);
         }
         // So total O(V*E)
+
+        // We can relax one more time here to check if there is a negative weight cycle if required
         System.out.println(parent);
 
     }
