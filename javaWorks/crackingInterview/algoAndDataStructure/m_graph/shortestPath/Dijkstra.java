@@ -86,9 +86,9 @@ public class Dijkstra {
         // Get all the Edges and relax, E times. 
         for (int v = 0; v <= g.adjancyList.length - 1; v++) { // Here are getting all the edges, not iterating over the vertices
             for (Edge edge : g.adjancyList[v]) {
-                if (distance[v] > distance[edge.endVertex] + edge.weight) {
-                    distance[v] = distance[edge.endVertex] + edge.weight;
-                    parent[v] = edge.endVertex;
+                if (distance[edge.endVertex] > distance[edge.endVertex] + edge.weight) {
+                    distance[edge.endVertex] = distance[edge.endVertex] + edge.weight;
+                    parent[edge.endVertex] = edge.endVertex;
                 }
             }
 
