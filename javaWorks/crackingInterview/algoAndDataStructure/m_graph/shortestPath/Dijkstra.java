@@ -58,8 +58,6 @@ public class Dijkstra {
     }
 
     private static void findShortestPath_BellManFordAlgo(Graph1 g, int src, int dest) {
-        // do dfs
-        // clean it on the way
         Integer parent[] = new Integer[g.adjancyList.length];
 
         for (int i = 0; i <= parent.length - 1; i++) {
@@ -74,16 +72,17 @@ public class Dijkstra {
 
         boolean visited[] = new boolean[g.adjancyList.length];
 
-        for (int v = 0; v <= g.adjancyList.length - 2; v++) {
+        for (int v = 0; v <= g.adjancyList.length - 2; v++) { // Do it V-1 time for for V vertices
             BellManFordAlgo(g, parent, distance);
         }
+        // So total O(V*E)
         System.out.println(parent);
 
     }
 
     private static void BellManFordAlgo(Graph1 g, Integer parent[], Integer distance[]) {
-
-        for (int v = 0; v <= g.adjancyList.length - 1; v++) {
+        // Get all the Edges and relax, E times. 
+        for (int v = 0; v <= g.adjancyList.length - 1; v++) { // Here are getting all the edges, not iterating over the vertices
             for (Edge edge : g.adjancyList[v]) {
                 if (distance[v] > distance[edge.endVertex] + edge.weight) {
                     distance[v] = distance[edge.endVertex] + edge.weight;
