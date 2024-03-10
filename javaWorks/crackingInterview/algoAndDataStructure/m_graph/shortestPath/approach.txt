@@ -36,7 +36,7 @@ Algo:
 
 Problems:
     -   If a graph has a cycle and if the sum of the vertices in the cycle add up to a -ve number.
-    -   Then the distance keeps on changing even after V-1 iteration.
+    -   Then the distance keeps on changing even after V-1 iteration. (negative edge cycles)
 
 https://www.youtube.com/watch?v=FtN3BYH2Zes&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=53
 -----------------------------------------------------------------------------------------------------------------------------------
