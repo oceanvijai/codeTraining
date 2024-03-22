@@ -42,8 +42,9 @@ public class SumOfDistances{
       8. We need to find what is the child count of each nodes to do step 6 and step 7.
       9. So, newRootValue = previousRootValue - nodesWentCloser + nodesWentFarther
 
-      So we can do a DFS 1 to calculate 2 things, answer for root and child count of each nodes.
-      Then we do DFS 2 from rooot to all the nodes which see at each step, how the root node value is changing based on the nodes we move away and towards
+      So we can do a DFS 1 to calculate 2 things, answer for root and child count of each nodes. O(n)
+      Then we do DFS 2 from rooot to all the nodes which see at each step, how the root node value is changing based on the nodes we move away and towards. O(n)
+      total O(n)
 
   **/
 
