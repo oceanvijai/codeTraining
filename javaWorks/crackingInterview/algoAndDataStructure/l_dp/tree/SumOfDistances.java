@@ -136,5 +136,54 @@ public class SumOfDistances{
      }
 
 
+  /**
+    Code for approach1
+
+  **/
+
+
+  public int[] sumOfDistancesInTree(int n, int[][] edges) {
+        
+        // Create and fill the DP with initial values
+        int[][] dp = new int[n][n];
+        for(int i=0; i < n; i++){
+            for(int j=0; j < n; j++){
+                dp[i][j] = -1;
+            }
+        }
+        for(int[] edge : edges){
+            dp[edge[0]][edge[1]] = 1;
+            dp[edge[1]][edge[0]] = 1;
+        }
+
+        // Do all pair shortest path - n^3
+        for(int k=0; k < n; k++){
+            for(int i=0; i < n; i++){
+                for(int j=0; j < n; j++){
+                    if(k != i && k != j && dp[i][k] != -1 && dp[j][k] != -1){
+                        dp[i][j] = (dp[i][j] == -1 ? dp[i][k] + dp[j][k] 
+                                                    : Math.min(dp[i][j], dp[i][k] + dp[j][k])) ;
+                    }
+                }
+            }
+        }
+
+        // Create the required ans sum
+        int[] ans = new int[n];
+        for(int i=0; i < n; i++){
+            int sum = 0;
+            for(int j=0; j < n; j++){
+               if(j != i){
+                 sum += dp[i][j]; 
+               }
+            }
+            ans[i] = sum;
+        }
+
+        return ans;
+
+    }
+
+
   
 }
