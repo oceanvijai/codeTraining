@@ -43,7 +43,9 @@ public class PainterPartition {
   
   
     public int paint(int availablePainter, int timePerUnit, ArrayList<Integer> boards) {
-        // for now lets assume board of length 1 takes 1 unit of time.
+        // for now lets assume board of length 1 takes 1 unit of time. Reason, timePerUnit means the time taken to do 1 unit of work
+        // means, if timePerUnit is 3, then to paint a board of length 5, we will need time 15(3*5) to complete it. Or we can multiply timePerUnit to every 
+        // item in the boards array which kind of does the same.
         // so the length of board will be the time taken, later we can fix it by multiplying it with our  timePerUnit
         int maxTime = 0;
         int minTime = Integer.MIN_VALUE;
