@@ -8,6 +8,10 @@ So for a monotonic function can also be binary search
 
 that is if a function is either increasing or decreasing in some sense, we can apply binary search
 
+Also, if there is an answer servies where if the answer is eithe true or false after a particular answer value, we 
+can condider using the binary search algo.
+Finish this playlist: https://www.youtube.com/watch?v=_NT69eLpqks&list=PLgUwDviBIf0pMFMWuuvDNMAkoQFi-h0ZF&index=1
+
 Ex: 
 
 Squart - Find the square root of a number
