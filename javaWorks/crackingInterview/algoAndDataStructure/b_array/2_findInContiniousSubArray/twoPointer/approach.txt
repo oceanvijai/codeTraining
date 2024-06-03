@@ -1,8 +1,15 @@
 We can apply two pointer if the problem is to find/count CONTINIOUS subarrays + a condition
 
 pattern1 : Find min/max subarray which satisfies a condition
-pattern2 : Find number of subarrays which satisfies a condition
+pattern2 : Find number of subarrays which replacements + condition
+pattern3 : Find number of subarrays which satisfies a condition
 
 Pattern 1: Decide to shrink or expand based on the condidtion 
+pattern 2: We do as pattern 1, but we make sure we apply or count the replacement in O(1) and check if the condidtion is met
+pattern 3 : 
+If the questions is, like given array find subarrays which has 3 characters. Then check for a smallest window and add the previous length to the count:
+https://www.youtube.com/watch?v=xtqN4qlgr8s&list=PLgUwDviBIf0q7vrFA_HEWcqRqMpCXzYAL&index=7
+
+If the questions is, like given array with find subarrays with a goal. Then we can create a funsdtion f which finds subarrays which are <= goal. Then ans = f(goal) - f(goal-1)
 
 Check this playlist: https://www.youtube.com/watch?v=9kdHxplyl5I&list=PLgUwDviBIf0q7vrFA_HEWcqRqMpCXzYAL&index=1
