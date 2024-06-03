@@ -3,4 +3,6 @@ We can apply two pointer if the problem is to find/count CONTINIOUS subarrays + 
 pattern1 : Find min/max subarray which satisfies a condition
 pattern2 : Find number of subarrays which satisfies a condition
 
+Pattern 1: Decide to shrink or expand based on the condidtion 
+
 Check this playlist: https://www.youtube.com/watch?v=9kdHxplyl5I&list=PLgUwDviBIf0q7vrFA_HEWcqRqMpCXzYAL&index=1
