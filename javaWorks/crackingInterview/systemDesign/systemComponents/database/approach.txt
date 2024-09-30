@@ -9,3 +9,6 @@ avalibility
 
 ACID
 BASE
+
+Row based DBs (Transactional traditional DBs, small data and where delets and updates happens frequently)
+Column based DBs (Analytics DBs, very huge data where aggregation on a column happens moslty)
