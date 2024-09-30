@@ -7,11 +7,15 @@ File/media/blob storage
 	Amazon s3
 	CDN
 
-Analytics store
+Analytics store (Columnar databases)
 	Hadoop
+        ClickStore
+        Google big data
 
-Time series Data base
+Time series Data base (Columnar databases)
 	openTSDB
+	Tinyird (ClickStore)
+	
 
 Text search
 	Lucene
