@@ -1,4 +1,5 @@
 Message Queue telemetry transport
+  Its a protocol for pub sub
   For reatime message sharing based on directory style topic names
   Its used for low power low bandwidth message sharing
 
