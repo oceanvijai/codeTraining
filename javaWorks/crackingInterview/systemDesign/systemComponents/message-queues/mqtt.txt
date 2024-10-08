@@ -1,0 +1,6 @@
+Message Queue telemetry transport
+  For reatime message sharing based on directory style topic names
+  Its used for low power low bandwidth message sharing
+
+https://mqtt.org/mqtt-specification/
+
