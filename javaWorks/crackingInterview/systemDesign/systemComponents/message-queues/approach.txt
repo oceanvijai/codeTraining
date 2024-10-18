@@ -18,3 +18,15 @@ etc
 Standards
 AMQP
 JMS
+log based
+
+---------------------------------
+
+If the ordering or the msg is not required 
+  high throughput is required 
+  Some msg may take long time to process
+  Then go for AMQP or JMS type of tools
+
+If ordering is needed
+  processing time is usually small and consistent
+  Then go for log based tools
