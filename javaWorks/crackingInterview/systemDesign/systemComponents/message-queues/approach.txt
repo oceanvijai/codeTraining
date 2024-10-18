@@ -1,5 +1,15 @@
-kafka
+Different types
 
-properties of kafka
+UDP multicast
+Brokerless messaging - ZEROMQ, nanaomsg
+UDP messaging
+Weebhooks
+Message brokers
 
+---------------------------------
+Protocols
 
+MQTT - Message queue transfer telemetry - https://mqtt.org/getting-started/
+NATS
+Socket.io
+etc
