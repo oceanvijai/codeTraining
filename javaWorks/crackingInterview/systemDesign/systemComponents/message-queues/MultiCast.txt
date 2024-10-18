@@ -1,0 +1,3 @@
+It a way in networking to send the same message to a list of intested individuals.
+
+It needs special IP ranges and settings
