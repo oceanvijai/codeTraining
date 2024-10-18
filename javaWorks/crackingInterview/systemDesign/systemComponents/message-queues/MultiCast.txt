@@ -1,3 +1,4 @@
 It a way in networking to send the same message to a list of intested individuals.
+Its is based out of UDP
 
 It needs special IP ranges and settings
