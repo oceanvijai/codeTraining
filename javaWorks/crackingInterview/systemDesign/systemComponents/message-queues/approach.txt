@@ -13,3 +13,8 @@ MQTT - Message queue transfer telemetry - https://mqtt.org/getting-started/
 NATS
 Socket.io
 etc
+
+---------------------------------
+Standards
+AMQP
+JMS
