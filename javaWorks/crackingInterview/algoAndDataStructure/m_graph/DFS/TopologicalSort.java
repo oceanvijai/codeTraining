@@ -19,7 +19,6 @@ public class TopologicalSort {
         visited.add(startVertex);
 
         for (Graph.Edge edge : vtx.adjancyList) {
-            // if we find a visited vertex here, then we have a cycle
             if (!visited.contains(edge.endVertex)) {
                 traverseDFS(g, edge.endVertex, visited);
             }
