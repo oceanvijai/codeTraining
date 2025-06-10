@@ -1,3 +1,16 @@
+Topological sort and then relax edges.
+    - Do a topo sort
+    - Relax all the edges like we do in Bellmen ford Algo
+Time: O(n+E) + O(n+E) so O(n+E)
+Better than Dijkstra but it can be applied only if it is a 
+    - DAG where topo sort is possible
+    - So no cycles
+But it can handle -ve edges unlike Dijkstra. 
+Can be used in scheduling jobs where cycle is not present.
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
 shortest path from one to another
     -   Dijkstra's Algo (Greedy)
     -   Same a Prime's algo except for one line
