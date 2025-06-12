@@ -10,10 +10,10 @@ TCP
 UDP
   - Qucik
 
-Websecket:
+Websocket:
   - Two way communication
 
-Messanging
+Messaging
   MQTT - Message Queuing Telemetry Transport
 
 
