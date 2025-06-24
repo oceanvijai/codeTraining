@@ -37,8 +37,20 @@ char[] c = new char[]{'a','b'};
 Arrays.fill(nums, -1);
 Arrays.fill(empArray, new Emp());
 
+// Create an immutable list of 5 zeros
+List<Integer> defaultIntList = Collections.nCopies(5, 0);
+System.out.println(defaultIntList); // Output: [0, 0, 0, 0, 0]
+
+// Create an immutable list of 3 empty strings
+List<String> defaultStringList = Collections.nCopies(3, "");
+System.out.println(defaultStringList); // Output: [, , ]
+
+
 // returns the 
 Arrays.binarySearch(nums, key)
+
+// Print primitive arrays
+System.out.println(Arrays.toString(nums));
 
 Sorting:
 ----------
@@ -47,8 +59,31 @@ Sorting:
 Arrays.sort(nums); 
 
 // to do reverse order we need
+ nums = Arrays
+          .stream(nums)
+          .boxed()
+          .sorted((a,b) -> b - a)
+          .mapToInt(Integer::intValue)
+          .toArray();
 
+// Priority queue
+PriorityQueue<Integer> queue = new PriorityQueue<>((a,b) -> a - b);
+queue.offer(6); // push
+queue.poll(); // remove the head
+queue.peek(); // view the head
 
+// Tree Map
+TreeMap<Integer, Integer> map = new TreeMap<>((a, b) -> b - a);
+map.put(5,2);
+map.put(7,1);
+map.put(1,3);
+map.put(10,1);
+
+map.pollFirstEntry(); // Remove the min/max entry from the map
+map.pollLastEntry(); // Remove the min/max entry from the map
+
+map.ceilingKey(6); // Get a key which is to the upper side/equal of the input key
+map.floorKey(6); // Get a key which is to the lower/equal side of the input key
 
 
 
