@@ -78,6 +78,7 @@ map.put(7,1);
 map.put(1,3);
 map.put(10,1);
 
+map.keySet(); // Retruns keys in ascending order
 map.pollFirstEntry(); // Remove the min/max entry from the map
 map.firstKey(); // Gets but does not remove the head of the tree  
 map.pollLastEntry(); // Remove the min/max entry from the map
