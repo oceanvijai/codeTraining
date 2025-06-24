@@ -72,7 +72,6 @@ queue.offer(6); // push
 queue.poll(); // remove the head
 queue.peek(); // view the head
 
-// Tree Map
 TreeMap<Integer, Integer> map = new TreeMap<>((a, b) -> b - a);
 map.put(5,2);
 map.put(7,1);
@@ -80,10 +79,16 @@ map.put(1,3);
 map.put(10,1);
 
 map.pollFirstEntry(); // Remove the min/max entry from the map
+map.firstKey(); // Gets but does not remove the head of the tree  
 map.pollLastEntry(); // Remove the min/max entry from the map
+map.lastKey(); // Gets but does not remove the tail of the tree
 
 map.ceilingKey(6); // Get a key which is to the upper side/equal of the input key
 map.floorKey(6); // Get a key which is to the lower/equal side of the input key
+
+SortedMap<Integer, Integer> sm = map.descendingMap(); // Get a map in descending order
+SortedMap<Integer, Integer> sm = map.headMap(6); // Get a map of all key above of the given key
+SortedMap<Integer, Integer> sm = map.tailMap(6); // Get a map of all key below of the given key
 
 
 
