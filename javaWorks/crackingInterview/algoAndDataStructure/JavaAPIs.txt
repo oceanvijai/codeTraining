@@ -31,13 +31,22 @@ Long to integer -> Math.toIntExact or myLong.intValue();
 Collections:
 ----------
 int[] arr = new int[]{1,2,3};
-Character[] c = new char[]{'a','b'}; // compile error
+char[] c = new char[]{'a','b'};
 
+// Fills only primitive arrays
+Arrays.fill(nums, -1);
+Arrays.fill(empArray, new Emp());
 
-
+// returns the 
+Arrays.binarySearch(nums, key)
 
 Sorting:
 ----------
+// Allows only primitive arrays like int[], long[], Object[] and also only in ascending order
+// Try not to use it since we cant do reverse order
+Arrays.sort(nums); 
+
+// to do reverse order we need
 
 
 
