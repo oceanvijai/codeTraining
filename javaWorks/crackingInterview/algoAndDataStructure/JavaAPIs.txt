@@ -91,7 +91,9 @@ SortedMap<Integer, Integer> sm = map.descendingMap(); // Get a map in descending
 SortedMap<Integer, Integer> sm = map.headMap(6); // Get a map of all key above of the given key
 SortedMap<Integer, Integer> sm = map.tailMap(6); // Get a map of all key below of the given key
 
+map.subMap(s, e) // From start (inclusive) to end (exclusive) or use subMap(K fromKey, boolean fromInclusive, K toKey, boolean toInclusive)
 
+clear() // will clear the treemap or the submap 
 
 Math:
 ----------
