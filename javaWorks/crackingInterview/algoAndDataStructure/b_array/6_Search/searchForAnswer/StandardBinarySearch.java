@@ -21,9 +21,9 @@ public class StandardBinarySearch{
         int n = arr.length-1;
         int start= 0, end = n, ans = n;// depends
 
-        while(start <= end){
+        while(start <= end){ 
             int mid = (start + (end-start/2));
-            if(arr[mid] >= searchItem){
+            if(arr[mid] >= searchItem){ // Change this to '>' for upper bound
                 ans = mid; // possible answer since it has "="
                 end = mid-1;
             }else{
