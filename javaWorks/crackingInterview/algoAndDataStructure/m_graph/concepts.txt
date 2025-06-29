@@ -4,27 +4,34 @@ BFS
 Bipartate graph
 
 DFS
-Topolical sort
-Articulation point
+	Topolical sort
+	Articulation point
 
 Disjoint set
-Rank and path compression
+	Rank and path compression
 
 cycle in a 
 	- directed 
 	- undirected 
 
-Prim's mininum spaning tree
-Kruskal mininum spaning tree
+mininum spaning tree
+	Prim's 
+	Kruskal 
 
-Dijstrak's single source shortest path
-Belman ford single source shortest path
-Floyd warshal all pair shortest path
+shortest path
+	Toposort 
+	Dijstrak's single source shortest path
+	Belman ford single source shortest path
+	A*
 
+all pair shortest path
+	- Floyd warshal 
 
 Traveling salesman problem
 Hamiltonian cycle
 
+Maximum Flow
+	- Ford-Fulkerson Algorithm
 
-
+strongly connected components
 
