@@ -1,3 +1,6 @@
+https://github.blog/engineering/infrastructure/how-we-scaled-github-api-sharded-replicated-rate-limiter-redis/#:~:text=The%20proposed%20solution,to%20read%20and%20write%20from
+  - https://gist.github.com/ptarjan/e38f45f2dfe601419ca3af937fff574d (sample Code using lua script)
+
 https://stripe.com/blog/rate-limiters
 https://www.youtube.com/watch?v=FU4WlwfS3G0
 https://www.youtube.com/watch?v=mhUQe4BKZXs
