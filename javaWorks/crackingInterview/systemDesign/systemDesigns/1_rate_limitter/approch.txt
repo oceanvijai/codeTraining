@@ -79,6 +79,7 @@ LLD:
 				- Common distributed cache
 					- Have the token count in a distributed cache
 					- Scalable and but adds latency
+					- Something like a Redis (Single threaded, atomic , fast counters)
 				- Gossip protocal
 					- Talk to the nearby nodes and get the entire custer details
 					- Complex, but also may have split brain issues due to network partition
