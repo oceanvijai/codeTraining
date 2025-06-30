@@ -13,7 +13,7 @@ Requirements:
 					- POST/PUT (high priority) GET (low priority)
 
 	API contract:
-		- allowRequest (request)
+		- allowRequest (request) (200-allow, 429-Too many requests, 503- service unavailable )
 	Non functional:
 		- Low latency (perfomance)
 		- High accuracy (consistent)
@@ -23,7 +23,7 @@ Requirements:
 
 HLD:
 	user -> LB -> rateLimiter -> destination
-							  -> Rejet queue
+			-> Rejet queue
 
 
 LLD:
