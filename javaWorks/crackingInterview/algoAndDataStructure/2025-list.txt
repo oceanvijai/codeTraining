@@ -1,0 +1,94 @@
+Bit Manipulation
+    Set/Clear/Get bit operations
+    XOR problems (single number, missing number)
+    Bitmask DP
+    Subset generation using bits
+    Gray Code, Hamming Weight
+
+
+Sorting & Searching
+    Quick Sort, Merge Sort (stable, in-place variations)
+    Binary Search (with variants: upper/lower bound, rotated array)
+    Ternary Search (for unimodal functions)
+    Counting Sort, Radix Sort (non-comparison-based sorting)
+    Search in a 2D matrix, rotated arrays, or infinite input stream
+
+
+Sliding Window & Two Pointers
+    Maximum/minimum in subarray of size k
+    Longest substring with at most K distinct characters
+    Permutation in a substring
+    Move zeroes, trapping rain water
+
+Advanced String Algorithms
+    KMP (Knuth–Morris–Pratt)
+    Rabin-Karp (rolling hash)
+    Z-algorithm
+    Suffix Array and Suffix Tree (for very advanced prep)
+
+
+Greedy Algorithms (Expect to justify why greedy is optimal using a proof sketch (exchange argument, etc.))
+    Activity selection
+    Huffman Coding
+    Interval scheduling, merging
+    Job sequencing with deadlines
+    Minimum number of platforms/meeting rooms
+    Gas station problem
+
+
+Trees & Tries
+    Binary Trees (DFS, BFS, LCA)
+    Segment Tree, Fenwick Tree (Binary Indexed Tree)
+    Trie (Prefix Tree), Suffix Tree
+    Persistent Segment Tree (if you're deep-diving)
+    Heavy-Light Decomposition (advanced but optional)
+
+Backtracking
+    N-Queens
+    Sudoku Solver
+    Word Search
+    Palindrome Partitioning
+    Combinations / Subsets / Permutations
+    All Paths from Source to Target
+
+Dynamic Programming (DP)
+    1D, 2D, and 3D DP
+    Memoization vs Tabulation
+    DP on trees, graphs, grids
+    DP with bitmasking
+    DP with sliding window
+    Knapsack (0/1, unbounded, bounded)
+    Longest Increasing Subsequence (LIS)
+    Edit Distance, Regex Matching
+    Subset Sum, Partition Equal Subsets
+    Matrix Chain Multiplication
+    Palindromic Substrings/Partitions
+    DP + State Compression
+
+Graphs
+    DFS, BFS
+    Topological Sort (with and without cycle detection)
+    Union-Find (Disjoint Set Union)
+    Minimum Spanning Tree (Kruskal, Prim)
+    Dijkstra's Algorithm
+    Bellman-Ford
+    Floyd-Warshall
+    A* Search
+    Tarjan’s Algorithm (SCC, bridges, articulation points)
+    Kahn’s algorithm
+    Bipartite Check, Cycle Detection
+    Eulerian Path/Circuit
+    Graph coloring
+
+
+
+Patterns to Practice
+    Sliding Window
+    Fast & Slow Pointers
+    Monotonic Stack/Queue
+    Top K Elements (heap-based)
+    Merge Intervals
+    In-place Matrix Rotation
+    Reservoir Sampling (for stream problems)
+    XOR patterns
+    Recursion to DP conversion
