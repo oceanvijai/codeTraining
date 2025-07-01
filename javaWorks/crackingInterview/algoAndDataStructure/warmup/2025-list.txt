@@ -20,12 +20,6 @@ Sliding Window & Two Pointers
     Permutation in a substring
     Move zeroes, trapping rain water
 
-Advanced String Algorithms
-    KMP (Knuth–Morris–Pratt)
-    Rabin-Karp (rolling hash)
-    Z-algorithm
-    Suffix Array and Suffix Tree (for very advanced prep)
-
 
 Greedy Algorithms (Expect to justify why greedy is optimal using a proof sketch (exchange argument, etc.))
     Activity selection
@@ -35,6 +29,15 @@ Greedy Algorithms (Expect to justify why greedy is optimal using a proof sketch 
     Minimum number of platforms/meeting rooms
     Gas station problem
 
+
+Monotonic Stack/Queue
+
+
+Advanced String Algorithms
+    KMP (Knuth–Morris–Pratt)
+    Rabin-Karp (rolling hash)
+    Z-algorithm
+    Suffix Array and Suffix Tree (for very advanced prep)
 
 Trees & Tries
     Binary Trees (DFS, BFS, LCA)
