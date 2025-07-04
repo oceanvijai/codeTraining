@@ -5,10 +5,11 @@ Bipartate graph
 
 DFS
 	Topolical sort
-	Articulation point
+	Articulation point ??
 
 Disjoint set
 	Rank and path compression
+	- For graphs which are built incrementely and involves grouping etc
 
 cycle in a 
 	- directed 
@@ -22,10 +23,14 @@ shortest path
 	Toposort 
 	Dijstrak's single source shortest path
 	Belman ford single source shortest path
-	A*
+	A* (Dijstrak + extra heuristic to steer the expasion in the right direction)
 
 all pair shortest path
 	- Floyd warshal 
+
+Strongly connected components
+	- 
+
 
 Traveling salesman problem
 Hamiltonian cycle
