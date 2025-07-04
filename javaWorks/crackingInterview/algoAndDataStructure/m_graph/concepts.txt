@@ -29,7 +29,11 @@ all pair shortest path
 	- Floyd warshal 
 
 Strongly connected components
-	- 
+	- Kosaraju's Algorithm
+	- Strongly connected component is where each node can reach other nodes
+	- Application
+		- SCC is like a group of friend in a socail network. If we find scc we can suggest friends to others in the network
+		- SCC is like a group/cluster which has two or more common task. So a recomendation system can find suggestion using the scc
 
 
 Traveling salesman problem
