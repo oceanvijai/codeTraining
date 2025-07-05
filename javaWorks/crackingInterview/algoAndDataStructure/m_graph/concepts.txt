@@ -5,7 +5,9 @@ Bipartate graph
 
 DFS
 	Topolical sort
-	Articulation point ??
+	Articulation point
+		- Tarjan Algo
+		- Week edge/node which will disconnect the graph
 
 Disjoint set
 	Rank and path compression
