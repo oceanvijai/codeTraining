@@ -1,0 +1,1 @@
+Sends notif to all the offline users.
