@@ -1,75 +1,70 @@
 public class BuySellKTrans {
-    
-
-    // For both the approach: https://www.youtube.com/watch?v=oDhu5uGq_ic&t=554s
 
      /**
-     * Important point here is, we are finding k pairs of numbers in a array with max difference
-     */
-
-     /**
-      * We have a O(K * n ^ 2) solution and O(Kn) solution as well
+      * We have a O(Kn) solution
+      *  odd are buy transactions, and even are sell transactions
+      * https://www.youtube.com/watch?v=IV1dHbk5CDc&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=41
       */
 
+        
+
       public int maxProfit(int k, int[] prices) {
-            int[][] dp = new int[k+1][prices.length+1];
-            
-            for(int t = 1; t <= k; t++){
-                for(int d = 1; d < prices.length; d++){
-                    int max_so_far = 0; 
-                    for(int m = 0; m < d; m++){
-                        if(m != 0){
-                            max_so_far = Math.max(max_so_far,(prices[d]-prices[m]+dp[t-1][m-1])); 
-                        }else{
-                            max_so_far = Math.max(max_so_far,(prices[d]-prices[m])); 
-                        }
-                    }
-                    
-                    dp[t][d] = Math.max(dp[t][d - 1], max_so_far);
-                    // System.out.println(dp[t][d]);
-                }
-            }
-            
-            return dp[k][prices.length-1]; 
-            
+        int[][] dp = new int[prices.length][(2*k)+1];
+        for(int[] arr : dp){
+            Arrays.fill(arr, -1);
         }
+        return solve(0, prices, 1, k, dp);
+    }
+
+    private int solve(int index, int[] prices, int transCount, int k, int[][] dp){
+
+        if(index == prices.length){
+            return 0;
+        }
+
+        if(transCount > 2*k){
+            return 0;
+        }
+
+        if(dp[index][transCount] != -1){
+            return dp[index][transCount];
+        }
+
+        
+        int ans = Integer.MAX_VALUE;
+        if(transCount % 2 == 1){ // Buy available
+            ans = Math.max( -prices[index]+solve(index+1, prices, transCount+1, k, dp), // buy
+                            solve(index+1, prices, transCount, k, dp)); // dont buy
+        }else{ // Sell available
+            ans = Math.max( prices[index]+ solve(index+1, prices, transCount+1, k, dp), // sell
+                            solve(index+1, prices, transCount, k, dp)); // dont sell
+        }
+
+        dp[index][transCount] = ans;
+        return dp[index][transCount];
+    }
 
 
         /**
-         * To optimize this we need to reduce the thired the nested loop
-         * The Third loop formula is Max(price[d]-price[m] + dp[t-1][m-1])
-         * In this for one loop price[d] remains constant, so lets take it out
-         * Max(dp[t-1][m-1]-price[m]) + price[d]
-         * so tmpMax = Max(T[t-1][m-1]-price[m]); and current index value would be prices[t] + tmpMax
-         * 
-         * We can do this, by remembering the best we have seen so far as we progress
-         * 
-         * Also, check if the k is more, so we can do any number of trans
+         * Bottom up
          */
 
-        public int maxProfit_optimized(int k, int[] prices) {
-            int len = prices.length;
-            // meaning any number of transactions
-            if (k >= len / 2) return quickSolve(prices);
-            
-            int[][] t = new int[k + 1][len];
-            for (int i = 1; i <= k; i++) {
-                int tmpMax =  -prices[0];
-                for (int j = 1; j < len; j++) {
-                    // Max of (not doing trans, doing trans)
-                    t[i][j] = Math.max(t[i][j - 1], prices[j] + tmpMax);
-                    tmpMax =  Math.max(tmpMax, t[i - 1][j-1] - prices[j]);
+        public int maxProfit(int k, int[] prices) {
+            int[][] dp = new int[prices.length+1][(2*k)+1];
+    
+            for(int i = prices.length-1; i >= 0; i--){
+                for(int h = 2*k-1; h >= 0; h--){
+                    if(h % 2 == 0){ // Buy available
+                        dp[i][h] = Math.max( -prices[i]+dp[i+1][h+1], // buy
+                                        dp[i+1][h]); // dont buy
+                    }else{ // Sell available
+                        dp[i][h] = Math.max( prices[i]+dp[i+1][h+1], // sell
+                                            dp[i+1][h]); // dont sell
+                    }
                 }
             }
-            return t[k][len - 1];   
-        }
-        
-        private int quickSolve(int[] prices) {
-            int len = prices.length, profit = 0;
-            for (int i = 1; i < len; i++)
-                // as long as there is a price gap, we gain a profit.
-                if (prices[i] > prices[i - 1]) profit += prices[i] - prices[i - 1];
-            return profit;
+    
+            return dp[0][0];
         }
       
 }
