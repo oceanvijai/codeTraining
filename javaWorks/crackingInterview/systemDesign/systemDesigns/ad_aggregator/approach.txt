@@ -1,1 +1,2 @@
 Ad click aggregator
+https://www.uber.com/en-IN/blog/real-time-exactly-once-ad-event-processing/
