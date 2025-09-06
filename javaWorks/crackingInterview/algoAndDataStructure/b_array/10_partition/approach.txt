@@ -1,0 +1,11 @@
+These are either finding one subarrays or partition the given array into multiple subarrays
+
+Techniques:
+
+1. Kadana - for largest sub array sum
+2. Segment tree - for kadana as well as when there are updates in runtime
+3. Binary search - If its sorted or an intermediate array is sorted and we can go log n
+4. Two pointer/sliding window - for certain condidtions
+5. Monotonic stack/queue - similar for sliding window
+6. Hashing - To get subarray sum tracking
+7. If none of the above works - Try recursion and DP
