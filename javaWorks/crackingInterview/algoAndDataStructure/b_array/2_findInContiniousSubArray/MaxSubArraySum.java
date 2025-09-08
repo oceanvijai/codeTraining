@@ -7,7 +7,7 @@ public class MaxSubArraySum{
 
     Approach 2: Segment tree O(n)
 
-    Approach 3: Kadane modified O(n)
+    Approach 3: Kadane modified O(n) by finding minimum subArray sum
 
     here we can see Approach 2 & 3
 
@@ -84,5 +84,27 @@ public class MaxSubArraySum{
 
 
 
+   /**
+      Approach 3: Kadane modified O(n) by finding minimum subArray sum
+
+      As we go try and keep track of the min sub array sum so far and subract it from the running sum to get the max subarray
+
+  **/
+
+  public int maxSubArray(int[] nums) {
+        int runningSum = 0; // Keep adding all nums all we iterate the sum
+        int minSubArraySum = 0; // Track the min subarray sum
+        // Defference of the above two will give us the max subarray sum
+        int ans = Integer.MIN_VALUE;
+
+        for(int i = 0; i < nums.length; i++){
+            runningSum += nums[i];
+            ans = Math.max(ans, runningSum - minSubArraySum);
+            
+            minSubArraySum = Math.min(minSubArraySum, runningSum);
+        }
+
+        return ans;
+    }
   
 }
