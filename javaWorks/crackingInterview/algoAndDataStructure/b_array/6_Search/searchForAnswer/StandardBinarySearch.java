@@ -39,7 +39,7 @@ public class StandardBinarySearch{
   private static int binarySearch(int[] nums, int searchNum){
         int low = 0, high = nums.length - 1;
         while(low <= high){
-            int mid = start + (end-start/2);
+            int mid = low + (high-low/2);
             if(nums[mid] >= searchNum){  // Change this to '>' for upper bound
                 high = mid - 1;
             }else{
