@@ -22,7 +22,7 @@ public class StandardBinarySearch{
         int start= 0, end = n, ans = n;// depends
 
         while(start <= end){ 
-            int mid = (start + (end-start/2));
+            int mid = start + (end-start/2);
             if(arr[mid] >= searchItem){ // Change this to '>' for upper bound
                 ans = mid; // possible answer since it has "="
                 end = mid-1;
@@ -32,6 +32,21 @@ public class StandardBinarySearch{
         }
 
         return ans;
+    }
+
+
+  // Another variation with a small change 
+  private static int binarySearch(int[] nums, int searchNum){
+        int low = 0, high = nums.length - 1;
+        while(low <= high){
+            int mid = start + (end-start/2);
+            if(nums[mid] >= searchNum){  // Change this to '>' for upper bound
+                high = mid - 1;
+            }else{
+                low = mid + 1;
+            }
+        }
+        return low; // possible answer since it remains in place when the condtion low <= high was true last time
     }
 
   
