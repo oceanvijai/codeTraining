@@ -41,8 +41,10 @@ public class StandardBinarySearch{
     }
 
   // analysis
-  // Intution 1 analysis: When we exclude the right half we know we might have seen the answer, we so we save it in ans
-  // Intution 2 analysis: last time when start <= end, we would have executed if block when...
+  // Intution 1 analysis: When we exclude the right/left half we might have seen the answer in the if block, so we save it in ans
+  // Intution 2 analysis: The last time when start <= end, the possible senarios are
+  //                      1. We found the element in its lowest index and start == end, so the if block will get executed
+  //                      2. We didnt find that element, we are at an index which is just greater than the searched one. Here also, if gets executed
 
 
   // varation 2
@@ -59,6 +61,14 @@ public class StandardBinarySearch{
         return low; // possible answer since it remains in place when the condtion low <= high was true last time
  }
 
+
+  // analysis
+  // Intution 1 analysis: When we exclude the right/left half we might have seen the answer. In that case intution #2 will play the role
+  // Intution 2 analysis: The last time when low <= high, the possible senarios are
+  //                      1. We found the element in its lowest index and start == end, so the if block will get executed, so the low remains in the coorect postion
+  //                      2. We didnt find that element, we are at an index which is just greater and start == end. Here also, if gets executed, so the low remains in the coorect postion
+
+
   // variation 3
 
   private int binarySearch(int[] arr, int target) {
@@ -73,6 +83,17 @@ public class StandardBinarySearch{
     }
     return low; // index of first element >= target
 }
+
+ // analysis
+  // Intution 1 analysis: When we exclude the right, we make sure the mid is included since it might be a possible answer since the else incudes the "==" secnario
+  //                      When we exclude the left, we dont include mid in the next computation  
+  // Intution 2 analysis: The last time when low < high, the possible senarios are
+  //                      1. We found the element in its lowest index and high == low+1, then mid = (low + high) / 2 will give low's index. So the if block gets executed. So the 
+  //                         low moves to the next index which is the ans
+  //                      2. We didnt find that element, So low is at index where num[low] < target & high is at index where num[high] just greater than target, and high = low + 1
+  //                         , so when mid is calculated, the low moves to the high position where low == high
+
+  
 
 
 
