@@ -20,6 +20,9 @@ public class StandardBinarySearch{
       intution 2. We need to return the left or right as ans, based on which one will be at the position when the last time the while loop condition was valid
         ex: When we say while(low < high) or while(low <= high), see where the execution will happen when this condidtion was true the last time and pick accordingly
 
+    Also, for mid calculation
+    int mid = left + (right - left) / 2; is better always to avoid any overflows and corner cases.
+
   **/
 
   // Variation 1
