@@ -1,0 +1,43 @@
+public EraseNonOverlappingIntervals{
+  /**
+    Given an array of intervals intervals where intervals[i] = [starti, endi], 
+    return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.
+
+    Note that intervals which only touch at a point are non-overlapping. For example, [1, 2] and [2, 3] are non-overlapping.
+
+  **/
+
+
+  /**
+    Sort by end time (not start). Greedily keep the interval that ends earliest — it leaves the most room for 
+    future intervals. Count how many you remove.
+
+    like check code inline code
+
+  **/
+
+  public int eraseOverlapIntervals(int[][] intervals) {
+        // step 1:  Sort intervals based on end time
+        // Why end time ? Because the intervals which overlaps with later endtime might inlcude more intervals
+        // Like, [1,10] will overlap [1,3] & [6,8]
+        Arrays.sort(intervals, (a,b) -> a[1] - b[1]);
+
+        // Greedily count the overlapping intervals which later end time
+        int i = 1, count = 0, prevEnd = intervals[0][1];
+        while(i < intervals.length){
+            int currentIntervalStart = intervals[i][0];
+            int currentIntervalEnd = intervals[i][1];
+            if(currentIntervalStart >= prevEnd){
+                // Good not overlaps found
+                prevEnd = currentIntervalEnd;
+            }else{
+                count++;
+                // Keep the prevEnd as it is since we ignored/removed this intervals
+            }
+            i++;
+        }
+
+        return count;
+    }
+
+}
