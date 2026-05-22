@@ -434,80 +434,113 @@ Each interval carries a height. As you sweep left to right, buildings open (heig
 - Don't emit a point unless the max actually changed — consecutive same-height events produce no output
 - Don't use Pattern 5's END-before-START tie-break here — skyline needs the opposite
 
-### Template (LC 218)
+### Template — Sample 1: Eager Eviction (LC 218)
+> On every END event, immediately remove the building from the heap.
+> Uses `heap.remove()` which is O(n) per call — making worst case O(n²).
+> Simpler to reason about but not optimal for large inputs.
+
 ```java
 public List<List<Integer>> getSkyline(int[][] buildings) {
-    // Build events: negative height = start, positive = end (encodes type in sort)
     List<int[]> events = new ArrayList<>();
     for (int[] b : buildings) {
-        events.add(new int[]{b[0], -b[2]});   // start: negative height
-        events.add(new int[]{b[1],  b[2]});   // end:   positive height
+        // Store x which can be start/end time, height, if its start or end, and the endTime for this interval
+        events.add(new int[]{b[0], b[2], 0, b[1]});  // {x, height, start=0, endTime}
+        events.add(new int[]{b[1], b[2], 1, b[1]});  // {x, height, end=1,   endTime}
     }
-    // Sort: by x; on tie negative (start) before positive (end)
-    events.sort((a, b) -> a[0] != b[0] ? a[0] - b[0] : a[1] - b[1]);
 
-    // Max-heap keyed by height; ground level always present
-    PriorityQueue<Integer> heap =
-        new PriorityQueue<>(Collections.reverseOrder());
-    heap.offer(0);                             // ground level sentinel
+    // Sort: by x; on tie START(0) before END(1); among STARTs taller first
+    events.sort((a, b) -> {
+        if (a[0] != b[0]) return a[0] - b[0];      // sort by x
+        if (a[2] != b[2]) return a[2] - b[2];      // START(0) before END(1)
+        if (a[2] == 0)    return b[1] - a[1];      // among STARTs: taller first
+        return 0;
+    });
 
+    // Max-heap: based on height
+    PriorityQueue<int[]> heap = new PriorityQueue<>((a, b) -> b[1] - a[1]);
     List<List<Integer>> res = new ArrayList<>();
     int prevMax = 0;
 
     for (int[] e : events) {
-        if (e[1] < 0) {
-            heap.offer(-e[1]);                 // START: add height
+        int currentTime = e[0], height = e[1], currentEndTime = e[3];
+        boolean isStart = e[2] == 0;
+
+        if (isStart) {
+            heap.offer(e);                          // START: add building to heap
         } else {
-            heap.remove(e[1]);                 // END: remove height (eager here)
+            // EAGER: immediately find and remove this building from heap
+            // heap.remove() scans the entire heap — O(n) per call
+            heap.removeIf(el -> el[1] == height && el[3] == currentEndTime);
         }
-        int curMax = heap.peek();
-        if (curMax != prevMax) {               // max changed → emit key point
-            res.add(List.of(e[0], curMax));
-            prevMax = curMax;
+
+        // Current max = top of heap after eager removal
+        int currentMax = heap.isEmpty() ? 0 : heap.peek()[1];
+        if (currentMax != prevMax) {
+            res.add(List.of(currentTime, currentMax));
+            prevMax = currentMax;
         }
     }
+
     return res;
-    // Time: O(n log n)   Space: O(n)
-    // Note: heap.remove() is O(n) — use TreeMap for true O(n log n):
-    // TreeMap<Integer,Integer> heights = new TreeMap<>();
-    // heights.put(0, 1); // height → count
-    // Add: heights.merge(h, 1, Integer::sum)
-    // Remove: if count drops to 0, heights.remove(h)
-    // Max: heights.lastKey()
+    // Time: O(n²) worst case due to heap.removeIf()   Space: O(n)
 }
 ```
 
-### Optimal O(n log n) with TreeMap
+### Template — Sample 2: Lazy Eviction (LC 218)
+> END events are sweep points only — nothing is removed immediately.
+> Dead buildings accumulate in the heap and are evicted only when they
+> surface to the top during the eviction loop after each event.
+> O(n log n) amortized — each building is pushed once and popped once.
+
 ```java
 public List<List<Integer>> getSkyline(int[][] buildings) {
     List<int[]> events = new ArrayList<>();
     for (int[] b : buildings) {
-        events.add(new int[]{b[0], -b[2]});
-        events.add(new int[]{b[1],  b[2]});
+        // Store x which can be start/end time, height, if its start or end, and the endTime for this interval
+        events.add(new int[]{b[0], b[2], 0, b[1]});  // {x, height, start=0, endTime}
+        events.add(new int[]{b[1], b[2], 1, b[1]});  // {x, height, end=1,   endTime}
     }
-    events.sort((a, b) -> a[0] != b[0] ? a[0] - b[0] : a[1] - b[1]);
 
-    TreeMap<Integer, Integer> heights = new TreeMap<>();
-    heights.put(0, 1);                         // ground sentinel
+    // Sort: by x; on tie START(0) before END(1); among STARTs taller first
+    events.sort((a, b) -> {
+        if (a[0] != b[0]) return a[0] - b[0];      // sort by x
+        if (a[2] != b[2]) return a[2] - b[2];      // START(0) before END(1)
+        if (a[2] == 0)    return b[1] - a[1];      // among STARTs: taller first
+        return 0;
+    });
+
+    // Max-heap: based on height
+    PriorityQueue<int[]> heap = new PriorityQueue<>((a, b) -> b[1] - a[1]);
     List<List<Integer>> res = new ArrayList<>();
     int prevMax = 0;
 
     for (int[] e : events) {
-        int h = Math.abs(e[1]);
-        if (e[1] < 0) {                        // START
-            heights.merge(h, 1, Integer::sum);
-        } else {                               // END
-            heights.merge(h, -1, Integer::sum);
-            if (heights.get(h) == 0) heights.remove(h);
-        }
-        int curMax = heights.lastKey();        // O(log n)
-        if (curMax != prevMax) {
-            res.add(List.of(e[0], curMax));
-            prevMax = curMax;
+        int currentTime = e[0], height = e[1], currentEndTime = e[3];
+        boolean isStart = e[2] == 0;
+
+        // offer the element to the heap
+        // If its a START offer it, so only starts are added to the heap
+        if (isStart) heap.offer(e);
+
+        // LAZY: END events do nothing here — the building stays in the heap
+        // Dead buildings are purged only when they reach the top
+
+        // purge any start interval whose end is not relevant anymore
+        // A building is dead if its endTime <= current x position
+        while (!heap.isEmpty() && heap.peek()[3] <= currentTime)
+            heap.poll();
+
+        // Current heap top = tallest live building
+        int currentMax = heap.isEmpty() ? 0 : heap.peek()[1];
+        if (currentMax != prevMax) {
+            res.add(List.of(currentTime, currentMax));
+            prevMax = currentMax;
         }
     }
+
     return res;
-    // Time: O(n log n)   Space: O(n)
+    // Time: O(n log n) amortized — each building pushed once, popped once
+    // Space: O(n)
 }
 ```
 
