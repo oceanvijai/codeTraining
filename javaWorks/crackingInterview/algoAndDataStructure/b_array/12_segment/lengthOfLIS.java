@@ -2,6 +2,8 @@ public class lengthOfLIS{
 
   /**
     Find the longest increasing subsequence using segment tree
+
+    // Should check this as a followup - with just one line change - https://leetcode.com/problems/longest-increasing-subsequence-ii/description/
     
   **/
 
