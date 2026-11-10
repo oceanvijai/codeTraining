@@ -1,0 +1,4 @@
+(Warm-up): LC 167, LC 26, LC 283, LC 977
+(Core medium): LC 15, LC 11, LC 75, LC 5, LC 142
+(Hard): LC 42, LC 76 (Min Window Substring), LC 4 (Median of Two Sorted Arrays — related two-pointer/binary search blend)
+(Variants): LC 16, LC 18, LC 80, LC 234, LC 287 (Find Duplicate — uses Pattern 5 cleverly), LC 986, 647, 680, 713, 881
